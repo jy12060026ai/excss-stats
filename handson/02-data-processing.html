@@ -250,18 +250,6 @@
   <a class="reference internal nav-link" href="#exercise-solutions">
    Exercise solutions
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     4.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     5.
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -2758,7 +2746,7 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_importances</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_importances</span> <span class="o">=</span> <span class="n">rnd_search</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">feature_importances_</span>
 <span class="n">feature_importances</span>
 </pre></div>
 </div>
@@ -2805,7 +2793,7 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_model</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_model</span> <span class="o">=</span> <span class="n">rnd_search</span><span class="o">.</span><span class="n">best_estimator_</span>
 
 <span class="n">X_test</span> <span class="o">=</span> <span class="n">strat_test_set</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">y_test</span> <span class="o">=</span> <span class="n">strat_test_set</span><span class="p">[</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -3081,227 +3069,6 @@ dtype: float64
 </div>
 </div>
 <p>Works great!  :)</p>
-<div class="section" id="id1">
-<h2>4.<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Question: Try creating a single pipeline that does the full data preparation plus the final prediction.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prepare_select_and_predict_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
-    <span class="p">(</span><span class="s1">&#39;preparation&#39;</span><span class="p">,</span> <span class="n">full_pipeline</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;feature_selection&#39;</span><span class="p">,</span> <span class="n">TopFeatureSelector</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">,</span> <span class="n">k</span><span class="p">)),</span>
-    <span class="p">(</span><span class="s1">&#39;svm_reg&#39;</span><span class="p">,</span> <span class="n">SVR</span><span class="p">(</span><span class="o">**</span><span class="n">rnd_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">))</span>
-<span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prepare_select_and_predict_pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">housing</span><span class="p">,</span> <span class="n">housing_labels</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pipeline(steps=[(&#39;preparation&#39;,
-                 ColumnTransformer(transformers=[(&#39;num&#39;,
-                                                  Pipeline(steps=[(&#39;imputer&#39;,
-                                                                   SimpleImputer(strategy=&#39;median&#39;)),
-                                                                  (&#39;attribs_adder&#39;,
-                                                                   CombinedAttributesAdder()),
-                                                                  (&#39;std_scaler&#39;,
-                                                                   StandardScaler())]),
-                                                  [&#39;longitude&#39;, &#39;latitude&#39;,
-                                                   &#39;housing_median_age&#39;,
-                                                   &#39;total_rooms&#39;,
-                                                   &#39;total_bedrooms&#39;,
-                                                   &#39;population&#39;, &#39;households&#39;,
-                                                   &#39;median_income&#39;]),
-                                                 (&#39;cat&#39;, OneHotEncoder(...
-                 TopFeatureSelector(feature_importances=array([7.33442355e-02, 6.29090705e-02, 4.11437985e-02, 1.46726854e-02,
-       1.41064835e-02, 1.48742809e-02, 1.42575993e-02, 3.66158981e-01,
-       5.64191792e-02, 1.08792957e-01, 5.33510773e-02, 1.03114883e-02,
-       1.64780994e-01, 6.02803867e-05, 1.96041560e-03, 2.85647464e-03]),
-                                    k=5)),
-                (&#39;svm_reg&#39;,
-                 SVR(C=157055.10989448498, gamma=0.26497040005002437))])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Let’s try the full pipeline on a few instances:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">some_data</span> <span class="o">=</span> <span class="n">housing</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">some_labels</span> <span class="o">=</span> <span class="n">housing_labels</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Predictions:</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">prepare_select_and_predict_pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">some_data</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Labels:</span><span class="se">\t\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">some_labels</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predictions:	 [203214.28978849 371846.88152572 173295.65441612  47328.3970888 ]
-Labels:		 [286600.0, 340600.0, 196900.0, 46300.0]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Well, the full pipeline seems to work fine. Of course, the predictions are not fantastic: they would be better if we used the best <code class="docutils literal notranslate"><span class="pre">RandomForestRegressor</span></code> that we found earlier, rather than the best <code class="docutils literal notranslate"><span class="pre">SVR</span></code>.</p>
-</div>
-<div class="section" id="id2">
-<h2>5.<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Question: Automatically explore some preparation options using <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>.</p>
-<p><strong>Warning</strong>: the following cell may take close to 45 minutes to run, or more depending on your hardware.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span> <span class="o">=</span> <span class="p">[{</span>
-    <span class="s1">&#39;preparation__num__imputer__strategy&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;most_frequent&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;feature_selection__k&#39;</span><span class="p">:</span>
-    <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span>
-               <span class="nb">len</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
-<span class="p">}]</span>
-
-<span class="n">grid_search_prep</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">prepare_select_and_predict_pipeline</span><span class="p">,</span>
-                                <span class="n">param_grid</span><span class="p">,</span>
-                                <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-                                <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span>
-                                <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">grid_search_prep</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">housing</span><span class="p">,</span> <span class="n">housing_labels</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 5 folds for each of 48 candidates, totalling 240 fits
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=mean 
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[CV]  feature_selection__k=1, preparation__num__imputer__strategy=mean, total=   4.2s
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=mean 
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    4.2s remaining:    0.0s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[CV]  feature_selection__k=1, preparation__num__imputer__strategy=mean, total=   5.2s
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=mean 
-[CV]  feature_selection__k=1, preparation__num__imputer__strategy=mean, total=   4.7s
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=mean 
-[CV]  feature_selection__k=1, preparation__num__imputer__strategy=mean, total=   4.7s
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=mean 
-[CV]  feature_selection__k=1, preparation__num__imputer__strategy=mean, total=   4.8s
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=median 
-[CV]  feature_selection__k=1, preparation__num__imputer__strategy=median, total=   5.1s
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=median 
-[CV]  feature_selection__k=1, preparation__num__imputer__strategy=median, total=   4.9s
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=median 
-[CV]  feature_selection__k=1, preparation__num__imputer__strategy=median, total=   4.7s
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=median 
-[CV]  feature_selection__k=1, preparation__num__imputer__strategy=median, total=   4.3s
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=median 
-[CV]  feature_selection__k=1, preparation__num__imputer__strategy=median, total=   4.2s
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=most_frequent 
-[CV]  feature_selection__k=1, preparation__num__imputer__strategy=most_frequent, total=   4.6s
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=most_frequent 
-[CV]  feature_selection__k=1, preparation__num__imputer__strategy=most_frequent, total=   4.3s
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=most_frequent 
-[CV]  feature_selection__k=1, preparation__num__imputer__strategy=most_frequent, total=   4.4s
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=most_frequent 
-[CV]  feature_selection__k=1, preparation__num__imputer__strategy=most_frequent, total=   4.7s
-[CV] feature_selection__k=1, preparation__num__imputer__strategy=most_frequent 
-[CV]  feature_selection__k=1, preparation__num__imputer__strategy=most_frequent, total=   4.8s
-[CV] feature_selection__k=2, preparation__num__imputer__strategy=mean 
-[CV]  feature_selection__k=2, preparation__num__imputer__strategy=mean, total=   4.8s
-&lt;&lt;414 more lines&gt;&gt;
-[CV] feature_selection__k=15, preparation__num__imputer__strategy=most_frequent 
-[CV]  feature_selection__k=15, preparation__num__imputer__strategy=most_frequent, total=  15.8s
-[CV] feature_selection__k=15, preparation__num__imputer__strategy=most_frequent 
-[CV]  feature_selection__k=15, preparation__num__imputer__strategy=most_frequent, total=  19.8s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=mean 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=mean, total=  17.9s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=mean 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=mean, total=  19.2s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=mean 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=mean, total=  18.2s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=mean 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=mean, total=  19.1s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=mean 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=mean, total=  16.4s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=median 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=median, total=  17.9s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=median 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=median, total=  19.2s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=median 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=median, total=  20.5s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=median 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=median, total=  17.1s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=median 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=median, total=  20.3s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=most_frequent 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=most_frequent, total=  16.7s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=most_frequent 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=most_frequent, total=  19.4s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=most_frequent 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=most_frequent, total=  17.2s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=most_frequent 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=most_frequent, total=  17.5s
-[CV] feature_selection__k=16, preparation__num__imputer__strategy=most_frequent 
-[CV]  feature_selection__k=16, preparation__num__imputer__strategy=most_frequent, total=  19.1s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done 240 out of 240 | elapsed: 42.3min finished
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GridSearchCV(cv=5,
-             estimator=Pipeline(steps=[(&#39;preparation&#39;,
-                                        ColumnTransformer(transformers=[(&#39;num&#39;,
-                                                                         Pipeline(steps=[(&#39;imputer&#39;,
-                                                                                          SimpleImputer(strategy=&#39;median&#39;)),
-                                                                                         (&#39;attribs_adder&#39;,
-                                                                                          CombinedAttributesAdder()),
-                                                                                         (&#39;std_scaler&#39;,
-                                                                                          StandardScaler())]),
-                                                                         [&#39;longitude&#39;,
-                                                                          &#39;latitude&#39;,
-                                                                          &#39;housing_median_age&#39;,
-                                                                          &#39;total_rooms&#39;,
-                                                                          &#39;total_bedrooms&#39;,
-                                                                          &#39;population&#39;,
-                                                                          &#39;households&#39;,
-                                                                          &#39;median_inc...
-       5.64191792e-02, 1.08792957e-01, 5.33510773e-02, 1.03114883e-02,
-       1.64780994e-01, 6.02803867e-05, 1.96041560e-03, 2.85647464e-03]),
-                                                           k=5)),
-                                       (&#39;svm_reg&#39;,
-                                        SVR(C=157055.10989448498,
-                                            gamma=0.26497040005002437))]),
-             param_grid=[{&#39;feature_selection__k&#39;: [1, 2, 3, 4, 5, 6, 7, 8, 9,
-                                                   10, 11, 12, 13, 14, 15, 16],
-                          &#39;preparation__num__imputer__strategy&#39;: [&#39;mean&#39;,
-                                                                  &#39;median&#39;,
-                                                                  &#39;most_frequent&#39;]}],
-             scoring=&#39;neg_mean_squared_error&#39;, verbose=2)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_search_prep</span><span class="o">.</span><span class="n">best_params_</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;feature_selection__k&#39;: 15,
- &#39;preparation__num__imputer__strategy&#39;: &#39;most_frequent&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<p>The best imputer strategy is <code class="docutils literal notranslate"><span class="pre">most_frequent</span></code> and apparently almost all features are useful (15 out of 16). The last one (<code class="docutils literal notranslate"><span class="pre">ISLAND</span></code>) seems to just add some noise.</p>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
