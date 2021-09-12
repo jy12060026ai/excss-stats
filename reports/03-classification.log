@@ -20,8 +20,12 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 recall_for_forest = tpr_forest[np.argmax(fpr_forest >= fpr_90)]
 
 plt.figure(figsize=(8, 6))
+roc_auc = auc(fpr_forest, tpr_forest)
+roc_display = RocCurveDisplay(fpr=fpr_forest, tpr=tpr_forest,
+                              roc_auc=roc_auc).plot(ax=ax)
+
+roc_display.line_(label="Random Forest")
 plt.plot(fpr, tpr, "b:", linewidth=2, label="SGD")
-plot_roc_curve(fpr_forest, tpr_forest, "Random Forest")
 plt.plot([fpr_90, fpr_90], [0., recall_90_precision], "r:")
 plt.plot([0.0, fpr_90], [recall_90_precision, recall_90_precision], "r:")
 plt.plot([fpr_90], [recall_90_precision], "ro")
@@ -29,19 +33,18 @@ plt.plot([fpr_90, fpr_90], [0., recall_for_forest], "r:")
 plt.plot([fpr_90], [recall_for_forest], "ro")
 plt.grid(True)
 plt.legend(loc="lower right", fontsize=16)
-save_fig("roc_curve_comparison_plot")
 plt.show()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_30936/2759667788.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      3[0m [0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m8[0m[0;34m,[0m [0;36m6[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mfpr[0m[0;34m,[0m [0mtpr[0m[0;34m,[0m [0;34m"b:"[0m[0;34m,[0m [0mlinewidth[0m[0;34m=[0m[0;36m2[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m"SGD"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 5[0;31m [0mplot_roc_curve[0m[0;34m([0m[0mfpr_forest[0m[0;34m,[0m [0mtpr_forest[0m[0;34m,[0m [0;34m"Random Forest"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      6[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0;34m[[0m[0mfpr_90[0m[0;34m,[0m [0mfpr_90[0m[0;34m][0m[0;34m,[0m [0;34m[[0m[0;36m0.[0m[0;34m,[0m [0mrecall_90_precision[0m[0;34m][0m[0;34m,[0m [0;34m"r:"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      7[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0;34m[[0m[0;36m0.0[0m[0;34m,[0m [0mfpr_90[0m[0;34m][0m[0;34m,[0m [0;34m[[0m[0mrecall_90_precision[0m[0;34m,[0m [0mrecall_90_precision[0m[0;34m][0m[0;34m,[0m [0;34m"r:"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_31445/889204161.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      6[0m                               roc_auc=roc_auc).plot(ax=ax)
+[1;32m      7[0m [0;34m[0m[0m
+[0;32m----> 8[0;31m [0mroc_display[0m[0;34m.[0m[0mline_[0m[0;34m([0m[0mlabel[0m[0;34m=[0m[0;34m"Random Forest"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      9[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mfpr[0m[0;34m,[0m [0mtpr[0m[0;34m,[0m [0;34m"b:"[0m[0;34m,[0m [0mlinewidth[0m[0;34m=[0m[0;36m2[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m"SGD"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     10[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0;34m[[0m[0mfpr_90[0m[0;34m,[0m [0mfpr_90[0m[0;34m][0m[0;34m,[0m [0;34m[[0m[0;36m0.[0m[0;34m,[0m [0mrecall_90_precision[0m[0;34m][0m[0;34m,[0m [0;34m"r:"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mNameError[0m: name 'plot_roc_curve' is not defined
-NameError: name 'plot_roc_curve' is not defined
+[0;31mTypeError[0m: 'Line2D' object is not callable
+TypeError: 'Line2D' object is not callable
 
