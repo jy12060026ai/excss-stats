@@ -192,7 +192,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/integzz/excss-stats/master?urlpath=tree/handson/03-classification.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/integzz/excss-stats/master?urlpath=lab/tree/handson/03-classification.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -537,11 +537,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[    1     3     4 ... 59994 59996 59998]
-0.9669
-[    0     2     3 ... 59997 59998 59999]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9669
 0.91625
-[    0     1     2 ... 59995 59997 59999]
+0.96785
 </pre></div>
 </div>
 </div>
@@ -579,7 +577,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.     , 0.72895, 1.     ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.91125, 0.90855, 0.90915])
 </pre></div>
 </div>
 </div>
@@ -587,126 +585,6 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">cross_val_predict</span><span class="p">(</span><span class="n">sgd_clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train_5</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_22812</span><span class="o">/</span><span class="mf">2161010994.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">cross_val_predict</span><span class="p">(</span><span class="n">sgd_clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train_5</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/utils/validation.py</span> in <span class="ni">inner_f</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span>             <span class="n">extra_args</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_args</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span>             <span class="k">if</span> <span class="n">extra_args</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">63</span>                 <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">64</span> 
-<span class="g g-Whitespace">     </span><span class="mi">65</span>             <span class="c1"># extra_args &gt; 0</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/model_selection/_validation.py</span> in <span class="ni">cross_val_predict</span><span class="nt">(estimator, X, y, groups, cv, n_jobs, verbose, fit_params, pre_dispatch, method)</span>
-<span class="g g-Whitespace">    </span><span class="mi">878</span>     <span class="n">parallel</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">879</span>                         <span class="n">pre_dispatch</span><span class="o">=</span><span class="n">pre_dispatch</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">880</span>     <span class="n">predictions</span> <span class="o">=</span> <span class="n">parallel</span><span class="p">(</span><span class="n">delayed</span><span class="p">(</span><span class="n">_fit_and_predict</span><span class="p">)(</span>
-<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="n">clone</span><span class="p">(</span><span class="n">estimator</span><span class="p">),</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">fit_params</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">splits</span><span class="p">)</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/joblib/parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1042</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_iterating</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_original_iterator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1043</span> 
-<span class="ne">-&gt; </span><span class="mi">1044</span>             <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_one_batch</span><span class="p">(</span><span class="n">iterator</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1045</span>                 <span class="k">pass</span>
-<span class="g g-Whitespace">   </span><span class="mi">1046</span> 
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/joblib/parallel.py</span> in <span class="ni">dispatch_one_batch</span><span class="nt">(self, iterator)</span>
-<span class="g g-Whitespace">    </span><span class="mi">857</span>                 <span class="k">return</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">858</span>             <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">859</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_dispatch</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">860</span>                 <span class="k">return</span> <span class="kc">True</span>
-<span class="g g-Whitespace">    </span><span class="mi">861</span> 
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/joblib/parallel.py</span> in <span class="ni">_dispatch</span><span class="nt">(self, batch)</span>
-<span class="g g-Whitespace">    </span><span class="mi">775</span>         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">776</span>             <span class="n">job_idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_jobs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">777</span>             <span class="n">job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">778</span>             <span class="c1"># A job can complete so quickly than its callback is</span>
-<span class="g g-Whitespace">    </span><span class="mi">779</span>             <span class="c1"># called before we get here, causing self._jobs to</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/joblib/_parallel_backends.py</span> in <span class="ni">apply_async</span><span class="nt">(self, func, callback)</span>
-<span class="g g-Whitespace">    </span><span class="mi">206</span>     <span class="k">def</span> <span class="nf">apply_async</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">207</span>         <span class="sd">&quot;&quot;&quot;Schedule a func to be run&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">208</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">ImmediateResult</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">209</span>         <span class="k">if</span> <span class="n">callback</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span>             <span class="n">callback</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/joblib/_parallel_backends.py</span> in <span class="ni">__init__</span><span class="nt">(self, batch)</span>
-<span class="g g-Whitespace">    </span><span class="mi">570</span>         <span class="c1"># Don&#39;t delay the application, to avoid keeping the input</span>
-<span class="g g-Whitespace">    </span><span class="mi">571</span>         <span class="c1"># arguments in memory</span>
-<span class="ne">--&gt; </span><span class="mi">572</span>         <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="n">batch</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">573</span> 
-<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/joblib/parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">260</span>         <span class="c1"># change the default number of processes to -1</span>
-<span class="g g-Whitespace">    </span><span class="mi">261</span>         <span class="k">with</span> <span class="n">parallel_backend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_jobs</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">262</span>             <span class="k">return</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">263</span>                     <span class="k">for</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">264</span> 
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/joblib/parallel.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">260</span>         <span class="c1"># change the default number of processes to -1</span>
-<span class="g g-Whitespace">    </span><span class="mi">261</span>         <span class="k">with</span> <span class="n">parallel_backend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_jobs</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">262</span>             <span class="k">return</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">263</span>                     <span class="k">for</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">264</span> 
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/utils/fixes.py</span> in <span class="ni">__call__</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">221</span>         <span class="k">with</span> <span class="n">config_context</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">222</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/model_selection/_validation.py</span> in <span class="ni">_fit_and_predict</span><span class="nt">(estimator, X, y, train, test, verbose, fit_params, method)</span>
-<span class="g g-Whitespace">    </span><span class="mi">958</span>         <span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">959</span>     <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">960</span>         <span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">961</span>     <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">962</span>     <span class="n">predictions</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/linear_model/_stochastic_gradient.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, coef_init, intercept_init, sample_weight)</span>
-<span class="g g-Whitespace">    </span><span class="mi">727</span>             <span class="n">Returns</span> <span class="n">an</span> <span class="n">instance</span> <span class="n">of</span> <span class="bp">self</span><span class="o">.</span>
-<span class="g g-Whitespace">    </span><span class="mi">728</span>         <span class="sd">&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">729</span><span class="sd">         return self._fit(X, y, alpha=self.alpha, C=1.0,</span>
-<span class="g g-Whitespace">    </span><span class="mi">730</span><span class="sd">                          loss=self.loss, learning_rate=self.learning_rate,</span>
-<span class="g g-Whitespace">    </span><span class="mi">731</span><span class="sd">                          coef_init=coef_init, intercept_init=intercept_init,</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/linear_model/_stochastic_gradient.py</span> in <span class="ni">_fit</span><span class="nt">(self, X, y, alpha, C, loss, learning_rate, coef_init, intercept_init, sample_weight)</span>
-<span class="g g-Whitespace">    </span><span class="mi">567</span><span class="sd">         self.t_ = 1.0</span>
-<span class="g g-Whitespace">    </span><span class="mi">568</span><span class="sd"> </span>
-<span class="ne">--&gt; </span><span class="mi">569</span><span class="sd">         self._partial_fit(X, y, alpha, C, loss, learning_rate, self.max_iter,</span>
-<span class="g g-Whitespace">    </span><span class="mi">570</span><span class="sd">                           classes, sample_weight, coef_init, intercept_init)</span>
-<span class="g g-Whitespace">    </span><span class="mi">571</span><span class="sd"> </span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/linear_model/_stochastic_gradient.py</span> in <span class="ni">_partial_fit</span><span class="nt">(self, X, y, alpha, C, loss, learning_rate, max_iter, classes, sample_weight, coef_init, intercept_init)</span>
-<span class="g g-Whitespace">    </span><span class="mi">524</span><span class="sd">                                  max_iter=max_iter)</span>
-<span class="g g-Whitespace">    </span><span class="mi">525</span><span class="sd">         elif n_classes == 2:</span>
-<span class="ne">--&gt; </span><span class="mi">526</span><span class="sd">             self._fit_binary(X, y, alpha=alpha, C=C,</span>
-<span class="g g-Whitespace">    </span><span class="mi">527</span><span class="sd">                              learning_rate=learning_rate,</span>
-<span class="g g-Whitespace">    </span><span class="mi">528</span><span class="sd">                              sample_weight=sample_weight,</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/linear_model/_stochastic_gradient.py</span> in <span class="ni">_fit_binary</span><span class="nt">(self, X, y, alpha, C, sample_weight, learning_rate, max_iter)</span>
-<span class="g g-Whitespace">    </span><span class="mi">581</span><span class="sd">                     learning_rate, max_iter):</span>
-<span class="g g-Whitespace">    </span><span class="mi">582</span><span class="sd">         &quot;&quot;&quot;</span><span class="n">Fit</span> <span class="n">a</span> <span class="n">binary</span> <span class="n">classifier</span> <span class="n">on</span> <span class="n">X</span> <span class="ow">and</span> <span class="n">y</span><span class="o">.</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">583</span><span class="s2">         coef, intercept, n_iter_ = fit_binary(self, 1, X, y, alpha, C,</span>
-<span class="g g-Whitespace">    </span><span class="mi">584</span><span class="s2">                                               learning_rate, max_iter,</span>
-<span class="g g-Whitespace">    </span><span class="mi">585</span><span class="s2">                                               self._expanded_class_weight[1],</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/linear_model/_stochastic_gradient.py</span> in <span class="ni">fit_binary</span><span class="nt">(est, i, X, y, alpha, C, learning_rate, max_iter, pos_weight, neg_weight, sample_weight, validation_mask, random_state)</span>
-<span class="g g-Whitespace">    </span><span class="mi">434</span><span class="s2">     tol = est.tol if est.tol is not None else -np.inf</span>
-<span class="g g-Whitespace">    </span><span class="mi">435</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">436</span><span class="s2">     coef, intercept, average_coef, average_intercept, n_iter_ = _plain_sgd(</span>
-<span class="g g-Whitespace">    </span><span class="mi">437</span><span class="s2">         coef, intercept, average_coef, average_intercept, est.loss_function_,</span>
-<span class="g g-Whitespace">    </span><span class="mi">438</span><span class="s2">         penalty_type, alpha, C, est.l1_ratio, dataset, validation_mask,</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -739,6 +617,9 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/03-classification_32_0.png" src="../_images/03-classification_32_0.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -760,6 +641,9 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cm_display</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">cm2</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03-classification_34_0.png" src="../_images/03-classification_34_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -878,12 +762,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure precision_recall_vs_threshold_plot
-</pre></div>
-</div>
-<img alt="../_images/03-classification_45_1.png" src="../_images/03-classification_45_1.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -903,6 +781,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03-classification_46_0.png" src="../_images/03-classification_46_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -932,6 +813,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/03-classification_48_0.png" src="../_images/03-classification_48_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1010,6 +894,11 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9604938554008616
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1028,10 +917,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure roc_curve_plot
-</pre></div>
-</div>
-<img alt="../_images/03-classification_58_1.png" src="../_images/03-classification_58_1.png" />
+<img alt="../_images/03-classification_58_0.png" src="../_images/03-classification_58_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1051,7 +937,13 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
-<span class="n">forest_clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">forest_clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">y_probas_forest</span> <span class="o">=</span> <span class="n">cross_val_predict</span><span class="p">(</span><span class="n">forest_clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train_5</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
                                     <span class="n">method</span><span class="o">=</span><span class="s2">&quot;predict_proba&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1070,17 +962,18 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recall_for_forest</span> <span class="o">=</span> <span class="n">tpr_forest</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">fpr_forest</span> <span class="o">&gt;=</span> <span class="n">fpr_90</span><span class="p">)]</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
 <span class="n">roc_auc</span> <span class="o">=</span> <span class="n">auc</span><span class="p">(</span><span class="n">fpr_forest</span><span class="p">,</span> <span class="n">tpr_forest</span><span class="p">)</span>
 <span class="n">roc_display</span> <span class="o">=</span> <span class="n">RocCurveDisplay</span><span class="p">(</span><span class="n">fpr</span><span class="o">=</span><span class="n">fpr_forest</span><span class="p">,</span> <span class="n">tpr</span><span class="o">=</span><span class="n">tpr_forest</span><span class="p">,</span>
                               <span class="n">roc_auc</span><span class="o">=</span><span class="n">roc_auc</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 
-<span class="n">roc_display</span><span class="o">.</span><span class="n">line_</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Random Forest&quot;</span><span class="p">)</span>
+<span class="n">roc_display</span><span class="o">.</span><span class="n">line_</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;Random Forest&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="s2">&quot;b:&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;SGD&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">fpr_90</span><span class="p">,</span> <span class="n">fpr_90</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="n">recall_90_precision</span><span class="p">],</span> <span class="s2">&quot;r:&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">fpr_90</span><span class="p">],</span> <span class="p">[</span><span class="n">recall_90_precision</span><span class="p">,</span> <span class="n">recall_90_precision</span><span class="p">],</span> <span class="s2">&quot;r:&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">fpr_90</span><span class="p">],</span> <span class="p">[</span><span class="n">recall_90_precision</span><span class="p">],</span> <span class="s2">&quot;ro&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">fpr_90</span><span class="p">,</span> <span class="n">fpr_90</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="n">recall_90_precision</span><span class="p">],</span> <span class="s2">&quot;r:&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">fpr_90</span><span class="p">,</span> <span class="n">fpr_90</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="n">recall_for_forest</span><span class="p">],</span> <span class="s2">&quot;r:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">fpr_90</span><span class="p">],</span> <span class="p">[</span><span class="n">recall_90_precision</span><span class="p">],</span> <span class="s2">&quot;ro&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">fpr_90</span><span class="p">],</span> <span class="p">[</span><span class="n">recall_for_forest</span><span class="p">],</span> <span class="s2">&quot;ro&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
@@ -1089,10 +982,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure roc_curve_comparison_plot
-</pre></div>
-</div>
-<img alt="../_images/03-classification_62_1.png" src="../_images/03-classification_62_1.png" />
+<img alt="../_images/03-classification_63_0.png" src="../_images/03-classification_63_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1378,7 +1268,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure error_analysis_digits_plot
 </pre></div>
 </div>
-<img alt="../_images/03-classification_87_1.png" src="../_images/03-classification_87_1.png" />
+<img alt="../_images/03-classification_88_1.png" src="../_images/03-classification_88_1.png" />
 </div>
 </div>
 </div>
@@ -1464,7 +1354,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure noisy_digit_example_plot
 </pre></div>
 </div>
-<img alt="../_images/03-classification_96_1.png" src="../_images/03-classification_96_1.png" />
+<img alt="../_images/03-classification_97_1.png" src="../_images/03-classification_97_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1482,7 +1372,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure cleaned_digit_example_plot
 </pre></div>
 </div>
-<img alt="../_images/03-classification_97_1.png" src="../_images/03-classification_97_1.png" />
+<img alt="../_images/03-classification_98_1.png" src="../_images/03-classification_98_1.png" />
 </div>
 </div>
 </div>
@@ -1526,7 +1416,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_102_0.png" src="../_images/03-classification_102_0.png" />
+<img alt="../_images/03-classification_103_0.png" src="../_images/03-classification_103_0.png" />
 </div>
 </div>
 <div class="section" id="knn-classifier">
@@ -1584,7 +1474,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_109_0.png" src="../_images/03-classification_109_0.png" />
+<img alt="../_images/03-classification_110_0.png" src="../_images/03-classification_110_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1674,7 +1564,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_116_0.png" src="../_images/03-classification_116_0.png" />
+<img alt="../_images/03-classification_117_0.png" src="../_images/03-classification_117_0.png" />
 </div>
 </div>
 </div>
@@ -1723,7 +1613,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_120_0.png" src="../_images/03-classification_120_0.png" />
+<img alt="../_images/03-classification_121_0.png" src="../_images/03-classification_121_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2373,7 +2263,7 @@ Name: Embarked, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_179_0.png" src="../_images/03-classification_179_0.png" />
+<img alt="../_images/03-classification_180_0.png" src="../_images/03-classification_180_0.png" />
 </div>
 </div>
 <p>To improve this result further, you could:</p>
