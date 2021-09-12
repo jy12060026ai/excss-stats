@@ -153,6 +153,24 @@
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/integzz/excss-stats/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/integzz/excss-stats//issues/new?title=Issue%20on%20page%20%2Fhandson/02-data-processing.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/integzz/excss-stats/edit/master/handson/02-data-processing.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -999,7 +1017,7 @@ Name: income_cat, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x12935d5b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x127a7fbe0&gt;
 </pre></div>
 </div>
 <img alt="../_images/02-data-processing_30_1.png" src="../_images/02-data-processing_30_1.png" />
@@ -1091,7 +1109,7 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x1297508b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x127b9d0d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/02-data-processing_35_1.png" src="../_images/02-data-processing_35_1.png" />
@@ -2691,6 +2709,14 @@ dtype: float64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomizedSearchCV(cv=5, estimator=RandomForestRegressor(random_state=42),
+                   param_distributions={&#39;max_features&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x127d09c10&gt;,
+                                        &#39;n_estimators&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x127d09e20&gt;},
+                   random_state=42, scoring=&#39;neg_mean_squared_error&#39;)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2723,10 +2749,10 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([7.33442355e-02, 6.29090705e-02, 4.11437985e-02, 1.46726854e-02,
-       1.41064835e-02, 1.48742809e-02, 1.42575993e-02, 3.66158981e-01,
-       5.64191792e-02, 1.08792957e-01, 5.33510773e-02, 1.03114883e-02,
-       1.64780994e-01, 6.02803867e-05, 1.96041560e-03, 2.85647464e-03])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([7.24699052e-02, 6.38080322e-02, 4.27504395e-02, 1.65343807e-02,
+       1.56100762e-02, 1.60929106e-02, 1.52149598e-02, 3.45178404e-01,
+       5.74445360e-02, 1.08468449e-01, 7.05907498e-02, 8.77441303e-03,
+       1.60563229e-01, 6.10403994e-05, 3.08961266e-03, 3.34886200e-03])
 </pre></div>
 </div>
 </div>
@@ -2742,22 +2768,22 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0.36615898061813423, &#39;median_income&#39;),
- (0.16478099356159054, &#39;INLAND&#39;),
- (0.10879295677551575, &#39;pop_per_hhold&#39;),
- (0.07334423551601243, &#39;longitude&#39;),
- (0.06290907048262032, &#39;latitude&#39;),
- (0.056419179181954014, &#39;rooms_per_hhold&#39;),
- (0.053351077347675815, &#39;bedrooms_per_room&#39;),
- (0.04114379847872964, &#39;housing_median_age&#39;),
- (0.014874280890402769, &#39;population&#39;),
- (0.014672685420543239, &#39;total_rooms&#39;),
- (0.014257599323407808, &#39;households&#39;),
- (0.014106483453584104, &#39;total_bedrooms&#39;),
- (0.010311488326303788, &#39;&lt;1H OCEAN&#39;),
- (0.0028564746373201584, &#39;NEAR OCEAN&#39;),
- (0.0019604155994780706, &#39;NEAR BAY&#39;),
- (6.0280386727366e-05, &#39;ISLAND&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0.3451784043801197, &#39;median_income&#39;),
+ (0.1605632289158767, &#39;INLAND&#39;),
+ (0.10846844860879654, &#39;pop_per_hhold&#39;),
+ (0.07246990515559049, &#39;longitude&#39;),
+ (0.07059074984842853, &#39;bedrooms_per_room&#39;),
+ (0.06380803224443841, &#39;latitude&#39;),
+ (0.057444535971841064, &#39;rooms_per_hhold&#39;),
+ (0.04275043945662488, &#39;housing_median_age&#39;),
+ (0.01653438073955306, &#39;total_rooms&#39;),
+ (0.016092910597195798, &#39;population&#39;),
+ (0.015610076150868492, &#39;total_bedrooms&#39;),
+ (0.015214959838627942, &#39;households&#39;),
+ (0.008774413032023276, &#39;&lt;1H OCEAN&#39;),
+ (0.003348861998751043, &#39;NEAR OCEAN&#39;),
+ (0.0030896126618977565, &#39;NEAR BAY&#39;),
+ (6.104039936629334e-05, &#39;ISLAND&#39;)]
 </pre></div>
 </div>
 </div>
@@ -2785,7 +2811,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>47730.22690385927
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46910.92117024934
 </pre></div>
 </div>
 </div>
@@ -2794,11 +2820,6 @@ dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([45685.10470776, 49691.25001878])
 </pre></div>
 </div>
 </div>
@@ -2815,6 +2836,11 @@ dtype: float64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([44945.41068188, 48797.32686039])
+</pre></div>
+</div>
+</div>
 </div>
 <p>We could compute the interval manually like this:</p>
 <div class="cell docutils container">
@@ -2828,7 +2854,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(45685.10470776014, 49691.25001877871)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(44945.4106818769, 48797.32686039384)
 </pre></div>
 </div>
 </div>
@@ -2843,7 +2869,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(45685.717918136594, 49690.68623889426)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(44945.999723355504, 48796.78430953023)
 </pre></div>
 </div>
 </div>
@@ -2909,18 +2935,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_8004</span><span class="o">/</span><span class="mf">2352078783.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">reciprocal_distrib</span> <span class="o">=</span> <span class="n">reciprocal</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">200000</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">titles</span> <span class="o">=</span> <span class="p">[</span>
-
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/02-data-processing_135_0.png" src="../_images/02-data-processing_135_0.png" />
 </div>
 </div>
 </div>
@@ -2966,7 +2981,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  1,  7,  9, 12])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  7,  9, 10, 12])
 </pre></div>
 </div>
 </div>
@@ -2978,7 +2993,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;longitude&#39;, &#39;latitude&#39;, &#39;median_income&#39;, &#39;pop_per_hhold&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;longitude&#39;, &#39;median_income&#39;, &#39;pop_per_hhold&#39;, &#39;bedrooms_per_room&#39;,
        &#39;INLAND&#39;], dtype=&#39;&lt;U18&#39;)
 </pre></div>
 </div>
@@ -2992,11 +3007,11 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0.36615898061813423, &#39;median_income&#39;),
- (0.16478099356159054, &#39;INLAND&#39;),
- (0.10879295677551575, &#39;pop_per_hhold&#39;),
- (0.07334423551601243, &#39;longitude&#39;),
- (0.06290907048262032, &#39;latitude&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0.3451784043801197, &#39;median_income&#39;),
+ (0.1605632289158767, &#39;INLAND&#39;),
+ (0.10846844860879654, &#39;pop_per_hhold&#39;),
+ (0.07246990515559049, &#39;longitude&#39;),
+ (0.07059074984842853, &#39;bedrooms_per_room&#39;)]
 </pre></div>
 </div>
 </div>
@@ -3027,9 +3042,9 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.15604281,  0.77194962, -0.61493744, -0.08649871,  0.        ],
-       [-1.17602483,  0.6596948 ,  1.33645936, -0.03353391,  0.        ],
-       [ 1.18684903, -1.34218285, -0.5320456 , -0.09240499,  0.        ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.15604281, -0.61493744, -0.08649871,  0.15531753,  0.        ],
+       [-1.17602483,  1.33645936, -0.03353391, -0.83628902,  0.        ],
+       [ 1.18684903, -0.5320456 , -0.09240499,  0.4222004 ,  0.        ]])
 </pre></div>
 </div>
 </div>
@@ -3042,9 +3057,9 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.15604281,  0.77194962, -0.61493744, -0.08649871,  0.        ],
-       [-1.17602483,  0.6596948 ,  1.33645936, -0.03353391,  0.        ],
-       [ 1.18684903, -1.34218285, -0.5320456 , -0.09240499,  0.        ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.15604281, -0.61493744, -0.08649871,  0.15531753,  0.        ],
+       [-1.17602483,  1.33645936, -0.03353391, -0.83628902,  0.        ],
+       [ 1.18684903, -0.5320456 , -0.09240499,  0.4222004 ,  0.        ]])
 </pre></div>
 </div>
 </div>
