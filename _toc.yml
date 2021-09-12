@@ -1,0 +1,28 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: HandsON
+    chapters:
+      - file: handson/01-data-processing
+      - file: handson/02-linear-regression
+      - file: handson/03-model-selection
+      - file: handson/04-linear-classification
+      - file: handson/04-nonlinear-classification
+      - file: handson/05-support-vector-machines
+      - file: handson/06-decision-trees
+      - file: handson/07-ensemble-learning
+      - file: handson/08-dimensionality-reduction
+      - file: handson/09-unsupervised-learning
+  - caption: HandsON DL
+    chapters:
+      - file: handson-dl/101-intro-keras
+      - file: handson-dl/102-training-deep-neural-networks
+      - file: handson-dl/103-custom-models-and-training-with-tensorflow
+      - file: handson-dl/104-loading-and-preprocessing-data
+      - file: handson-dl/105-deep-computer-vision-with-cnns
+      - file: handson-dl/106-processing-sequences-using-rnns-and-cnns
+      - file: handson-dl/107-nlp-with-rnns-and-attention
+      - file: handson-dl/108-autoencoders-and-gans
