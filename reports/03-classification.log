@@ -17,51 +17,31 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-skfolds = StratifiedKFold(n_splits=3, shuffle=True, random_state=42)
+recall_for_forest = tpr_forest[np.argmax(fpr_forest >= fpr_90)]
 
-for train_index, test_index in skfolds.split(X_train, y_train_5):
-    clone_clf = clone(sgd_clf)
-    X_train_folds = X_train[train_index]
-    y_train_folds = y_train_5[train_index]
-    X_test_fold = X_train[test_index]
-    y_test_fold = y_train_5[test_index]
-
-    clone_clf.fit(X_train_folds, y_train_folds)
-    y_pred = clone_clf.predict(X_test_fold)
-    n_correct = sum(y_pred == y_test_fold)
-    print(n_correct / len(y_pred))
+plt.figure(figsize=(8, 6))
+plt.plot(fpr, tpr, "b:", linewidth=2, label="SGD")
+plot_roc_curve(fpr_forest, tpr_forest, "Random Forest")
+plt.plot([fpr_90, fpr_90], [0., recall_90_precision], "r:")
+plt.plot([0.0, fpr_90], [recall_90_precision, recall_90_precision], "r:")
+plt.plot([fpr_90], [recall_90_precision], "ro")
+plt.plot([fpr_90, fpr_90], [0., recall_for_forest], "r:")
+plt.plot([fpr_90], [recall_for_forest], "ro")
+plt.grid(True)
+plt.legend(loc="lower right", fontsize=16)
+save_fig("roc_curve_comparison_plot")
+plt.show()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mKeyError[0m                                  Traceback (most recent call last)
-[0;32m/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_28153/4206338951.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      3[0m [0;32mfor[0m [0mtrain_index[0m[0;34m,[0m [0mtest_index[0m [0;32min[0m [0mskfolds[0m[0;34m.[0m[0msplit[0m[0;34m([0m[0mX_train[0m[0;34m,[0m [0my_train_5[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m     [0mclone_clf[0m [0;34m=[0m [0mclone[0m[0;34m([0m[0msgd_clf[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 5[0;31m     [0mX_train_folds[0m [0;34m=[0m [0mX_train[0m[0;34m[[0m[0mtrain_index[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      6[0m     [0my_train_folds[0m [0;34m=[0m [0my_train_5[0m[0;34m[[0m[0mtrain_index[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[1;32m      7[0m     [0mX_test_fold[0m [0;34m=[0m [0mX_train[0m[0;34m[[0m[0mtest_index[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_30936/2759667788.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0mfigsize[0m[0;34m=[0m[0;34m([0m[0;36m8[0m[0;34m,[0m [0;36m6[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mfpr[0m[0;34m,[0m [0mtpr[0m[0;34m,[0m [0;34m"b:"[0m[0;34m,[0m [0mlinewidth[0m[0;34m=[0m[0;36m2[0m[0;34m,[0m [0mlabel[0m[0;34m=[0m[0;34m"SGD"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mplot_roc_curve[0m[0;34m([0m[0mfpr_forest[0m[0;34m,[0m [0mtpr_forest[0m[0;34m,[0m [0;34m"Random Forest"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      6[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0;34m[[0m[0mfpr_90[0m[0;34m,[0m [0mfpr_90[0m[0;34m][0m[0;34m,[0m [0;34m[[0m[0;36m0.[0m[0;34m,[0m [0mrecall_90_precision[0m[0;34m][0m[0;34m,[0m [0;34m"r:"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      7[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0;34m[[0m[0;36m0.0[0m[0;34m,[0m [0mfpr_90[0m[0;34m][0m[0;34m,[0m [0;34m[[0m[0mrecall_90_precision[0m[0;34m,[0m [0mrecall_90_precision[0m[0;34m][0m[0;34m,[0m [0;34m"r:"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/pandas/core/frame.py[0m in [0;36m__getitem__[0;34m(self, key)[0m
-[1;32m   3459[0m             [0;32mif[0m [0mis_iterator[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   3460[0m                 [0mkey[0m [0;34m=[0m [0mlist[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 3461[0;31m             [0mindexer[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mloc[0m[0;34m.[0m[0m_get_listlike_indexer[0m[0;34m([0m[0mkey[0m[0;34m,[0m [0maxis[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   3462[0m [0;34m[0m[0m
-[1;32m   3463[0m         [0;31m# take() does not accept boolean indexers[0m[0;34m[0m[0;34m[0m[0m
-
-[0;32m/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/pandas/core/indexing.py[0m in [0;36m_get_listlike_indexer[0;34m(self, key, axis)[0m
-[1;32m   1312[0m             [0mkeyarr[0m[0;34m,[0m [0mindexer[0m[0;34m,[0m [0mnew_indexer[0m [0;34m=[0m [0max[0m[0;34m.[0m[0m_reindex_non_unique[0m[0;34m([0m[0mkeyarr[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   1313[0m [0;34m[0m[0m
-[0;32m-> 1314[0;31m         [0mself[0m[0;34m.[0m[0m_validate_read_indexer[0m[0;34m([0m[0mkeyarr[0m[0;34m,[0m [0mindexer[0m[0;34m,[0m [0maxis[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   1315[0m [0;34m[0m[0m
-[1;32m   1316[0m         if needs_i8_conversion(ax.dtype) or isinstance(
-
-[0;32m/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/pandas/core/indexing.py[0m in [0;36m_validate_read_indexer[0;34m(self, key, indexer, axis)[0m
-[1;32m   1372[0m                 [0;32mif[0m [0muse_interval_msg[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m   1373[0m                     [0mkey[0m [0;34m=[0m [0mlist[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m-> 1374[0;31m                 [0;32mraise[0m [0mKeyError[0m[0;34m([0m[0;34mf"None of [{key}] are in the [{axis_name}]"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m   1375[0m [0;34m[0m[0m
-[1;32m   1376[0m             [0mnot_found[0m [0;34m=[0m [0mlist[0m[0;34m([0m[0mensure_index[0m[0;34m([0m[0mkey[0m[0;34m)[0m[0;34m[[0m[0mmissing_mask[0m[0;34m.[0m[0mnonzero[0m[0;34m([0m[0;34m)[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m][0m[0;34m.[0m[0munique[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-
-[0;31mKeyError[0m: "None of [Int64Index([    1,     3,     4,     5,     7,     8,    10,    11,    12,\n               13,\n            ...\n            59984, 59985, 59987, 59988, 59989, 59991, 59993, 59994, 59996,\n            59998],\n           dtype='int64', length=40000)] are in the [columns]"
-KeyError: "None of [Int64Index([    1,     3,     4,     5,     7,     8,    10,    11,    12,\n               13,\n            ...\n            59984, 59985, 59987, 59988, 59989, 59991, 59993, 59994, 59996,\n            59998],\n           dtype='int64', length=40000)] are in the [columns]"
+[0;31mNameError[0m: name 'plot_roc_curve' is not defined
+NameError: name 'plot_roc_curve' is not defined
 

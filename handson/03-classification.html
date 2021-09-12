@@ -278,7 +278,7 @@
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tackle-the-titanic-dataset">
-   3. Tackle the Titanic dataset
+   Tackle the Titanic dataset
   </a>
  </li>
 </ul>
@@ -429,14 +429,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;5&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -505,7 +505,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.89345, 0.75235, 0.7899 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.95035, 0.96035, 0.9604 ])
 </pre></div>
 </div>
 </div>
@@ -524,9 +524,9 @@
 
 <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">skfolds</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train_5</span><span class="p">):</span>
     <span class="n">clone_clf</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="n">sgd_clf</span><span class="p">)</span>
-    <span class="n">X_train_folds</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
+    <span class="n">X_train_folds</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
     <span class="n">y_train_folds</span> <span class="o">=</span> <span class="n">y_train_5</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span>
-    <span class="n">X_test_fold</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
+    <span class="n">X_test_fold</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
     <span class="n">y_test_fold</span> <span class="o">=</span> <span class="n">y_train_5</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
 
     <span class="n">clone_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_folds</span><span class="p">,</span> <span class="n">y_train_folds</span><span class="p">)</span>
@@ -537,14 +537,15 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9688
-0.95555
-0.8936
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[    1     3     4 ... 59994 59996 59998]
+0.9669
+[    0     2     3 ... 59997 59998 59999]
+0.91625
+[    0     1     2 ... 59995 59997 59999]
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Note</strong>: <code class="docutils literal notranslate"><span class="pre">shuffle=True</span></code> was omitted by mistake in previous releases of the book.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span>
@@ -881,7 +882,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure precision_recall_vs_threshold_plot
 </pre></div>
 </div>
-<img alt="../_images/03-classification_46_1.png" src="../_images/03-classification_46_1.png" />
+<img alt="../_images/03-classification_45_1.png" src="../_images/03-classification_45_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1030,7 +1031,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure roc_curve_plot
 </pre></div>
 </div>
-<img alt="../_images/03-classification_59_1.png" src="../_images/03-classification_59_1.png" />
+<img alt="../_images/03-classification_58_1.png" src="../_images/03-classification_58_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1088,7 +1089,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure roc_curve_comparison_plot
 </pre></div>
 </div>
-<img alt="../_images/03-classification_63_1.png" src="../_images/03-classification_63_1.png" />
+<img alt="../_images/03-classification_62_1.png" src="../_images/03-classification_62_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1374,7 +1375,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure error_analysis_digits_plot
 </pre></div>
 </div>
-<img alt="../_images/03-classification_88_1.png" src="../_images/03-classification_88_1.png" />
+<img alt="../_images/03-classification_87_1.png" src="../_images/03-classification_87_1.png" />
 </div>
 </div>
 </div>
@@ -1460,7 +1461,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure noisy_digit_example_plot
 </pre></div>
 </div>
-<img alt="../_images/03-classification_97_1.png" src="../_images/03-classification_97_1.png" />
+<img alt="../_images/03-classification_96_1.png" src="../_images/03-classification_96_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1478,7 +1479,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure cleaned_digit_example_plot
 </pre></div>
 </div>
-<img alt="../_images/03-classification_98_1.png" src="../_images/03-classification_98_1.png" />
+<img alt="../_images/03-classification_97_1.png" src="../_images/03-classification_97_1.png" />
 </div>
 </div>
 </div>
@@ -1522,7 +1523,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_103_0.png" src="../_images/03-classification_103_0.png" />
+<img alt="../_images/03-classification_102_0.png" src="../_images/03-classification_102_0.png" />
 </div>
 </div>
 <div class="section" id="knn-classifier">
@@ -1580,7 +1581,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_110_0.png" src="../_images/03-classification_110_0.png" />
+<img alt="../_images/03-classification_109_0.png" src="../_images/03-classification_109_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1670,7 +1671,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_117_0.png" src="../_images/03-classification_117_0.png" />
+<img alt="../_images/03-classification_116_0.png" src="../_images/03-classification_116_0.png" />
 </div>
 </div>
 </div>
@@ -1719,7 +1720,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_121_0.png" src="../_images/03-classification_121_0.png" />
+<img alt="../_images/03-classification_120_0.png" src="../_images/03-classification_120_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1783,7 +1784,7 @@
 <p>By simply augmenting the data, we got a 0.5% accuracy boost. :)</p>
 </div>
 <div class="section" id="tackle-the-titanic-dataset">
-<h1>3. Tackle the Titanic dataset<a class="headerlink" href="#tackle-the-titanic-dataset" title="Permalink to this headline">¶</a></h1>
+<h1>Tackle the Titanic dataset<a class="headerlink" href="#tackle-the-titanic-dataset" title="Permalink to this headline">¶</a></h1>
 <p>The goal is to predict whether or not a passenger survived based on attributes such as their age, sex, passenger class, where they embarked and so on.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2369,7 +2370,7 @@ Name: Embarked, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_180_0.png" src="../_images/03-classification_180_0.png" />
+<img alt="../_images/03-classification_179_0.png" src="../_images/03-classification_179_0.png" />
 </div>
 </div>
 <p>To improve this result further, you could:</p>
