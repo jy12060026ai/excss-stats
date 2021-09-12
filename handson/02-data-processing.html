@@ -205,13 +205,13 @@
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#discover-and-visualize-the-data-to-gain-insights">
-   Discover and visualize the data to gain insights
+  <a class="reference internal nav-link" href="#discover-and-visualize-the-data">
+   Discover and visualize the data
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#prepare-the-data-for-machine-learning-algorithms">
-   Prepare the data for Machine Learning algorithms
+  <a class="reference internal nav-link" href="#prepare-the-data">
+   Prepare the data
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -958,8 +958,8 @@ Name: income_cat, dtype: float64
 </div>
 </div>
 </div>
-<div class="section" id="discover-and-visualize-the-data-to-gain-insights">
-<h1>Discover and visualize the data to gain insights<a class="headerlink" href="#discover-and-visualize-the-data-to-gain-insights" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="discover-and-visualize-the-data">
+<h1>Discover and visualize the data<a class="headerlink" href="#discover-and-visualize-the-data" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span> <span class="o">=</span> <span class="n">strat_train_set</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -999,7 +999,7 @@ Name: income_cat, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x126443640&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x12935d5b0&gt;
 </pre></div>
 </div>
 <img alt="../_images/02-data-processing_30_1.png" src="../_images/02-data-processing_30_1.png" />
@@ -1091,7 +1091,7 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x126fd5640&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x1297508b0&gt;
 </pre></div>
 </div>
 <img alt="../_images/02-data-processing_35_1.png" src="../_images/02-data-processing_35_1.png" />
@@ -1106,7 +1106,7 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure income_vs_house_value_scatterplot
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 16.0, 0.0, 550000.0)
 </pre></div>
 </div>
 <img alt="../_images/02-data-processing_36_1.png" src="../_images/02-data-processing_36_1.png" />
@@ -1326,8 +1326,8 @@ Name: median_house_value, dtype: float64
 </div></div></div>
 </div>
 </div>
-<div class="section" id="prepare-the-data-for-machine-learning-algorithms">
-<h1>Prepare the data for Machine Learning algorithms<a class="headerlink" href="#prepare-the-data-for-machine-learning-algorithms" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prepare-the-data">
+<h1>Prepare the data<a class="headerlink" href="#prepare-the-data" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing</span> <span class="o">=</span> <span class="n">strat_train_set</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;median_house_value&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1831,7 +1831,7 @@ Name: median_house_value, dtype: float64
 </table>
 </div></div></div>
 </div>
-<p>Now let’s preprocess the categorical input feature, <code class="docutils literal notranslate"><span class="pre">ocean_proximity</span></code>:</p>
+<p>Now let’s preprocess the categorical input feature</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing_cat</span> <span class="o">=</span> <span class="n">housing</span><span class="p">[[</span><span class="s2">&quot;ocean_proximity&quot;</span><span class="p">]]</span>
@@ -1928,26 +1928,6 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 </div>
-<p>By default, the <code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code> class returns a sparse array, but we can convert it to a dense array if needed by calling the <code class="docutils literal notranslate"><span class="pre">toarray()</span></code> method:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing_cat_1hot</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0., 0.],
-       [1., 0., 0., 0., 0.],
-       [0., 0., 0., 0., 1.],
-       ...,
-       [0., 1., 0., 0., 0.],
-       [1., 0., 0., 0., 0.],
-       [0., 0., 0., 1., 0.]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Alternatively, you can set <code class="docutils literal notranslate"><span class="pre">sparse=False</span></code> when creating the <code class="docutils literal notranslate"><span class="pre">OneHotEncoder</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -2361,16 +2341,16 @@ Name: median_house_value, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearRegression()
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lin_reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
 <span class="n">lin_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">housing_prepared</span><span class="p">,</span> <span class="n">housing_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearRegression()
 </pre></div>
 </div>
 </div>
@@ -2442,11 +2422,6 @@ Name: median_house_value, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>68628.19819848923
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2454,6 +2429,11 @@ Name: median_house_value, dtype: float64
 <span class="n">lin_mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">housing_labels</span><span class="p">,</span> <span class="n">housing_predictions</span><span class="p">)</span>
 <span class="n">lin_rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lin_mse</span><span class="p">)</span>
 <span class="n">lin_rmse</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>68628.19819848923
 </pre></div>
 </div>
 </div>
@@ -2465,16 +2445,16 @@ Name: median_house_value, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49439.89599001897
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lin_mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">housing_labels</span><span class="p">,</span> <span class="n">housing_predictions</span><span class="p">)</span>
 <span class="n">lin_mae</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49439.89599001897
 </pre></div>
 </div>
 </div>
@@ -2485,16 +2465,16 @@ Name: median_house_value, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DecisionTreeRegressor(random_state=42)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree_reg</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">tree_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">housing_prepared</span><span class="p">,</span> <span class="n">housing_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DecisionTreeRegressor(random_state=42)
 </pre></div>
 </div>
 </div>
@@ -2574,20 +2554,14 @@ Standard deviation: 2439.4345041191004
  68031.13388938 71193.84183426 64969.63056405 68281.61137997
  71552.91566558 67665.10082067]
 Mean: 69052.46136345083
-Standard deviation: 2731.674001798342
+Standard deviation: 2731.674001798348
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Note</strong>: we specify <code class="docutils literal notranslate"><span class="pre">n_estimators=100</span></code> to be future-proof since the default value is going to change to 100 in Scikit-Learn 0.22 (for simplicity, this is not shown in the book).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestRegressor(random_state=42)
 </pre></div>
 </div>
 </div>
@@ -2596,6 +2570,11 @@ Standard deviation: 2731.674001798342
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">forest_reg</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">forest_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">housing_prepared</span><span class="p">,</span> <span class="n">housing_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestRegressor(random_state=42)
 </pre></div>
 </div>
 </div>
@@ -2668,11 +2647,6 @@ dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>111094.6308539982
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2685,19 +2659,16 @@ dtype: float64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>111094.6308539982
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RandomizedSearchCV</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">randint</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomizedSearchCV(cv=5, estimator=RandomForestRegressor(random_state=42),
-                   param_distributions={&#39;max_features&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7fd1b96682d0&gt;,
-                                        &#39;n_estimators&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7fd1b9668b10&gt;},
-                   random_state=42, scoring=&#39;neg_mean_squared_error&#39;)
 </pre></div>
 </div>
 </div>
@@ -2906,13 +2877,9 @@ dtype: float64
 <h2>Example SciPy distributions for <code class="docutils literal notranslate"><span class="pre">RandomizedSearchCV</span></code><a class="headerlink" href="#example-scipy-distributions-for-randomizedsearchcv" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">geom</span><span class="p">,</span> <span class="n">expon</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">geom</span><span class="p">,</span> <span class="n">expon</span><span class="p">,</span> <span class="n">reciprocal</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/02-data-processing_138_0.png" src="../_images/02-data-processing_138_0.png" />
-<img alt="../_images/02-data-processing_138_1.png" src="../_images/02-data-processing_138_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2938,6 +2905,20 @@ dtype: float64
     <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_8004</span><span class="o">/</span><span class="mf">2352078783.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">reciprocal_distrib</span> <span class="o">=</span> <span class="n">reciprocal</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">200000</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">titles</span> <span class="o">=</span> <span class="p">[</span>
+
+<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -3068,7 +3049,6 @@ dtype: float64
 </div>
 </div>
 </div>
-<p>Works great!  :)</p>
 </div>
 
     <script type="text/x-thebe-config">
