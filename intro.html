@@ -114,6 +114,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="handson/05-support-vector-machines.html">
+   Support Vector Machines
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="handson/06-decision-trees.html">
    Decision Trees
   </a>
@@ -350,6 +355,16 @@
 <span class="c1"># bad</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>prefer <code class="docutils literal notranslate"><span class="pre">ax.axis</span></code> over <code class="docutils literal notranslate"><span class="pre">ax.set(xlim,</span> <span class="pre">ylim)</span></code></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># good</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># bad</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 <ul class="simple">

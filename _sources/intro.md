@@ -81,6 +81,16 @@ ax.set_xlabel('x')
 ax.set_ylabel('y')
 ```
 
+- prefer `ax.axis` over `ax.set(xlim, ylim)`
+
+```python
+# good
+ax.axis([-1, 1, -1, 1])
+
+# bad
+ax.set(xlim=(-1, 1), ylim=(-1, 1))
+```
+
 - Prefer `despine()` over `ax.spines[*].set_visible()`
 
 ```python
