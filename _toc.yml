@@ -4,13 +4,6 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Statistics
-    chapters:
-      - file: basics/01-Descriptive-Statistics
-      - file: basics/02-Probability-Review
-      - file: basics/03-Parameter-Estimation
-      - file: basics/04.Hypothesis-Testing
-      - file: basics/05.ANOVA
   - caption: HandsON
     chapters:
       - file: handson/02-data-processing
@@ -31,3 +24,10 @@ parts:
   #     - file: handson-dl/106-processing-sequences-using-rnns-and-cnns
   #     - file: handson-dl/107-nlp-with-rnns-and-attention
   #     - file: handson-dl/108-autoencoders-and-gans
+  - caption: Statistics
+    chapters:
+      - file: basics/01-Descriptive-Statistics
+      - file: basics/02-Probability-Review
+      - file: basics/03-Parameter-Estimation
+      - file: basics/04.Hypothesis-Testing
+      - file: basics/05.ANOVA
