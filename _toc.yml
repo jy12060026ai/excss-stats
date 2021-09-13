@@ -12,7 +12,7 @@ parts:
       - file: handson/05-support-vector-machines
       - file: handson/06-decision-trees
       - file: handson/07-ensemble-learning
-      - file: handson/08-dimensionality-reduction
+      # - file: handson/08-dimensionality-reduction
       # - file: handson/09-unsupervised-learning
   # - caption: HandsON DL
   #   chapters:
