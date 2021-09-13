@@ -4,6 +4,13 @@
 format: jb-book
 root: intro
 parts:
+  - caption: Statistics
+    chapters:
+      - file: basics/01-Descriptive-Statistics
+      - file: basics/02-Probability-Review
+      - file: basics/03-Parameter-Estimation
+      - file: basics/04.Hypothesis-Testing
+      - file: basics/05.ANOVA
   - caption: HandsON
     chapters:
       - file: handson/02-data-processing
