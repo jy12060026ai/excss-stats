@@ -112,6 +112,11 @@
    Linear Models
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-decision-trees.html">
+   Decision Trees
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -1028,7 +1033,7 @@ Name: income_cat, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x127a7fbe0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7faeebca0d60&gt;
 </pre></div>
 </div>
 <img alt="../_images/02-data-processing_30_1.png" src="../_images/02-data-processing_30_1.png" />
@@ -1120,7 +1125,7 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x127b9d0d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7faeeab08d00&gt;
 </pre></div>
 </div>
 <img alt="../_images/02-data-processing_35_1.png" src="../_images/02-data-processing_35_1.png" />
@@ -2009,7 +2014,7 @@ Name: median_house_value, dtype: float64
         <span class="bp">self</span><span class="o">.</span><span class="n">add_bedrooms_per_room</span> <span class="o">=</span> <span class="n">add_bedrooms_per_room</span>
 
     <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span>  <span class="c1"># nothing else to do</span>
+        <span class="k">return</span> <span class="bp">self</span>
 
     <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="n">rooms_per_household</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="n">rooms_ix</span><span class="p">]</span> <span class="o">/</span> <span class="n">X</span><span class="p">[:,</span> <span class="n">households_ix</span><span class="p">]</span>
@@ -2034,7 +2039,7 @@ Name: median_house_value, dtype: float64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col_names</span> <span class="o">=</span> <span class="s2">&quot;total_rooms&quot;</span><span class="p">,</span> <span class="s2">&quot;total_bedrooms&quot;</span><span class="p">,</span> <span class="s2">&quot;population&quot;</span><span class="p">,</span> <span class="s2">&quot;households&quot;</span>
 <span class="n">rooms_ix</span><span class="p">,</span> <span class="n">bedrooms_ix</span><span class="p">,</span> <span class="n">population_ix</span><span class="p">,</span> <span class="n">households_ix</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">housing</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">col_names</span>
-<span class="p">]</span>  <span class="c1"># get the column indices</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2044,7 +2049,8 @@ Name: median_house_value, dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">housing_extra_attribs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
     <span class="n">housing_extra_attribs</span><span class="p">,</span>
-    <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">housing</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;population_per_household&quot;</span><span class="p">],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">housing</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">+</span>
+    <span class="p">[</span><span class="s2">&quot;rooms_per_household&quot;</span><span class="p">,</span> <span class="s2">&quot;population_per_household&quot;</span><span class="p">],</span>
     <span class="n">index</span><span class="o">=</span><span class="n">housing</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 <span class="n">housing_extra_attribs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -2583,7 +2589,7 @@ Standard deviation: 2439.4345041191004
  68031.13388938 71193.84183426 64969.63056405 68281.61137997
  71552.91566558 67665.10082067]
 Mean: 69052.46136345083
-Standard deviation: 2731.674001798348
+Standard deviation: 2731.674001798342
 </pre></div>
 </div>
 </div>
@@ -2722,8 +2728,8 @@ dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomizedSearchCV(cv=5, estimator=RandomForestRegressor(random_state=42),
-                   param_distributions={&#39;max_features&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x127d09c10&gt;,
-                                        &#39;n_estimators&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x127d09e20&gt;},
+                   param_distributions={&#39;max_features&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7faeee6c4580&gt;,
+                                        &#39;n_estimators&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7faeee6c5370&gt;},
                    random_state=42, scoring=&#39;neg_mean_squared_error&#39;)
 </pre></div>
 </div>
@@ -3086,16 +3092,16 @@ dtype: float64
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "p39"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "p39",
             path: "./handson"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'p39'</script>
 
               </div>
               
