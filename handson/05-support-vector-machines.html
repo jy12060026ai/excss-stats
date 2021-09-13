@@ -122,6 +122,11 @@
    Decision Trees
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-ensemble-learning.html">
+   Ensemble Learning
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -308,13 +313,6 @@
   <a class="reference internal nav-link" href="#exercise-solutions">
    Exercise solutions
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     10.
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -612,7 +610,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/svm/_base.py:985: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/Caskroom/miniconda/base/envs/p39/lib/python3.9/site-packages/sklearn/svm/_base.py:985: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
   warnings.warn(&quot;Liblinear failed to converge, increase &quot;
 </pre></div>
 </div>
@@ -757,7 +755,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/svm/_base.py:985: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/Caskroom/miniconda/base/envs/p39/lib/python3.9/site-packages/sklearn/svm/_base.py:985: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
   warnings.warn(&quot;Liblinear failed to converge, increase &quot;
 </pre></div>
 </div>
@@ -1186,6 +1184,7 @@ Phi(-1.0, 1) = [0.30119421]
     <span class="n">x1_in_bounds</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">x1_lim</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x1_lim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
     <span class="n">X_crop</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">x1_in_bounds</span><span class="p">]</span>
     <span class="n">y_crop</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">x1_in_bounds</span><span class="p">]</span>
+    <span class="n">x1s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x1_lim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x1_lim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">20</span><span class="p">)</span>
     <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">make_mesh</span><span class="p">(</span><span class="n">x1_lim</span> <span class="o">+</span> <span class="n">x2_lim</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
     <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">x1</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">x2</span><span class="o">.</span><span class="n">flatten</span><span class="p">()]</span>
     <span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">xs</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -1223,56 +1222,7 @@ Phi(-1.0, 1) = [0.30119421]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_33782</span><span class="o">/</span><span class="mf">4195734711.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">38</span> <span class="n">plot_3D_decision_function</span><span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">svm_clf2</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">b</span><span class="o">=</span><span class="n">svm_clf2</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span> 
-<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="nn">/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_33782/4195734711.py</span> in <span class="ni">plot_3D_decision_function</span><span class="nt">(ax, w, b, x1_lim, x2_lim)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">margin_x2s_1</span> <span class="o">=</span> <span class="o">-</span><span class="n">x1s</span> <span class="o">*</span> <span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">margin_x2s_2</span> <span class="o">=</span> <span class="o">-</span><span class="n">x1s</span> <span class="o">*</span> <span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">15</span>     <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">x1s</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>                     <span class="n">x2</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>                     <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/matplotlib/_api/deprecation.py</span> in <span class="ni">wrapper</span><span class="nt">(*inner_args, **inner_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">429</span>                          <span class="k">else</span> <span class="n">deprecation_addendum</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">430</span>                 <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">431</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">inner_args</span><span class="p">,</span> <span class="o">**</span><span class="n">inner_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">432</span> 
-<span class="g g-Whitespace">    </span><span class="mi">433</span>     <span class="k">return</span> <span class="n">wrapper</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/mpl_toolkits/mplot3d/axes3d.py</span> in <span class="ni">plot_surface</span><span class="nt">(self, X, Y, Z, norm, vmin, vmax, lightsource, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1663</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1664</span>         <span class="c1"># TODO: Support masked arrays</span>
-<span class="ne">-&gt; </span><span class="mi">1665</span>         <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1666</span>         <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">shape</span>
-<span class="g g-Whitespace">   </span><span class="mi">1667</span> 
-
-<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">broadcast_arrays</span><span class="nt">(*args, **kwargs)</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/numpy/lib/stride_tricks.py</span> in <span class="ni">broadcast_arrays</span><span class="nt">(subok, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">536</span>     <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">_m</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">subok</span><span class="o">=</span><span class="n">subok</span><span class="p">)</span> <span class="k">for</span> <span class="n">_m</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">537</span> 
-<span class="ne">--&gt; </span><span class="mi">538</span>     <span class="n">shape</span> <span class="o">=</span> <span class="n">_broadcast_shape</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">539</span> 
-<span class="g g-Whitespace">    </span><span class="mi">540</span>     <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">shape</span> <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/numpy/lib/stride_tricks.py</span> in <span class="ni">_broadcast_shape</span><span class="nt">(*args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">418</span>     <span class="c1"># use the old-iterator because np.nditer does not handle size 0 arrays</span>
-<span class="g g-Whitespace">    </span><span class="mi">419</span>     <span class="c1"># consistently</span>
-<span class="ne">--&gt; </span><span class="mi">420</span>     <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">[:</span><span class="mi">32</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">421</span>     <span class="c1"># unfortunately, it cannot handle 32 or more arguments directly</span>
-<span class="g g-Whitespace">    </span><span class="mi">422</span>     <span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="mi">31</span><span class="p">):</span>
-
-<span class="ne">ValueError</span>: shape mismatch: objects cannot be broadcast to a single shape
-</pre></div>
-</div>
-<img alt="../_images/05-support-vector-machines_51_1.png" src="../_images/05-support-vector-machines_51_1.png" />
+<img alt="../_images/05-support-vector-machines_51_0.png" src="../_images/05-support-vector-machines_51_0.png" />
 </div>
 </div>
 </div>
@@ -1280,7 +1230,7 @@ Phi(-1.0, 1) = [0.30119421]
 <h1>Small weight vector results in a large margin<a class="headerlink" href="#small-weight-vector-results-in-a-large-margin" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_2D_decision_function</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">x1_lim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_2D_decision_function</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">x1_lim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]):</span>
     <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x1_lim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x1_lim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">200</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">x1</span> <span class="o">+</span> <span class="n">b</span>
     <span class="n">m</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">w</span>
@@ -1294,25 +1244,22 @@ Phi(-1.0, 1) = [0.30119421]
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="n">m</span><span class="p">,</span> <span class="o">-</span><span class="n">m</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;k--&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="n">m</span><span class="p">,</span> <span class="n">m</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;k-o&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">x1_lim</span> <span class="o">+</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$x_1$&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;$w_1 = </span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2">$&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$x_1$&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;$w_1 = </span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ylabel</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$w_1 x_1$  &quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$w_1 x_1$&quot;</span><span class="p">)</span>
 
 
 <span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">plot_2D_decision_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">plot_2D_decision_function</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plot_2D_decision_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plot_2D_decision_function</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure small_w_large_margin_plot
-</pre></div>
-</div>
-<img alt="../_images/05-support-vector-machines_53_1.png" src="../_images/05-support-vector-machines_53_1.png" />
+<img alt="../_images/05-support-vector-machines_53_0.png" src="../_images/05-support-vector-machines_53_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1325,11 +1272,6 @@ Phi(-1.0, 1) = [0.30119421]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.])
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1338,6 +1280,11 @@ Phi(-1.0, 1) = [0.30119421]
 <span class="n">svm_clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">svm_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">svm_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mf">5.3</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.])
 </pre></div>
 </div>
 </div>
@@ -1360,15 +1307,12 @@ Phi(-1.0, 1) = [0.30119421]
 <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure hinge_plot
-</pre></div>
-</div>
-<img alt="../_images/05-support-vector-machines_57_1.png" src="../_images/05-support-vector-machines_57_1.png" />
+<img alt="../_images/05-support-vector-machines_57_0.png" src="../_images/05-support-vector-machines_57_0.png" />
 </div>
 </div>
 </div>
@@ -1385,10 +1329,9 @@ Phi(-1.0, 1) = [0.30119421]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f936084ecd0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f82fba6a9d0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/05-support-vector-machines_60_1.png" src="../_images/05-support-vector-machines_60_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1416,19 +1359,88 @@ Phi(-1.0, 1) = [0.30119421]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LibSVM]0 0.1 0.2017989158630371
-[LibSVM]1 0.01 0.19569611549377441
-[LibSVM]2 0.001 0.23690319061279297
-[LibSVM]3 0.0001 0.41855812072753906
-[LibSVM]4 1e-05 0.7902979850769043
-[LibSVM]5 1.0000000000000002e-06 0.6455130577087402
-[LibSVM]6 1.0000000000000002e-07 0.7135508060455322
-[LibSVM]7 1.0000000000000002e-08 0.7550830841064453
-[LibSVM]8 1.0000000000000003e-09 0.8036937713623047
-[LibSVM]9 1.0000000000000003e-10 0.7757120132446289
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LibSVM]......................................
+Warning: using -h 0 may be faster
+*.......................
+Warning: using -h 0 may be faster
+*..............................................................
+Warning: using -h 0 may be faster
+*...................................*.......................................................*
+optimization finished, #iter = 212105
+obj = -4447.997680, rho = 0.075931
+nSV = 449, nBSV = 441
+Total nSV = 449
+0 0.1 0.4132547378540039
+[LibSVM]................................................*..........................................................*..............*..............................................................*.................................................................1 0.01 0.3308138847351074
+.*...........*
+optimization finished, #iter = 258151
+obj = -4448.479655, rho = 0.058653
+nSV = 446, nBSV = 441
+Total nSV = 446
+[LibSVM]...................................................*......*............................................................*..............................................................................*..............................................................................*...........................................................................*...................*..............................................................................................*
+optimization finished, #iter = 457597
+obj = -4448.486560, rho = 0.058757
+nSV = 448, nBSV = 442
+Total nSV = 448
+2 0.001 0.5668017864227295
+[LibSVM]..................................................................*.......*..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................*...............................*........................................
+Warning: using -h 0 may be faster
+*.......................................................................................................*.......................................................*.................................................................................*
+optimization finished, #iter = 1847405
+obj = -4448.486967, rho = 0.058563
+nSV = 447, nBSV = 442
+Total nSV = 447
+3 0.0001 1.101024866104126
+[LibSVM]...................................................................*........*..................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................*...........................................
+Warning: using -h 0 may be faster
 </pre></div>
 </div>
-<img alt="../_images/05-support-vector-machines_61_1.png" src="../_images/05-support-vector-machines_61_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*.............................................................*.............*...............................*...................................................*.................................................................................*
+optimization finished, #iter = 5714793
+obj = -4448.486967, rho = 0.058489
+nSV = 447, nBSV = 442
+Total nSV = 447
+4 1e-05 1.3054149150848389
+[LibSVM]....................................................................*.........*..................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................*..............................*........................................................................*..................................................................*.................................................................................*
+optimization finished, #iter = 5269413
+obj = -4448.486967, rho = 0.058480
+nSV = 447, nBSV = 442
+Total nSV = 447
+5 1.0000000000000002e-06 1.043727159500122
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LibSVM]......................................................................*..........*..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................*..............................*........................................................................*...................................................................*.................................................................................*
+optimization finished, #iter = 5793339
+6obj = -4448.486967, rho = 0.058480
+nSV = 447, nBSV = 442
+Total nSV = 447
+ 1.0000000000000002e-07 1.1049830913543701
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LibSVM].......................................................................*...........*..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................*..............................*........................................................................*...................................................................*.................................................................................*
+optimization finished, #iter = 5795788
+7 1.0000000000000002e-08 0.9837350845336914
+obj = -4448.486967, rho = 0.058480
+nSV = 447, nBSV = 442
+Total nSV = 447
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LibSVM]........................................................................*............*..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................*..............................*........................................................................*...................................................................*.................................................................................*
+optimization finished, #iter = 5797996
+8 1.0000000000000003e-09 0.9982693195343018
+obj = -4448.486967, rho = 0.058480
+nSV = 447, nBSV = 442
+Total nSV = 447
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LibSVM].........................................................................*.............*..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................*..............................*........................................................................*...................................................................*.................................................................................*
+optimization finished, #iter = 5800424
+obj = -4448.486967, rho = 0.058480
+nSV = 447, nBSV = 442
+Total nSV = 447
+9 1.0000000000000003e-10 1.192094087600708
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1525,7 +1537,7 @@ Phi(-1.0, 1) = [0.30119421]
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">svm_clf</span><span class="o">.</span><span class="n">n_epochs</span><span class="p">),</span> <span class="n">svm_clf</span><span class="o">.</span><span class="n">Js</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">svm_clf</span><span class="o">.</span><span class="n">n_epochs</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">svm_clf</span><span class="o">.</span><span class="n">n_epochs</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1660,13 +1672,6 @@ Phi(-1.0, 1) = [0.30119421]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearSVC:                    [0.28475098] [[1.05364854 1.09903804]]
-SVC:                          [0.31896852] [[1.1203284  1.02625193]]
-SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1694,6 +1699,13 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SVC:                         &quot;</span><span class="p">,</span> <span class="n">svm_clf</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">svm_clf</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SGDClassifier(alpha=</span><span class="si">{</span><span class="n">sgd_clf</span><span class="o">.</span><span class="n">alpha</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">,</span> <span class="n">sgd_clf</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span>
       <span class="n">sgd_clf</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearSVC:                    [0.28475098] [[1.05364854 1.09903804]]
+SVC:                          [0.31896852] [[1.1203284  1.02625193]]
+SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 </pre></div>
 </div>
 </div>
@@ -1739,6 +1751,13 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 <p>First, let’s load the dataset and split it into a training set and a test set. We could use <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> but people usually just take the first 60,000 instances for the training set, and the last 10,000 instances for the test set (this makes it possible to compare your model’s performance with others):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s1">&#39;mnist_784&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data_home</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1759,17 +1778,8 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 <p><strong>Warning</strong>: this may take a few minutes depending on your hardware.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lin_clf</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">lin_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/ageron/miniconda3/envs/tf2/lib/python3.7/site-packages/sklearn/svm/_base.py:977: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
-  &quot;the number of iterations.&quot;, ConvergenceWarning)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearSVC(random_state=42)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lin_clf = LinearSVC(random_state=42)</span>
+<span class="c1"># lin_clf.fit(X_train, y_train)</span>
 </pre></div>
 </div>
 </div>
@@ -1777,15 +1787,10 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 <p>Let’s make predictions on the training set and measure the accuracy (we don’t want to measure it on the test set yet, since we have not selected and trained the final model yet):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from sklearn.metrics import accuracy_score</span>
 
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lin_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8348666666666666
+<span class="c1"># y_pred = lin_clf.predict(X_train)</span>
+<span class="c1"># accuracy_score(y_train, y_pred)</span>
 </pre></div>
 </div>
 </div>
@@ -1803,36 +1808,28 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 <p><strong>Warning</strong>: this may take a few minutes depending on your hardware.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lin_clf</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">lin_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/ageron/miniconda3/envs/tf2/lib/python3.7/site-packages/sklearn/svm/_base.py:977: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
-  &quot;the number of iterations.&quot;, ConvergenceWarning)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearSVC(random_state=42)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># lin_clf = LinearSVC(random_state=42)</span>
+<span class="c1"># lin_clf.fit(X_train_scaled, y_train)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">lin_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">)</span>
-<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9217333333333333
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_pred = lin_clf.predict(X_train_scaled)</span>
+<span class="c1"># accuracy_score(y_train, y_pred)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>That’s much better (we cut the error rate by about 25%), but still not great at all for MNIST. If we want to use an SVM, we will have to use a kernel. Let’s try an <code class="docutils literal notranslate"><span class="pre">SVC</span></code> with an RBF kernel (the default).</p>
-<p><strong>Note</strong>: to be future-proof we set <code class="docutils literal notranslate"><span class="pre">gamma=&quot;scale&quot;</span></code> since it will be the default value in Scikit-Learn 0.22.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="s2">&quot;scale&quot;</span><span class="p">)</span>
@@ -1867,90 +1864,6 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 3 folds for each of 10 candidates, totalling 30 fits
-[CV] C=5.847490967837556, gamma=0.004375955271336425 .................
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[CV] .. C=5.847490967837556, gamma=0.004375955271336425, total=   0.8s
-[CV] C=5.847490967837556, gamma=0.004375955271336425 .................
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.8s remaining:    0.0s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[CV] .. C=5.847490967837556, gamma=0.004375955271336425, total=   0.8s
-[CV] C=5.847490967837556, gamma=0.004375955271336425 .................
-[CV] .. C=5.847490967837556, gamma=0.004375955271336425, total=   0.8s
-[CV] C=2.544266730893301, gamma=0.024987648190235304 .................
-[CV] .. C=2.544266730893301, gamma=0.024987648190235304, total=   0.9s
-[CV] C=2.544266730893301, gamma=0.024987648190235304 .................
-[CV] .. C=2.544266730893301, gamma=0.024987648190235304, total=   0.9s
-[CV] C=2.544266730893301, gamma=0.024987648190235304 .................
-[CV] .. C=2.544266730893301, gamma=0.024987648190235304, total=   0.9s
-[CV] C=2.199505425963898, gamma=0.009340106304825553 .................
-[CV] .. C=2.199505425963898, gamma=0.009340106304825553, total=   0.8s
-[CV] C=2.199505425963898, gamma=0.009340106304825553 .................
-[CV] .. C=2.199505425963898, gamma=0.009340106304825553, total=   0.8s
-[CV] C=2.199505425963898, gamma=0.009340106304825553 .................
-[CV] .. C=2.199505425963898, gamma=0.009340106304825553, total=   0.9s
-[CV] C=7.327377306009368, gamma=0.04329656504133618 ..................
-[CV] ... C=7.327377306009368, gamma=0.04329656504133618, total=   0.9s
-[CV] C=7.327377306009368, gamma=0.04329656504133618 ..................
-[CV] ... C=7.327377306009368, gamma=0.04329656504133618, total=   0.9s
-[CV] C=7.327377306009368, gamma=0.04329656504133618 ..................
-[CV] ... C=7.327377306009368, gamma=0.04329656504133618, total=   0.9s
-[CV] C=7.830259944094713, gamma=0.009933958471354695 .................
-[CV] .. C=7.830259944094713, gamma=0.009933958471354695, total=   0.9s
-[CV] C=7.830259944094713, gamma=0.009933958471354695 .................
-[CV] .. C=7.830259944094713, gamma=0.009933958471354695, total=   0.9s
-[CV] C=7.830259944094713, gamma=0.009933958471354695 .................
-[CV] .. C=7.830259944094713, gamma=0.009933958471354695, total=   0.9s
-[CV] C=6.867969780001033, gamma=0.027511132256566175 .................
-[CV] .. C=6.867969780001033, gamma=0.027511132256566175, total=   0.9s
-[CV] C=6.867969780001033, gamma=0.027511132256566175 .................
-[CV] .. C=6.867969780001033, gamma=0.027511132256566175, total=   0.9s
-[CV] C=6.867969780001033, gamma=0.027511132256566175 .................
-[CV] .. C=6.867969780001033, gamma=0.027511132256566175, total=   0.9s
-[CV] C=3.584980864373988, gamma=0.01237128009623357 ..................
-[CV] ... C=3.584980864373988, gamma=0.01237128009623357, total=   0.9s
-[CV] C=3.584980864373988, gamma=0.01237128009623357 ..................
-[CV] ... C=3.584980864373988, gamma=0.01237128009623357, total=   0.9s
-[CV] C=3.584980864373988, gamma=0.01237128009623357 ..................
-[CV] ... C=3.584980864373988, gamma=0.01237128009623357, total=   0.9s
-[CV] C=5.073078322899452, gamma=0.002259275783824143 .................
-[CV] .. C=5.073078322899452, gamma=0.002259275783824143, total=   0.7s
-[CV] C=5.073078322899452, gamma=0.002259275783824143 .................
-[CV] .. C=5.073078322899452, gamma=0.002259275783824143, total=   0.7s
-[CV] C=5.073078322899452, gamma=0.002259275783824143 .................
-[CV] .. C=5.073078322899452, gamma=0.002259275783824143, total=   0.7s
-[CV] C=10.696324058267928, gamma=0.0039267813006514255 ...............
-[CV]  C=10.696324058267928, gamma=0.0039267813006514255, total=   0.8s
-[CV] C=10.696324058267928, gamma=0.0039267813006514255 ...............
-[CV]  C=10.696324058267928, gamma=0.0039267813006514255, total=   0.8s
-[CV] C=10.696324058267928, gamma=0.0039267813006514255 ...............
-[CV]  C=10.696324058267928, gamma=0.0039267813006514255, total=   0.8s
-[CV] C=3.8786881587000437, gamma=0.0017076019229344522 ...............
-[CV]  C=3.8786881587000437, gamma=0.0017076019229344522, total=   0.7s
-[CV] C=3.8786881587000437, gamma=0.0017076019229344522 ...............
-[CV]  C=3.8786881587000437, gamma=0.0017076019229344522, total=   0.7s
-[CV] C=3.8786881587000437, gamma=0.0017076019229344522 ...............
-[CV]  C=3.8786881587000437, gamma=0.0017076019229344522, total=   0.7s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  30 out of  30 | elapsed:   24.8s finished
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomizedSearchCV(cv=3, estimator=SVC(),
-                   param_distributions={&#39;C&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7f93b0a61990&gt;,
-                                        &#39;gamma&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7f93b0a61850&gt;},
-                   verbose=2)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1964,6 +1877,47 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 3 folds for each of 10 candidates, totalling 30 fits
+[CV] END ...C=4.205364371116072, gamma=0.0020363543195523162; total time=   0.2s
+[CV] END ...C=4.205364371116072, gamma=0.0020363543195523162; total time=   0.3s
+[CV] END ...C=4.205364371116072, gamma=0.0020363543195523162; total time=   0.3s
+[CV] END ...C=7.988626913672013, gamma=0.0017374050727190405; total time=   0.3s
+[CV] END ...C=7.988626913672013, gamma=0.0017374050727190405; total time=   0.3s
+[CV] END ...C=7.988626913672013, gamma=0.0017374050727190405; total time=   0.3s
+[CV] END ......C=5.85175909599865, gamma=0.01842788363564703; total time=   0.3s
+[CV] END ......C=5.85175909599865, gamma=0.01842788363564703; total time=   0.3s
+[CV] END ......C=5.85175909599865, gamma=0.01842788363564703; total time=   0.3s
+[CV] END .....C=9.182267213548876, gamma=0.02323014864755092; total time=   0.4s
+[CV] END .....C=9.182267213548876, gamma=0.02323014864755092; total time=   0.3s
+[CV] END .....C=9.182267213548876, gamma=0.02323014864755092; total time=   0.3s
+[CV] END .....C=5.98561170053319, gamma=0.014913993724076518; total time=   0.3s
+[CV] END .....C=5.98561170053319, gamma=0.014913993724076518; total time=   0.3s
+[CV] END .....C=5.98561170053319, gamma=0.014913993724076518; total time=   0.3s
+[CV] END ....C=8.197542323569591, gamma=0.003288487329556284; total time=   0.3s
+[CV] END ....C=8.197542323569591, gamma=0.003288487329556284; total time=   0.3s
+[CV] END ....C=8.197542323569591, gamma=0.003288487329556284; total time=   0.3s
+[CV] END .....C=6.46207319902158, gamma=0.006525528106404709; total time=   0.3s
+[CV] END .....C=6.46207319902158, gamma=0.006525528106404709; total time=   0.3s
+[CV] END .....C=6.46207319902158, gamma=0.006525528106404709; total time=   0.3s
+[CV] END ....C=2.7698462366793652, gamma=0.08694904406662167; total time=   0.3s
+[CV] END ....C=2.7698462366793652, gamma=0.08694904406662167; total time=   0.3s
+[CV] END ....C=2.7698462366793652, gamma=0.08694904406662167; total time=   0.3s
+[CV] END ...C=3.970183571076878, gamma=0.0037647629143775273; total time=   0.2s
+[CV] END ...C=3.970183571076878, gamma=0.0037647629143775273; total time=   0.3s
+[CV] END ...C=3.970183571076878, gamma=0.0037647629143775273; total time=   0.3s
+[CV] END ..C=2.1619331759609963, gamma=0.0023091602640281797; total time=   0.2s
+[CV] END ..C=2.1619331759609963, gamma=0.0023091602640281797; total time=   0.3s
+[CV] END ..C=2.1619331759609963, gamma=0.0023091602640281797; total time=   0.3s
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomizedSearchCV(cv=3, estimator=SVC(),
+                   param_distributions={&#39;C&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7f8229122790&gt;,
+                                        &#39;gamma&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7f82291289d0&gt;},
+                   verbose=2)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1972,7 +1926,7 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SVC(C=3.8786881587000437, gamma=0.0017076019229344522)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SVC(C=7.988626913672013, gamma=0.0017374050727190405)
 </pre></div>
 </div>
 </div>
@@ -1993,25 +1947,15 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 <p><strong>Warning</strong>: the following cell may take hours to run, depending on your hardware.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rnd_search_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SVC(C=3.8786881587000437, gamma=0.0017076019229344522)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rnd_search_cv.best_estimator_.fit(X_train_scaled, y_train)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">rnd_search_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">)</span>
-<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9978166666666667
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_pred = rnd_search_cv.best_estimator_.predict(X_train_scaled)</span>
+<span class="c1"># accuracy_score(y_train, y_pred)</span>
 </pre></div>
 </div>
 </div>
@@ -2019,22 +1963,14 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 <p>Ah, this looks good! Let’s select this model. Now we can test it on the test set:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">rnd_search_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)</span>
-<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9717
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_pred = rnd_search_cv.best_estimator_.predict(X_test_scaled)</span>
+<span class="c1"># accuracy_score(y_test, y_pred)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Not too bad, but apparently the model is overfitting slightly. It’s tempting to tweak the hyperparameters a bit more (e.g. decreasing <code class="docutils literal notranslate"><span class="pre">C</span></code> and/or <code class="docutils literal notranslate"><span class="pre">gamma</span></code>), but we would run the risk of overfitting the test set. Other people have found that the hyperparameters <code class="docutils literal notranslate"><span class="pre">C=5</span></code> and <code class="docutils literal notranslate"><span class="pre">gamma=0.005</span></code> yield even better performance (over 98% accuracy). By running the randomized search for longer and on a larger part of the training set, you may be able to find this as well.</p>
-<div class="section" id="id1">
-<h2>10.<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p><em>Exercise: train an SVM regressor on the California housing dataset.</em></p>
-<p>Let’s load the dataset using Scikit-Learn’s <code class="docutils literal notranslate"><span class="pre">fetch_california_housing()</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span>
@@ -2051,7 +1987,10 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span>
+                                                    <span class="n">y</span><span class="p">,</span>
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2079,8 +2018,8 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/ageron/miniconda3/envs/tf2/lib/python3.7/site-packages/sklearn/svm/_base.py:977: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
-  &quot;the number of iterations.&quot;, ConvergenceWarning)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/Caskroom/miniconda/base/envs/p39/lib/python3.9/site-packages/sklearn/svm/_base.py:985: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+  warnings.warn(&quot;Liblinear failed to converge, increase &quot;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearSVR(random_state=42)
@@ -2127,88 +2066,6 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 3 folds for each of 10 candidates, totalling 30 fits
-[CV] C=4.745401188473625, gamma=0.07969454818643928 ..................
-[CV] ... C=4.745401188473625, gamma=0.07969454818643928, total=   4.7s
-[CV] C=4.745401188473625, gamma=0.07969454818643928 ..................
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    4.7s remaining:    0.0s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[CV] ... C=4.745401188473625, gamma=0.07969454818643928, total=   4.6s
-[CV] C=4.745401188473625, gamma=0.07969454818643928 ..................
-[CV] ... C=4.745401188473625, gamma=0.07969454818643928, total=   4.7s
-[CV] C=8.31993941811405, gamma=0.015751320499779724 ..................
-[CV] ... C=8.31993941811405, gamma=0.015751320499779724, total=   4.3s
-[CV] C=8.31993941811405, gamma=0.015751320499779724 ..................
-[CV] ... C=8.31993941811405, gamma=0.015751320499779724, total=   4.2s
-[CV] C=8.31993941811405, gamma=0.015751320499779724 ..................
-[CV] ... C=8.31993941811405, gamma=0.015751320499779724, total=   4.3s
-[CV] C=2.560186404424365, gamma=0.002051110418843397 .................
-[CV] .. C=2.560186404424365, gamma=0.002051110418843397, total=   3.8s
-[CV] C=2.560186404424365, gamma=0.002051110418843397 .................
-[CV] .. C=2.560186404424365, gamma=0.002051110418843397, total=   3.8s
-[CV] C=2.560186404424365, gamma=0.002051110418843397 .................
-[CV] .. C=2.560186404424365, gamma=0.002051110418843397, total=   3.9s
-[CV] C=1.5808361216819946, gamma=0.05399484409787431 .................
-[CV] .. C=1.5808361216819946, gamma=0.05399484409787431, total=   3.9s
-[CV] C=1.5808361216819946, gamma=0.05399484409787431 .................
-[CV] .. C=1.5808361216819946, gamma=0.05399484409787431, total=   3.8s
-[CV] C=1.5808361216819946, gamma=0.05399484409787431 .................
-[CV] .. C=1.5808361216819946, gamma=0.05399484409787431, total=   3.9s
-[CV] C=7.011150117432088, gamma=0.026070247583707663 .................
-[CV] .. C=7.011150117432088, gamma=0.026070247583707663, total=   4.3s
-[CV] C=7.011150117432088, gamma=0.026070247583707663 .................
-[CV] .. C=7.011150117432088, gamma=0.026070247583707663, total=   4.4s
-[CV] C=7.011150117432088, gamma=0.026070247583707663 .................
-[CV] .. C=7.011150117432088, gamma=0.026070247583707663, total=   4.4s
-[CV] C=1.2058449429580245, gamma=0.0870602087830485 ..................
-[CV] ... C=1.2058449429580245, gamma=0.0870602087830485, total=   3.8s
-[CV] C=1.2058449429580245, gamma=0.0870602087830485 ..................
-[CV] ... C=1.2058449429580245, gamma=0.0870602087830485, total=   3.9s
-[CV] C=1.2058449429580245, gamma=0.0870602087830485 ..................
-[CV] ... C=1.2058449429580245, gamma=0.0870602087830485, total=   3.9s
-[CV] C=9.324426408004218, gamma=0.0026587543983272693 ................
-[CV] . C=9.324426408004218, gamma=0.0026587543983272693, total=   4.0s
-[CV] C=9.324426408004218, gamma=0.0026587543983272693 ................
-[CV] . C=9.324426408004218, gamma=0.0026587543983272693, total=   4.0s
-[CV] C=9.324426408004218, gamma=0.0026587543983272693 ................
-[CV] . C=9.324426408004218, gamma=0.0026587543983272693, total=   3.9s
-[CV] C=2.818249672071006, gamma=0.0023270677083837795 ................
-[CV] . C=2.818249672071006, gamma=0.0023270677083837795, total=   3.8s
-[CV] C=2.818249672071006, gamma=0.0023270677083837795 ................
-[CV] . C=2.818249672071006, gamma=0.0023270677083837795, total=   3.8s
-[CV] C=2.818249672071006, gamma=0.0023270677083837795 ................
-[CV] . C=2.818249672071006, gamma=0.0023270677083837795, total=   3.8s
-[CV] C=4.042422429595377, gamma=0.011207606211860567 .................
-[CV] .. C=4.042422429595377, gamma=0.011207606211860567, total=   3.8s
-[CV] C=4.042422429595377, gamma=0.011207606211860567 .................
-[CV] .. C=4.042422429595377, gamma=0.011207606211860567, total=   3.9s
-[CV] C=4.042422429595377, gamma=0.011207606211860567 .................
-[CV] .. C=4.042422429595377, gamma=0.011207606211860567, total=   3.9s
-[CV] C=5.319450186421157, gamma=0.003823475224675185 .................
-[CV] .. C=5.319450186421157, gamma=0.003823475224675185, total=   3.8s
-[CV] C=5.319450186421157, gamma=0.003823475224675185 .................
-[CV] .. C=5.319450186421157, gamma=0.003823475224675185, total=   3.9s
-[CV] C=5.319450186421157, gamma=0.003823475224675185 .................
-[CV] .. C=5.319450186421157, gamma=0.003823475224675185, total=   3.9s
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Done  30 out of  30 | elapsed:  2.0min finished
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomizedSearchCV(cv=3, estimator=SVR(),
-                   param_distributions={&#39;C&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7f9370860850&gt;,
-                                        &#39;gamma&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7f9380503890&gt;},
-                   random_state=42, verbose=2)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2220,6 +2077,47 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
                                    <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">rnd_search_cv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 3 folds for each of 10 candidates, totalling 30 fits
+[CV] END .....C=4.745401188473625, gamma=0.07969454818643928; total time=  11.9s
+[CV] END .....C=4.745401188473625, gamma=0.07969454818643928; total time=  11.3s
+[CV] END .....C=4.745401188473625, gamma=0.07969454818643928; total time=  11.3s
+[CV] END .....C=8.31993941811405, gamma=0.015751320499779724; total time=  11.3s
+[CV] END .....C=8.31993941811405, gamma=0.015751320499779724; total time=  11.2s
+[CV] END .....C=8.31993941811405, gamma=0.015751320499779724; total time=  12.8s
+[CV] END ....C=2.560186404424365, gamma=0.002051110418843397; total time=  11.6s
+[CV] END ....C=2.560186404424365, gamma=0.002051110418843397; total time=  11.8s
+[CV] END ....C=2.560186404424365, gamma=0.002051110418843397; total time=  12.2s
+[CV] END ....C=1.5808361216819946, gamma=0.05399484409787431; total time=  12.3s
+[CV] END ....C=1.5808361216819946, gamma=0.05399484409787431; total time=  12.0s
+[CV] END ....C=1.5808361216819946, gamma=0.05399484409787431; total time=  12.4s
+[CV] END ....C=7.011150117432088, gamma=0.026070247583707663; total time=  10.8s
+[CV] END ....C=7.011150117432088, gamma=0.026070247583707663; total time=  10.8s
+[CV] END ....C=7.011150117432088, gamma=0.026070247583707663; total time=  10.8s
+[CV] END .....C=1.2058449429580245, gamma=0.0870602087830485; total time=  10.1s
+[CV] END .....C=1.2058449429580245, gamma=0.0870602087830485; total time=  10.2s
+[CV] END .....C=1.2058449429580245, gamma=0.0870602087830485; total time=  10.1s
+[CV] END ...C=9.324426408004218, gamma=0.0026587543983272693; total time=  10.6s
+[CV] END ...C=9.324426408004218, gamma=0.0026587543983272693; total time=  10.6s
+[CV] END ...C=9.324426408004218, gamma=0.0026587543983272693; total time=  10.5s
+[CV] END ...C=2.818249672071006, gamma=0.0023270677083837795; total time=  10.6s
+[CV] END ...C=2.818249672071006, gamma=0.0023270677083837795; total time=  10.6s
+[CV] END ...C=2.818249672071006, gamma=0.0023270677083837795; total time=  10.6s
+[CV] END ....C=4.042422429595377, gamma=0.011207606211860567; total time=  10.6s
+[CV] END ....C=4.042422429595377, gamma=0.011207606211860567; total time=  10.5s
+[CV] END ....C=4.042422429595377, gamma=0.011207606211860567; total time=  10.8s
+[CV] END ....C=5.319450186421157, gamma=0.003823475224675185; total time=  10.7s
+[CV] END ....C=5.319450186421157, gamma=0.003823475224675185; total time=  10.6s
+[CV] END ....C=5.319450186421157, gamma=0.003823475224675185; total time=  10.8s
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomizedSearchCV(cv=3, estimator=SVR(),
+                   param_distributions={&#39;C&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7f8227e840d0&gt;,
+                                        &#39;gamma&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7f822910b5b0&gt;},
+                   random_state=42, verbose=2)
 </pre></div>
 </div>
 </div>
@@ -2267,7 +2165,6 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 </div>
 </div>
 </div>
-</div>
 
     <script type="text/x-thebe-config">
     {
@@ -2278,16 +2175,16 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "p39"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "p39",
             path: "./handson"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'p39'</script>
 
               </div>
               
