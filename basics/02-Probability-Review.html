@@ -95,38 +95,6 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Statistics
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="01-Descriptive-Statistics.html">
-   Descriptive Statistics
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Basic Concepts Refresh
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03-Parameter-Estimation.html">
-   Parameter Estimation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04.Hypothesis-Testing.html">
-   Hypothesis Testing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05.ANOVA.html">
-   ANOVA
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
   HandsON
  </span>
 </p>
@@ -159,6 +127,38 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../handson/07-ensemble-learning.html">
    Ensemble Learning
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Statistics
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Descriptive-Statistics.html">
+   Descriptive Statistics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Basic Concepts Refresh
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-Parameter-Estimation.html">
+   Parameter Estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04.Hypothesis-Testing.html">
+   Hypothesis Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05.ANOVA.html">
+   ANOVA
   </a>
  </li>
 </ul>
@@ -340,10 +340,8 @@
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#font-face-gotham-color-purple-moments-of-binomial-distribution">
-       <font color="purple" face="gotham">
-        Moments of Binomial Distribution
-       </font>
+      <a class="reference internal nav-link" href="#moments-of-binomial-distribution">
+       Moments of Binomial Distribution
       </a>
      </li>
     </ul>
@@ -446,13 +444,11 @@
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-face-gotham-color-purple-chi-2-distribution">
-     <font color="purple" face="gotham">
-      <span class="math notranslate nohighlight">
-       \(\chi^2\)
-      </span>
-      Distribution
-     </font>
+    <a class="reference internal nav-link" href="#chi-2-distribution">
+     <span class="math notranslate nohighlight">
+      \(\chi^2\)
+     </span>
+     Distribution
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
@@ -517,8 +513,7 @@
 <h1>Basic Concepts Refresh<a class="headerlink" href="#basic-concepts-refresh" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="sets">
 <h2>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h2>
-<p>A set is a collection of <em>distinct elements</em>, for instance, <span class="math notranslate nohighlight">\((1, 2, 3)\)</span> is a set, but <span class="math notranslate nohighlight">\((2, 2, 3)\)</span> isn’t. Here we will demonstrate a bit of <strong>SymPy</strong> library, only scratching the surface. SymPy is an extremely powerful library, there are extensive examples in the <a href="https://github.com/MacroAnalyst/Linear_Algebra_With_Python"><strong>Linear Algebra With Python</strong><a> training sessions.</p>
-<p>We’ll start from defining sets then basic operations. <code class="docutils literal notranslate"><span class="pre">sy.</span></code> is alias of <code class="docutils literal notranslate"><span class="pre">sympy</span></code>.</p>
+<p>A set is a collection of <em>distinct elements</em>, for instance, <span class="math notranslate nohighlight">\((1, 2, 3)\)</span> is a set, but <span class="math notranslate nohighlight">\((2, 2, 3)\)</span> isn’t.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">FiniteSet</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span> <span class="n">s</span>
@@ -532,7 +527,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">FiniteSet</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">fr</span><span class="o">.</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="mi">8</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">sy</span><span class="o">.</span><span class="n">FiniteSet</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">fr</span><span class="o">.</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="mi">8</span><span class="p">)</span>
 <span class="n">s1</span>
 </pre></div>
 </div>
@@ -866,26 +861,58 @@ A\times B=\{(a,b)\mid a\in A\ {\mbox{ and }}\ b\in B\}
 <p>Create a dictionary to hold the Cartesian product of two dice and its sum. The <code class="docutils literal notranslate"><span class="pre">.update</span></code> function is for adding elements in the dictionary if the updated key didn’t exist.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">special</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># combination</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
-        <span class="n">dice_cartesian</span><span class="o">.</span><span class="n">update</span><span class="p">({(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">})</span>
-        
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">special</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dice_cartesian</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">):</span>
+        <span class="n">dice_cartesian</span><span class="o">.</span><span class="n">update</span><span class="p">({(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">})</span>
 <span class="n">dice_cartesian</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">2666898811.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">special</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># combination</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>         <span class="n">dice_cartesian</span><span class="o">.</span><span class="n">update</span><span class="p">({(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">})</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-
-<span class="ne">NameError</span>: name &#39;special&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{(1, 1): 2,
+ (1, 2): 3,
+ (1, 3): 4,
+ (1, 4): 5,
+ (1, 5): 6,
+ (1, 6): 7,
+ (2, 1): 3,
+ (2, 2): 4,
+ (2, 3): 5,
+ (2, 4): 6,
+ (2, 5): 7,
+ (2, 6): 8,
+ (3, 1): 4,
+ (3, 2): 5,
+ (3, 3): 6,
+ (3, 4): 7,
+ (3, 5): 8,
+ (3, 6): 9,
+ (4, 1): 5,
+ (4, 2): 6,
+ (4, 3): 7,
+ (4, 4): 8,
+ (4, 5): 9,
+ (4, 6): 10,
+ (5, 1): 6,
+ (5, 2): 7,
+ (5, 3): 8,
+ (5, 4): 9,
+ (5, 5): 10,
+ (5, 6): 11,
+ (6, 1): 7,
+ (6, 2): 8,
+ (6, 3): 9,
+ (6, 4): 10,
+ (6, 5): 11,
+ (6, 6): 12}
 </pre></div>
 </div>
 </div>
@@ -898,12 +925,7 @@ A\times B=\{(a,b)\mid a\in A\ {\mbox{ and }}\ b\in B\}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">864488035.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">special</span><span class="o">.</span><span class="n">perm</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># permutation</span>
-
-<span class="ne">NameError</span>: name &#39;special&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15600.0
 </pre></div>
 </div>
 </div>
@@ -921,16 +943,18 @@ A\times B=\{(a,b)\mid a\in A\ {\mbox{ and }}\ b\in B\}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">753352290.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">dice_count</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="n">dice_cartesian</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">dice_count</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">dice_count</span>
-
-<span class="ne">NameError</span>: name &#39;dice_cartesian&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>defaultdict(list,
+            {2: [(1, 1)],
+             3: [(1, 2), (2, 1)],
+             4: [(1, 3), (2, 2), (3, 1)],
+             5: [(1, 4), (2, 3), (3, 2), (4, 1)],
+             6: [(1, 5), (2, 4), (3, 3), (4, 2), (5, 1)],
+             7: [(1, 6), (2, 5), (3, 4), (4, 3), (5, 2), (6, 1)],
+             8: [(2, 6), (3, 5), (4, 4), (5, 3), (6, 2)],
+             9: [(3, 6), (4, 5), (5, 4), (6, 3)],
+             10: [(4, 6), (5, 5), (6, 4)],
+             11: [(5, 6), (6, 5)],
+             12: [(6, 6)]})
 </pre></div>
 </div>
 </div>
@@ -943,7 +967,17 @@ A\times B=\{(a,b)\mid a\in A\ {\mbox{ and }}\ b\in B\}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{2: 0.0278,
+ 3: 0.0556,
+ 4: 0.0833,
+ 5: 0.1111,
+ 6: 0.1389,
+ 7: 0.1667,
+ 8: 0.1389,
+ 9: 0.1111,
+ 10: 0.0833,
+ 11: 0.0556,
+ 12: 0.0278}
 </pre></div>
 </div>
 </div>
@@ -1041,16 +1075,6 @@ _nP_N = \frac{N!}{(N-n)!}
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">4197286704.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">texttable</span> <span class="kn">import</span> <span class="n">Texttable</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;texttable&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1066,16 +1090,15 @@ _nP_N = \frac{N!}{(N-n)!}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">1491050028.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">table</span> <span class="o">=</span> <span class="n">Texttable</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">table</span><span class="o">.</span><span class="n">set_cols_align</span><span class="p">([</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">table</span><span class="o">.</span><span class="n">set_cols_valign</span><span class="p">([</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">table</span><span class="o">.</span><span class="n">add_rows</span><span class="p">([[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Have Ht. Disease&quot;</span><span class="p">,</span> <span class="s2">&quot; Not Have &quot;</span><span class="p">,</span> <span class="s1">&#39; Total &#39;</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>                 <span class="p">[</span><span class="s2">&quot;Male&quot;</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.51</span><span class="p">],</span>
-
-<span class="ne">NameError</span>: name &#39;Texttable&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-------+------------------+------------+---------+
+|       | Have Ht. Disease |  Not Have  |  Total  |
++=======+==================+============+=========+
+| Male  |      0.450       |   0.060    |  0.510  |
++-------+------------------+------------+---------+
+| Femal |      0.360       |   0.130    |  0.490  |
++-------+------------------+------------+---------+
+| Total |      0.810       |   0.190    |    1    |
++-------+------------------+------------+---------+
 </pre></div>
 </div>
 </div>
@@ -1095,16 +1118,11 @@ _nP_N = \frac{N!}{(N-n)!}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">1787795664.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">table</span> <span class="o">=</span> <span class="n">Texttable</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">table</span><span class="o">.</span><span class="n">set_cols_align</span><span class="p">([</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">table</span><span class="o">.</span><span class="n">set_cols_valign</span><span class="p">([</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">table</span><span class="o">.</span><span class="n">add_rows</span><span class="p">([[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Have Ht. Disease&quot;</span><span class="p">,</span> <span class="s2">&quot; Not Have &quot;</span><span class="p">,</span> <span class="s1">&#39; Total &#39;</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>                 <span class="p">[</span><span class="s2">&quot;Femal&quot;</span><span class="p">,</span> <span class="mf">0.36</span><span class="p">,</span> <span class="mf">0.13</span><span class="p">,</span> <span class="mf">0.49</span><span class="p">]])</span>
-
-<span class="ne">NameError</span>: name &#39;Texttable&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-------+------------------+------------+---------+
+|       | Have Ht. Disease |  Not Have  |  Total  |
++=======+==================+============+=========+
+| Femal |      0.360       |   0.130    |  0.490  |
++-------+------------------+------------+---------+
 </pre></div>
 </div>
 </div>
@@ -1194,6 +1212,13 @@ f(k,n,p)=_nC_k p^kq^{n-k}
 <p>Start from a single number could be more intuitive, what’s probability that a personal banker to encounter exact <span class="math notranslate nohighlight">\(14\)</span> persons of bad credit history in a month?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">special</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="n">k</span> <span class="o">=</span> <span class="mi">14</span>  <span class="c1"># what is the prob that exact 14 ppl she met had bad credit history?</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">special</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
@@ -1232,7 +1257,7 @@ f(k,n,p)=_nC_k p^kq^{n-k}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-Probability-Review_96_0.png" src="../_images/02-Probability-Review_96_0.png" />
+<img alt="../_images/02-Probability-Review_98_0.png" src="../_images/02-Probability-Review_98_0.png" />
 </div>
 </div>
 <p>We could interpret the plot with straightforward observation:</p>
@@ -1284,16 +1309,11 @@ If a trader&#39;s winning rate is 55%, the probability of winning between 14 and
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">816771216.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">table</span> <span class="o">=</span> <span class="n">Texttable</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">table</span><span class="o">.</span><span class="n">set_cols_align</span><span class="p">([</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">table</span><span class="o">.</span><span class="n">set_cols_valign</span><span class="p">([</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">table</span><span class="o">.</span><span class="n">add_rows</span><span class="p">([[</span><span class="s2">&quot;Win Less&quot;</span><span class="p">,</span> <span class="s2">&quot; Win More &quot;</span><span class="p">,</span> <span class="s1">&#39; Win btw 4~14 &#39;</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>                 <span class="p">[</span> <span class="n">win_less</span><span class="p">,</span> <span class="n">win_more</span><span class="p">,</span> <span class="n">win_betw</span><span class="p">]])</span>
-
-<span class="ne">NameError</span>: name &#39;Texttable&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+----------+------------+----------------+
+| Win Less |  Win More  |  Win btw 4~14  |
++==========+============+================+
+|  0.748   |   0.252    |     0.943      |
++----------+------------+----------------+
 </pre></div>
 </div>
 </div>
@@ -1385,7 +1405,7 @@ If a trader&#39;s winning rate is 55%, the probability of winning between 14 and
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-Probability-Review_105_0.png" src="../_images/02-Probability-Review_105_0.png" />
+<img alt="../_images/02-Probability-Review_107_0.png" src="../_images/02-Probability-Review_107_0.png" />
 </div>
 </div>
 <div class="section" id="binomial-random-variable-generator">
@@ -1415,36 +1435,35 @@ If a trader&#39;s winning rate is 55%, the probability of winning between 14 and
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-Probability-Review_110_0.png" src="../_images/02-Probability-Review_110_0.png" />
+<img alt="../_images/02-Probability-Review_112_0.png" src="../_images/02-Probability-Review_112_0.png" />
 </div>
 </div>
 <p>But how to interpret the histogram?</p>
 <p>A concrete example: you are trying to shoot basketball into the basket, your chances of success is <span class="math notranslate nohighlight">\(30\%\)</span>, what each day you can shoot <span class="math notranslate nohighlight">\(100\)</span> rounds, but in the long run, you are mostly like to have <span class="math notranslate nohighlight">\(30\)</span> successes each day, and it would be extremely unlikely that you would land a <span class="math notranslate nohighlight">\(50\)</span>-success.</p>
 </div>
-<div class="section" id="font-face-gotham-color-purple-moments-of-binomial-distribution">
-<h3><font face="gotham" color="purple"> Moments of Binomial Distribution<a class="headerlink" href="#font-face-gotham-color-purple-moments-of-binomial-distribution" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="moments-of-binomial-distribution">
+<h3>Moments of Binomial Distribution<a class="headerlink" href="#moments-of-binomial-distribution" title="Permalink to this headline">¶</a></h3>
 <p>To return moments, use <code class="docutils literal notranslate"><span class="pre">.stats</span></code> functions with <code>moments = <code class="docutils literal notranslate"><span class="pre">msvk</span></code></code>, it is short for <em>mean</em>, <em>skewness</em>, <em>variance</em> and <em>kurtosis</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">poiss_stats</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span>
-    <span class="n">lambdaP</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>  <span class="c1"># mean, variance, skewness, kurtosis</span>
-<span class="n">bino_stats</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">moments</span> <span class="o">=</span> <span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
+<span class="n">bino_stats</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
+
+<span class="n">table</span> <span class="o">=</span> <span class="n">Texttable</span><span class="p">()</span>
 <span class="n">table</span><span class="o">.</span><span class="n">set_cols_align</span><span class="p">([</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
 <span class="n">table</span><span class="o">.</span><span class="n">set_cols_valign</span><span class="p">([</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">])</span>
-<span class="n">table</span><span class="o">.</span><span class="n">add_rows</span><span class="p">(</span>
-    <span class="p">[[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot; variance &quot;</span><span class="p">,</span> <span class="s1">&#39; skewness &#39;</span><span class="p">,</span> <span class="s1">&#39;kurtosis &#39;</span><span class="p">],</span>
-     <span class="p">[</span><span class="n">poiss_stats</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">poiss_stats</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">poiss_stats</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">poiss_stats</span><span class="p">[</span><span class="mi">3</span><span class="p">]]])</span>
-                <span class="p">[</span> <span class="n">bino_stats</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bino_stats</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bino_stats</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">bino_stats</span><span class="p">[</span><span class="mi">3</span><span class="p">]]])</span>
+<span class="n">table</span><span class="o">.</span><span class="n">add_rows</span><span class="p">([[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot; variance &quot;</span><span class="p">,</span> <span class="s1">&#39; skewness &#39;</span><span class="p">,</span> <span class="s1">&#39;kurtosis &#39;</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">bino_stats</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bino_stats</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bino_stats</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">bino_stats</span><span class="p">[</span><span class="mi">3</span><span class="p">]]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">draw</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_70942/176310060.py&quot;</span><span class="gt">, line </span><span class="mi">10</span>
-    <span class="p">[</span> <span class="n">bino_stats</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bino_stats</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bino_stats</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">bino_stats</span><span class="p">[</span><span class="mi">3</span><span class="p">]]])</span>
-    <span class="o">^</span>
-<span class="ne">IndentationError</span>: unexpected indent
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------+------------+------------+-----------+
+| mean |  variance  |  skewness  | kurtosis  |
++======+============+============+===========+
+|  30  |     21     |   0.087    |  -0.012   |
++------+------------+------------+-----------+
 </pre></div>
 </div>
 </div>
@@ -1528,7 +1547,7 @@ P(x=2)=\frac{\lambda^ke^{-\lambda}}{k!}=\frac{1.2^2e^{-1.2}}{2!}
 </div>
 <div class="section" id="poisson-random-variable-generator">
 <h3>Poisson Random Variable Generator<a class="headerlink" href="#poisson-random-variable-generator" title="Permalink to this headline">¶</a></h3>
-<p>Use the parameters <span class="math notranslate nohighlight">\(\lambda = 1.2\)</span>, we generate a frequency distribution with <code class="docutils literal notranslate"><span class="pre">sp.stats.poisson.rvs</span></code> function.</p>
+<p>Use the parameters <span class="math notranslate nohighlight">\(\lambda = 1.2\)</span>, we generate a frequency distribution with <code class="docutils literal notranslate"><span class="pre">stats.poisson.rvs</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lambdaP</span> <span class="o">=</span> <span class="mf">1.2</span>
@@ -1543,7 +1562,7 @@ P(x=2)=\frac{\lambda^ke^{-\lambda}}{k!}=\frac{1.2^2e^{-1.2}}{2!}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-Probability-Review_125_0.png" src="../_images/02-Probability-Review_125_0.png" />
+<img alt="../_images/02-Probability-Review_127_0.png" src="../_images/02-Probability-Review_127_0.png" />
 </div>
 </div>
 </div>
@@ -1552,21 +1571,23 @@ P(x=2)=\frac{\lambda^ke^{-\lambda}}{k!}=\frac{1.2^2e^{-1.2}}{2!}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lambdaP</span> <span class="o">=</span> <span class="mf">1.2</span>
-<span class="n">poiss_stats</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">lambdaP</span><span class="p">,</span> <span class="n">moments</span> <span class="o">=</span> <span class="s1">&#39;mvsk&#39;</span><span class="p">)</span> <span class="c1"># mean, variance, skewness, kurtosis</span>
-<span class="n">table</span><span class="o">.</span><span class="n">set_cols_align</span><span class="p">([</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
-<span class="n">table</span><span class="o">.</span><span class="n">set_cols_valign</span><span class="p">([</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">])</span>
-<span class="n">table</span><span class="o">.</span><span class="n">add_rows</span><span class="p">([[</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot; variance &quot;</span><span class="p">,</span> <span class="s1">&#39; skewness &#39;</span><span class="p">,</span> <span class="s1">&#39; kurtosis &#39;</span><span class="p">],</span>
-                <span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span><span class="p">]])</span>
-                <span class="p">[</span> <span class="n">poiss_stats</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">poiss_stats</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">poiss_stats</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">poiss_stats</span><span class="p">[</span><span class="mi">3</span><span class="p">]]])</span>
+<span class="n">poiss_stats</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">lambdaP</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">Texttable</span><span class="p">()</span>
+<span class="n">table</span><span class="o">.</span><span class="n">set_cols_align</span><span class="p">([</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">table</span><span class="o">.</span><span class="n">set_cols_valign</span><span class="p">([</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">])</span>
+<span class="n">table</span><span class="o">.</span><span class="n">add_rows</span><span class="p">(</span>
+    <span class="p">[[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot; variance &quot;</span><span class="p">,</span> <span class="s1">&#39; skewness &#39;</span><span class="p">,</span> <span class="s1">&#39;kurtosis &#39;</span><span class="p">],</span>
+     <span class="p">[</span><span class="n">poiss_stats</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">poiss_stats</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">poiss_stats</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">poiss_stats</span><span class="p">[</span><span class="mi">3</span><span class="p">]]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">draw</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_70942/849083482.py&quot;</span><span class="gt">, line </span><span class="mi">7</span>
-    <span class="p">[</span> <span class="n">poiss_stats</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">poiss_stats</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">poiss_stats</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">poiss_stats</span><span class="p">[</span><span class="mi">3</span><span class="p">]]])</span>
-    <span class="o">^</span>
-<span class="ne">IndentationError</span>: unexpected indent
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-------+------------+------------+-----------+
+| mean  |  variance  |  skewness  | kurtosis  |
++=======+============+============+===========+
+| 1.200 |   1.200    |   0.913    |   0.833   |
++-------+------------+------------+-----------+
 </pre></div>
 </div>
 </div>
@@ -1600,7 +1621,7 @@ f(k)=p(1-p)^k
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">sp.stats.geom.pmf</span></code> function will do the same trick.</p>
+<p><code class="docutils literal notranslate"><span class="pre">stats.geom.pmf</span></code> function will do the same trick.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
@@ -1647,48 +1668,42 @@ f(k)=p(1-p)^k
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
-<span class="n">norm_rv</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">h</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">norm_rv</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Normal Frequency Distribution&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-                <span class="p">[</span> <span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span><span class="p">]])</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">Texttable</span><span class="p">()</span>
+<span class="n">table</span><span class="o">.</span><span class="n">set_cols_align</span><span class="p">([</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">table</span><span class="o">.</span><span class="n">set_cols_valign</span><span class="p">([</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">])</span>
+<span class="n">table</span><span class="o">.</span><span class="n">add_rows</span><span class="p">([[</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot; variance &quot;</span><span class="p">,</span> <span class="s1">&#39; skewness &#39;</span><span class="p">,</span> <span class="s1">&#39; kurtosis &#39;</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">draw</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_70942/3746594406.py&quot;</span><span class="gt">, line </span><span class="mi">6</span>
-    <span class="p">[</span> <span class="n">p</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span><span class="p">]])</span>
-    <span class="o">^</span>
-<span class="ne">IndentationError</span>: unexpected indent
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-------+---+-------+------------+------------+------------+
+|   p   | k | mean  |  variance  |  skewness  |  kurtosis  |
++=======+===+=======+============+============+============+
+| 0.300 | 5 | 3.333 |   7.778    |   2.032    |   6.129    |
++-------+---+-------+------------+------------+------------+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geometric</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span>
-<span class="n">norm_rv</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">h</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">norm_rv</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Normal Frequency Distribution&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geometric</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">h</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">geometric</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Generated Geometric R.V. Distribution&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">582120086.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">geometric</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">norm_rv</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">h</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">norm_rv</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Normal Frequency Distribution&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;sp&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/02-Probability-Review_141_0.png" src="../_images/02-Probability-Review_141_0.png" />
 </div>
 </div>
 </div>
@@ -1710,22 +1725,16 @@ To solve it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">norm_rv</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">h</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">norm_rv</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Normal Frequency Distribution&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-    <span class="n">N</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s1">&#39;The probability of getting </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> drug stashers by taking </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1"> persons away is </span><span class="si">{</span><span class="n">hyper_geo</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%.&#39;</span>
-<span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">hyper_geo</span> <span class="o">=</span> <span class="n">special</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">special</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">K</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="o">/</span><span class="n">special</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The probability of getting </span><span class="si">{}</span><span class="s1"> drug stashers by taking </span><span class="si">{}</span><span class="s1"> persons away is </span><span class="si">{:.2f}</span><span class="s1">%.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">hyper_geo</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_70942/288964613.py&quot;</span><span class="gt">, line </span><span class="mi">6</span>
-    <span class="n">N</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-    <span class="o">^</span>
-<span class="ne">IndentationError</span>: unexpected indent
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The probability of getting 2 drug stashers by taking 5 persons away is 20.73%.
 </pre></div>
 </div>
 </div>
@@ -1740,74 +1749,48 @@ To solve it:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">612120431.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># pmf(x, M, N, n, loc=0)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">hgeo</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">hgeo</span>
-
-<span class="ne">NameError</span>: name &#39;N&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.20734379349990603
 </pre></div>
 </div>
 </div>
 </div>
 <p>A histogram would provide some intuitions of geometric distribution.</p>
+<p>It can be interpreted as: if 100 persons in the building, 20 are drug stasher, take 5 out of 100. The probability of getting from 1 to 5 drug stashers, is shown in the chart. As we can see it is nearly impossible to get 4 or 5 drugs stasher. But getting one is the most possible outcome</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hgeo_rv</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span>
-<span class="n">norm_rv</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">h</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">norm_rv</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Normal Frequency Distribution&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Generated Hypergeometric R.V. Distribution&#39;</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;    It can be interpreted as: if 100 persons in the building, </span>
-<span class="s1">    20 are drug stasher, take 5 out of 100.</span>
-<span class="s1">    </span>
-<span class="s1">    The probability of getting from 1 to 5 drug stashers, </span>
-<span class="s1">    is shown in the chart.</span>
-<span class="s1">    </span>
-<span class="s1">    As we can see it is nearly impossible </span>
-<span class="s1">    to get 4 or 5 drugs stasher. </span>
-<span class="s1">    But getting one is the most possible outcome.&#39;&#39;&#39;</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">.3</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">h</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">hgeo_rv</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Generated Hypergeometric R.V. Distribution&#39;</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">1499557369.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">hgeo_rv</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">norm_rv</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">h</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">norm_rv</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Normal Frequency Distribution&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;sp&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/02-Probability-Review_148_0.png" src="../_images/02-Probability-Review_148_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
-<span class="n">norm_rv</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">h</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">norm_rv</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Normal Frequency Distribution&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-                <span class="p">[</span> <span class="n">N</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">hypergeom</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">Texttable</span><span class="p">()</span>
+<span class="n">table</span><span class="o">.</span><span class="n">set_cols_align</span><span class="p">([</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="n">table</span><span class="o">.</span><span class="n">set_cols_valign</span><span class="p">([</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">])</span>
+<span class="n">table</span><span class="o">.</span><span class="n">add_rows</span><span class="p">([[</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot; variance &quot;</span><span class="p">,</span> <span class="s1">&#39; skewness &#39;</span><span class="p">,</span> <span class="s1">&#39; kurtosis &#39;</span><span class="p">],</span>
+                <span class="p">[</span><span class="n">N</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">draw</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_70942/2544026882.py&quot;</span><span class="gt">, line </span><span class="mi">6</span>
-    <span class="p">[</span> <span class="n">N</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span><span class="p">]])</span>
-    <span class="o">^</span>
-<span class="ne">IndentationError</span>: unexpected indent
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-----+---+------+------------+------------+------------+
+|  N  | k | mean |  variance  |  skewness  |  kurtosis  |
++=====+===+======+============+============+============+
+| 100 | 2 |  1   |   0.768    |   0.629    |   -0.010   |
++-----+---+------+------------+------------+------------+
 </pre></div>
 </div>
 </div>
@@ -1818,27 +1801,18 @@ To solve it:</p>
 <p>Rolling a die is the simplest <strong>discrete uniform distribution</strong> generator from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(6\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unif_d</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">randint</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">norm_rv</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">h</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">norm_rv</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Normal Frequency Distribution&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unif_d</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">randint</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">h</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">unif_d</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Discrete Uniform Frequency Distribution&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">114597845.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">unif_d</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">randint</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">low</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">norm_rv</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">h</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">norm_rv</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Normal Frequency Distribution&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;sp&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/02-Probability-Review_152_0.png" src="../_images/02-Probability-Review_152_0.png" />
 </div>
 </div>
 <div class="section" id="discrete-probability-mass-function">
@@ -1863,7 +1837,7 @@ To solve it:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-Probability-Review_152_0.png" src="../_images/02-Probability-Review_152_0.png" />
+<img alt="../_images/02-Probability-Review_154_0.png" src="../_images/02-Probability-Review_154_0.png" />
 </div>
 </div>
 </div>
@@ -1880,42 +1854,29 @@ f(x)=\frac{1}{b-a}
 <p>And its r.v. generator is one of the most commonly used function in NumPy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unif</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 
 <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
-            <span class="n">chi_pdf</span><span class="p">,</span>
-            <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\chi^2$ distribution with d.f. = </span><span class="si">%.0d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">h</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">unif</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Continous Uniform Frequency Distribution&#39;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_70942/1728953687.py&quot;</span><span class="gt">, line </span><span class="mi">5</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
-    <span class="o">^</span>
-<span class="ne">IndentationError</span>: unexpected indent
-</pre></div>
-</div>
+<img alt="../_images/02-Probability-Review_157_0.png" src="../_images/02-Probability-Review_157_0.png" />
 </div>
 </div>
 <div class="section" id="cdf-and-pdf-of-continuous-uniform-distribution">
 <h3>CDF and PDF of Continuous Uniform Distribution<a class="headerlink" href="#cdf-and-pdf-of-continuous-uniform-distribution" title="Permalink to this headline">¶</a></h3>
-<p>The CDF and PDF of uniform distribution are <code class="docutils literal notranslate"><span class="pre">sp.stats.uniform.cdf</span></code> and <code class="docutils literal notranslate"><span class="pre">sp.stats.uniform.pdf</span></code> accordingly.</p>
+<p>The CDF and PDF of uniform distribution are <code class="docutils literal notranslate"><span class="pre">stats.uniform.cdf</span></code> and <code class="docutils literal notranslate"><span class="pre">stats.uniform.pdf</span></code> accordingly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="c1"># cdf(x, loc=0, scale=1)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">unif_pdf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
-            <span class="n">chi_pdf</span><span class="p">,</span>
-            <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-            <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\chi^2$ distribution with d.f. = </span><span class="si">%.0d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">unif_cdf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
 <span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">unif_pdf</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PDF of Continous Uniform Distribution&#39;</span><span class="p">)</span>
@@ -1932,17 +1893,12 @@ f(x)=\frac{1}{b-a}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_70942/2932225586.py&quot;</span><span class="gt">, line </span><span class="mi">5</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
-    <span class="o">^</span>
-<span class="ne">IndentationError</span>: unexpected indent
-</pre></div>
-</div>
+<img alt="../_images/02-Probability-Review_160_0.png" src="../_images/02-Probability-Review_160_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
 <span class="n">table</span> <span class="o">=</span> <span class="n">Texttable</span><span class="p">()</span>
 <span class="n">table</span><span class="o">.</span><span class="n">set_cols_align</span><span class="p">([</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>  
 <span class="n">table</span><span class="o">.</span><span class="n">set_cols_valign</span><span class="p">([</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">])</span>
@@ -1953,16 +1909,11 @@ f(x)=\frac{1}{b-a}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">1895271622.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">table</span> <span class="o">=</span> <span class="n">Texttable</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">table</span><span class="o">.</span><span class="n">set_cols_align</span><span class="p">([</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">table</span><span class="o">.</span><span class="n">set_cols_valign</span><span class="p">([</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">table</span><span class="o">.</span><span class="n">add_rows</span><span class="p">([[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot; variance &quot;</span><span class="p">,</span> <span class="s1">&#39; skewness &#39;</span><span class="p">,</span> <span class="s1">&#39; kurtosis &#39;</span><span class="p">],</span>
-
-<span class="ne">NameError</span>: name &#39;sp&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-------+------------+------------+------------+
+| mean  |  variance  |  skewness  |  kurtosis  |
++=======+============+============+============+
+| 0.500 |   0.083    |     0      |   -1.200   |
++-------+------------+------------+------------+
 </pre></div>
 </div>
 </div>
@@ -1996,7 +1947,7 @@ Below are the plots of CDF and PDF.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-Probability-Review_162_0.png" src="../_images/02-Probability-Review_162_0.png" />
+<img alt="../_images/02-Probability-Review_164_0.png" src="../_images/02-Probability-Review_164_0.png" />
 </div>
 </div>
 <div class="section" id="inverse-normal-cdf">
@@ -2059,7 +2010,7 @@ Below are the plots of CDF and PDF.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-Probability-Review_165_0.png" src="../_images/02-Probability-Review_165_0.png" />
+<img alt="../_images/02-Probability-Review_167_0.png" src="../_images/02-Probability-Review_167_0.png" />
 </div>
 </div>
 </div>
@@ -2068,7 +2019,7 @@ Below are the plots of CDF and PDF.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rvs(loc=0, scale=1, size=1, random_state=None)</span>
-<span class="n">norm_rv</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">norm_rv</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
 
 <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
@@ -2079,23 +2030,12 @@ Below are the plots of CDF and PDF.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">809059150.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># rvs(loc=0, scale=1, size=1, random_state=None)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">norm_rv</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-
-<span class="ne">NameError</span>: name &#39;sp&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/02-Probability-Review_169_0.png" src="../_images/02-Probability-Review_169_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
 <span class="n">table</span> <span class="o">=</span> <span class="n">Texttable</span><span class="p">()</span>
 <span class="n">table</span><span class="o">.</span><span class="n">set_cols_align</span><span class="p">([</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>  
 <span class="n">table</span><span class="o">.</span><span class="n">set_cols_valign</span><span class="p">([</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">])</span>
@@ -2106,16 +2046,11 @@ Below are the plots of CDF and PDF.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">972855252.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">mean</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">kurt</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">stats</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">moments</span><span class="o">=</span><span class="s1">&#39;mvsk&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">table</span> <span class="o">=</span> <span class="n">Texttable</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">table</span><span class="o">.</span><span class="n">set_cols_align</span><span class="p">([</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">table</span><span class="o">.</span><span class="n">set_cols_valign</span><span class="p">([</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="s1">&#39;m&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">table</span><span class="o">.</span><span class="n">add_rows</span><span class="p">([[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot; variance &quot;</span><span class="p">,</span> <span class="s1">&#39; skewness &#39;</span><span class="p">,</span> <span class="s1">&#39; kurtosis &#39;</span><span class="p">],</span>
-
-<span class="ne">NameError</span>: name &#39;sp&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+------+------------+------------+------------+
+| mean |  variance  |  skewness  |  kurtosis  |
++======+============+============+============+
+|  2   |     1      |     0      |     0      |
++------+------------+------------+------------+
 </pre></div>
 </div>
 </div>
@@ -2167,11 +2102,11 @@ f_\mathbb{X}(x_1,...,x_2)=\frac{1}{\sqrt{(2\pi)^k|\Sigma|}}\exp{\Big(-\frac{(x-\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_70942/2552649900.py:19: MatplotlibDeprecationWarning: Calling gca() with keyword arguments was deprecated in Matplotlib 3.4. Starting two minor releases later, gca() will take no keyword arguments. The gca() function should only be used to get the current axes, or if no axes exist, create new axes with default keyword arguments. To create a new axes with non-default arguments, use plt.axes() or plt.subplot().
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_83401/2552649900.py:19: MatplotlibDeprecationWarning: Calling gca() with keyword arguments was deprecated in Matplotlib 3.4. Starting two minor releases later, gca() will take no keyword arguments. The gca() function should only be used to get the current axes, or if no axes exist, create new axes with default keyword arguments. To create a new axes with non-default arguments, use plt.axes() or plt.subplot().
   ax = fig.gca(projection=&#39;3d&#39;)
 </pre></div>
 </div>
-<img alt="../_images/02-Probability-Review_173_1.png" src="../_images/02-Probability-Review_173_1.png" />
+<img alt="../_images/02-Probability-Review_175_1.png" src="../_images/02-Probability-Review_175_1.png" />
 </div>
 </div>
 </div>
@@ -2192,7 +2127,7 @@ f_\mathbb{X}(x_1,...,x_2)=\frac{1}{\sqrt{(2\pi)^k|\Sigma|}}\exp{\Big(-\frac{(x-\
 
 <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">Y</span><span class="o">.</span><span class="n">flatten</span><span class="p">()])</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># more intuitive than former one</span>
 
-<span class="n">rv</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="n">mu_x</span><span class="p">,</span> <span class="n">mu_y</span><span class="p">],</span> <span class="p">[[</span><span class="n">sigma_x</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">]])</span>
+<span class="n">rv</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="n">mu_x</span><span class="p">,</span> <span class="n">mu_y</span><span class="p">],</span> <span class="p">[[</span><span class="n">sigma_x</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">]])</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 <span class="n">ax0</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
@@ -2203,18 +2138,7 @@ f_\mathbb{X}(x_1,...,x_2)=\frac{1}{\sqrt{(2\pi)^k|\Sigma|}}\exp{\Big(-\frac{(x-\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70942</span><span class="o">/</span><span class="mf">3280789764.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">Y</span><span class="o">.</span><span class="n">flatten</span><span class="p">()])</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># more intuitive than former one</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> 
-<span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">rv</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">([</span><span class="n">mu_x</span><span class="p">,</span> <span class="n">mu_y</span><span class="p">],</span> <span class="p">[[</span><span class="n">sigma_x</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma_y</span><span class="p">]])</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> 
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;sp&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/02-Probability-Review_177_0.png" src="../_images/02-Probability-Review_177_0.png" />
 </div>
 </div>
 </div>
@@ -2235,8 +2159,6 @@ f(x, a, b)=\frac{\Gamma(a+b) x^{a-1}(1-x)^{b-1}}{\Gamma(a) \Gamma(b)}
 
 <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-
 <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># these are values of parameter a</span>
 <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 
@@ -2255,7 +2177,7 @@ f(x, a, b)=\frac{\Gamma(a+b) x^{a-1}(1-x)^{b-1}}{\Gamma(a) \Gamma(b)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-Probability-Review_178_0.png" src="../_images/02-Probability-Review_178_0.png" />
+<img alt="../_images/02-Probability-Review_180_0.png" src="../_images/02-Probability-Review_180_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2282,7 +2204,7 @@ f(x, a, b)=\frac{\Gamma(a+b) x^{a-1}(1-x)^{b-1}}{\Gamma(a) \Gamma(b)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-Probability-Review_179_0.png" src="../_images/02-Probability-Review_179_0.png" />
+<img alt="../_images/02-Probability-Review_181_0.png" src="../_images/02-Probability-Review_181_0.png" />
 </div>
 </div>
 <p>Beta distribution is mostly useful as <strong>prior distribution</strong> in Bayesian estimation, because it is bounded in <span class="math notranslate nohighlight">\([0, 1]\)</span>, that is perfect for modeling the <em>probability distribution of probabilities</em>. In Bayesian estimation, we only care about the proportion between prior and posterior, by adjusting <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> we can use Beta distribution to express any kinds of prior beliefs including normal, uniform, exponential distribution and etc.</p>
@@ -2290,8 +2212,8 @@ f(x, a, b)=\frac{\Gamma(a+b) x^{a-1}(1-x)^{b-1}}{\Gamma(a) \Gamma(b)}
 f(x, a, b)\propto x^{a-1}(1-x)^{b-1}
 \end{equation}</p>
 </div>
-<div class="section" id="font-face-gotham-color-purple-chi-2-distribution">
-<h2><font face="gotham" color="purple"> <span class="math notranslate nohighlight">\(\chi^2\)</span> Distribution<a class="headerlink" href="#font-face-gotham-color-purple-chi-2-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chi-2-distribution">
+<h2><span class="math notranslate nohighlight">\(\chi^2\)</span> Distribution<a class="headerlink" href="#chi-2-distribution" title="Permalink to this headline">¶</a></h2>
 <p><span class="math notranslate nohighlight">\(\chi^2\)</span> distribution is closely connected with normal distributions, if <span class="math notranslate nohighlight">\(z\)</span> has the standard normal distribution, then <span class="math notranslate nohighlight">\(z^2\)</span> has the <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution with <span class="math notranslate nohighlight">\(d.f.=1\)</span>. And further,if</p>
 <div class="math notranslate nohighlight">
 \[
@@ -2324,7 +2246,7 @@ z_1, z_2, ..., z_k \sim i.i.d. N(0, 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-Probability-Review_185_0.png" src="../_images/02-Probability-Review_185_0.png" />
+<img alt="../_images/02-Probability-Review_187_0.png" src="../_images/02-Probability-Review_187_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2342,7 +2264,7 @@ z_1, z_2, ..., z_k \sim i.i.d. N(0, 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-Probability-Review_186_0.png" src="../_images/02-Probability-Review_186_0.png" />
+<img alt="../_images/02-Probability-Review_188_0.png" src="../_images/02-Probability-Review_188_0.png" />
 </div>
 </div>
 </div>
@@ -2374,7 +2296,7 @@ z_1, z_2, ..., z_k \sim i.i.d. N(0, 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-Probability-Review_189_0.png" src="../_images/02-Probability-Review_189_0.png" />
+<img alt="../_images/02-Probability-Review_191_0.png" src="../_images/02-Probability-Review_191_0.png" />
 </div>
 </div>
 <p><span class="math notranslate nohighlight">\(\chi^2\)</span> and <span class="math notranslate nohighlight">\(F\)</span> distribution are mostly used for statistical testing, we will elaborate the topic later.</p>
@@ -2396,7 +2318,8 @@ No need to know the meaning of its components. But we do need a visual memory of
 <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_norm</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Normal Distribution&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
     <span class="n">y_t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span>
             <span class="n">y_t</span><span class="p">,</span>
@@ -2409,7 +2332,7 @@ No need to know the meaning of its components. But we do need a visual memory of
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02-Probability-Review_194_0.png" src="../_images/02-Probability-Review_194_0.png" />
+<img alt="../_images/02-Probability-Review_196_0.png" src="../_images/02-Probability-Review_196_0.png" />
 </div>
 </div>
 </div>
