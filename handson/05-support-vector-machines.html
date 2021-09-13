@@ -93,6 +93,38 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Statistics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/01-Descriptive-Statistics.html">
+   Descriptive Statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/02-Probability-Review.html">
+   Basic Concepts Refresh
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/03-Parameter-Estimation.html">
+   Parameter Estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/04.Hypothesis-Testing.html">
+   Hypothesis Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../basics/05.ANOVA.html">
+   ANOVA
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   HandsON
  </span>
 </p>
@@ -1350,11 +1382,6 @@ Phi(-1.0, 1) = [0.30119421]
     <span class="n">tols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tol</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">tol</span><span class="p">,</span> <span class="n">t2</span> <span class="o">-</span> <span class="n">t1</span><span class="p">)</span>
     <span class="n">tol</span> <span class="o">/=</span> <span class="mi">10</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">tols</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="s2">&quot;bo-&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Tolerance&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Time (seconds)&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1439,6 +1466,16 @@ obj = -4448.486967, rho = 0.058480
 nSV = 447, nBSV = 442
 Total nSV = 447
 9 1.0000000000000003e-10 1.192094087600708
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">tols</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="s2">&quot;bo-&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Tolerance&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Time (seconds)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1545,7 +1582,7 @@ Total nSV = 447
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 60000.0, 0.0, 100.0)
 </pre></div>
 </div>
-<img alt="../_images/05-support-vector-machines_65_1.png" src="../_images/05-support-vector-machines_65_1.png" />
+<img alt="../_images/05-support-vector-machines_66_1.png" src="../_images/05-support-vector-machines_66_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1599,7 +1636,7 @@ Total nSV = 447
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4.0, 6.0, 0.8, 2.8)
 </pre></div>
 </div>
-<img alt="../_images/05-support-vector-machines_68_1.png" src="../_images/05-support-vector-machines_68_1.png" />
+<img alt="../_images/05-support-vector-machines_69_1.png" src="../_images/05-support-vector-machines_69_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1640,7 +1677,7 @@ Total nSV = 447
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4.0, 6.0, 0.8, 2.8)
 </pre></div>
 </div>
-<img alt="../_images/05-support-vector-machines_69_2.png" src="../_images/05-support-vector-machines_69_2.png" />
+<img alt="../_images/05-support-vector-machines_70_2.png" src="../_images/05-support-vector-machines_70_2.png" />
 </div>
 </div>
 </div>
@@ -1743,7 +1780,7 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05-support-vector-machines_77_0.png" src="../_images/05-support-vector-machines_77_0.png" />
+<img alt="../_images/05-support-vector-machines_78_0.png" src="../_images/05-support-vector-machines_78_0.png" />
 </div>
 </div>
 <p>Close enough!</p>
@@ -1873,6 +1910,7 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
                                    <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
                                    <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                                    <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+                                   
 <span class="n">rnd_search_cv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">[:</span><span class="mi">1000</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span>
 </pre></div>
 </div>
