@@ -342,14 +342,14 @@
 <p>For example, a common hypotheses of ANOVA are</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-H_0:\quad \mu_1=\mu_2=\mu_3=\cdots=\mu_n\\
+H_0:\quad μ_1=μ_2=μ_3=⋅s=μ_n\\
 H_1:\quad \text{At least two means differ}
 \end{split}\]</div>
 <p>The first doubt pops up in mind: why aren’t we using same old <span class="math notranslate nohighlight">\(t\)</span>-tests such that</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-H_0: \mu_1=\mu_2 \qquad H_0: \mu_1=\mu_3 \qquad H_0: \mu_1=\mu_4 \qquad H_0:\quad \mu_2=\mu_3\quad\cdots\\
-H_1: \mu_1\neq\mu_2 \qquad H_1: \mu_1\neq\mu_3\qquad  H_1:\mu_1\neq\mu_4 \qquad H_1:\quad \mu_2\neq\mu_3\quad\cdots\\
+H_0: μ_1=μ_2 \qquad H_0: μ_1=μ_3 \qquad H_0: μ_1=μ_4 \qquad H_0:\quad μ_2=μ_3\quad⋅s\\
+H_1: μ_1\neqμ_2 \qquad H_1: μ_1\neqμ_3\qquad  H_1:μ_1\neqμ_4 \qquad H_1:\quad μ_2\neqμ_3\quad⋅s\\
 \end{split}\]</div>
 <p>and so on so forth, till exhaustion of all pairwise combination.</p>
 <p>Apparently, the number of <span class="math notranslate nohighlight">\(t\)</span>-tests will be as large as <span class="math notranslate nohighlight">\({n \choose 2} \)</span> where <span class="math notranslate nohighlight">\(n\)</span> is the number of populations. If there are <span class="math notranslate nohighlight">\(5\)</span> populations, then we have to test <span class="math notranslate nohighlight">\({5 \choose 2}=10\)</span> pairs. With <span class="math notranslate nohighlight">\(95\%\)</span> confidence level, <span class="math notranslate nohighlight">\(10\)</span> <span class="math notranslate nohighlight">\(t\)</span>-tests would cut back confidence level dramatically to <span class="math notranslate nohighlight">\(95\%^{10}=59.8\%\)</span>, which also means the probability of <em>type I</em> error would be around <span class="math notranslate nohighlight">\(40\%\)</span>.</p>
@@ -365,11 +365,11 @@ SST=\sum_{i=1}^kn_i(\bar{x}_i-\bar{\bar{x}})^2
 where \)</span>n_i<span class="math notranslate nohighlight">\( is the sample size of treatments \)</span>i<span class="math notranslate nohighlight">\(, \)</span>\bar{\bar{x}}<span class="math notranslate nohighlight">\( is the grand mean, i.e. the _mean of the sample means_, \)</span>k$ is the number of treatments.</p>
 <p>There are also <strong>within-treatments variations</strong> which is denoted by <strong>sum of squares for error</strong> (SSE), it measures the deviation of all observations from its sample mean.
 $<span class="math notranslate nohighlight">\(
-SSE=\sum_{i=1}^k\sum_{j=1}^{n_i}(x_{ij}-\bar{x}_i)^2=\sum_{j=1}^{n_1}(x_{j1}-\bar{x}_1)^2+\sum_{j=1}^{n_2}(x_{j2}-\bar{x}_2)^2+\cdots+\sum_{j=1}^{n_k}(x_{jk}-\bar{x}_k)^2
+SSE=\sum_{i=1}^k\sum_{j=1}^{n_i}(x_{ij}-\bar{x}_i)^2=\sum_{j=1}^{n_1}(x_{j1}-\bar{x}_1)^2+\sum_{j=1}^{n_2}(x_{j2}-\bar{x}_2)^2+⋅s+\sum_{j=1}^{n_k}(x_{jk}-\bar{x}_k)^2
 \)</span><span class="math notranslate nohighlight">\(
 If we divide \)</span>SSE<span class="math notranslate nohighlight">\( by \)</span>(n_i-1)<span class="math notranslate nohighlight">\(, i.e. the degree of freedom of each sample, \)</span>SSE<span class="math notranslate nohighlight">\( can be rewritten more consicely as
 \)</span><span class="math notranslate nohighlight">\(
-SSE =(n_1-1)s_1^2+(n_2-1)s_2^2+\cdots+(n_k-1)s_k^2
+SSE =(n_1-1)s_1^2+(n_2-1)s_2^2+⋅s+(n_k-1)s_k^2
 \)</span><span class="math notranslate nohighlight">\(
 where \)</span>s_i^2<span class="math notranslate nohighlight">\( is the sample variance of sample \)</span>i$.</p>
 <p>In order to construct <span class="math notranslate nohighlight">\(F\)</span>-statistic, we need to introduce two more statistics, the first one is <strong>Mean Square for Treatments</strong> (MST)
@@ -413,13 +413,13 @@ SS(Total)=SST+SSE
 \)</span><span class="math notranslate nohighlight">\(
 Mathematically
 \)</span><span class="math notranslate nohighlight">\(
-\sum_{i=1}^k \sum_{j=1}^{n_i}(x_{ij}-\bar{\bar{x}})^2= \sum_{i=1}^kn_i(\bar{x}_i-\bar{\bar{x}})^2+(n_1-1)s_1^2+(n_2-1)s_2^2+\cdots+(n_k-1)s_k^2
+\sum_{i=1}^k \sum_{j=1}^{n_i}(x_{ij}-\bar{\bar{x}})^2= \sum_{i=1}^kn_i(\bar{x}_i-\bar{\bar{x}})^2+(n_1-1)s_1^2+(n_2-1)s_2^2+⋅s+(n_k-1)s_k^2
 \)</span>$</p>
 <div class="section" id="an-example-of-population-height">
 <h2>An Example of Population Height<a class="headerlink" href="#an-example-of-population-height" title="Permalink to this headline">¶</a></h2>
 <p>Here is a simple example, we will use three samples of male heights to perform an ANOVA analysis. The hypotheses are
 $<span class="math notranslate nohighlight">\(
-H_0: \mu_1=\mu_2=\mu_3\\
+H_0: μ_1=μ_2=μ_3\\
 H_1: \text{At least two means differ}\\
 \)</span>$</p>
 <div class="cell docutils container">
@@ -545,13 +545,13 @@ Dutch sample variance: 15.844843124694973
 <h2>A Simulation View of Factors That Affects <span class="math notranslate nohighlight">\(F\)</span>-Statistic<a class="headerlink" href="#a-simulation-view-of-factors-that-affects-f-statistic" title="Permalink to this headline">¶</a></h2>
 <p>Rather than stating that the <span class="math notranslate nohighlight">\(F\)</span>-tests might be invalid due to violation of critial assumptions, we’ll step further to generate simulations to show how various parameters affect <span class="math notranslate nohighlight">\(F\)</span>-statistics.</p>
 <p>The plotting codes are messy, thus hidden in the <code class="docutils literal notranslate"><span class="pre">plot_material.anova_plot()</span></code>, there 9 groups of charts, e.g. titled as ‘Simulation X’, each group has a two axes surrounded by a black frame.</p>
-<p>We will repetitively draw samples from three populations, each with its own parameters <span class="math notranslate nohighlight">\(\mu\)</span>, <span class="math notranslate nohighlight">\(\sigma\)</span> and <span class="math notranslate nohighlight">\(N\)</span>, i.e. population mean, population variance and sample size. Each draw can be computed an <span class="math notranslate nohighlight">\(F\)</span>-statistic, we perform this simuation in a loop of <span class="math notranslate nohighlight">\(1000\)</span> rounds, then we plot the fequency distribution of <span class="math notranslate nohighlight">\(F\)</span>-statistic on the upper axes, and the <span class="math notranslate nohighlight">\(p\)</span>-value on the lower axes.</p>
+<p>We will repetitively draw samples from three populations, each with its own parameters <span class="math notranslate nohighlight">\(μ\)</span>, <span class="math notranslate nohighlight">\(σ\)</span> and <span class="math notranslate nohighlight">\(N\)</span>, i.e. population mean, population variance and sample size. Each draw can be computed an <span class="math notranslate nohighlight">\(F\)</span>-statistic, we perform this simuation in a loop of <span class="math notranslate nohighlight">\(1000\)</span> rounds, then we plot the fequency distribution of <span class="math notranslate nohighlight">\(F\)</span>-statistic on the upper axes, and the <span class="math notranslate nohighlight">\(p\)</span>-value on the lower axes.</p>
 <p>And the red vertical line is the critical value of <span class="math notranslate nohighlight">\(F\)</span>-statistic, any test results fall to the right-side of the red line shall conclude a rejection to the null hypothesis.</p>
-<p>For instance, the simulation <span class="math notranslate nohighlight">\(1\)</span> has <span class="math notranslate nohighlight">\(\mu_1=3, \mu_2=6, \mu_3 = 9\)</span>, it surely indicate a large <span class="math notranslate nohighlight">\(F\)</span>-statistic, because larger <span class="math notranslate nohighlight">\(MST\)</span>, however we could still see yet a smaller amount of <span class="math notranslate nohighlight">\(F\)</span>’s that fall short than critical value. The distributions of corresponding p-values are also plotted under the <span class="math notranslate nohighlight">\(F\)</span>-statistic distribution.</p>
-<p>The simulation <span class="math notranslate nohighlight">\(2\)</span> has <span class="math notranslate nohighlight">\(\mu_1=3, \mu_2=3.1, \mu_3 = 2.9\)</span>, unless the standard deviation are dominantly trivial, we won’t expect a high chance of rejecting null hypothesis, and that’s also what the chart shows.</p>
-<p>The difference between simulation <span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(3\)</span> is the <span class="math notranslate nohighlight">\(\sigma\)</span>, apparently the latter one violates the assumption of homoskedasticity, and the <span class="math notranslate nohighlight">\(\sigma\)</span>’s mainly are larger than Simulation <span class="math notranslate nohighlight">\(1\)</span>, thus it pushes more distributions of <span class="math notranslate nohighlight">\(F\)</span>-statistic to the left side of <span class="math notranslate nohighlight">\(F_c\)</span>, i.e. fail to reject null.</p>
-<p>The simulation <span class="math notranslate nohighlight">\(4\)</span> complies with assumption of homoskedasticity, and due to variaous <span class="math notranslate nohighlight">\(\mu\)</span>’s, presumably we would expect a higher volume of rejection of null hypothesis. Visually, yet a large amount of tests fail to reject, possibly due to relative larger standard deviations.</p>
-<p>The simulation <span class="math notranslate nohighlight">\(5\)</span> and <span class="math notranslate nohighlight">\(6\)</span> privide some interesting insight, when the sample size are small such as <span class="math notranslate nohighlight">\(n=10\)</span> and relatively large <span class="math notranslate nohighlight">\(\sigma\)</span> would result in a predominant amout of false negative. The straightforward remedy is to increase the sample size as in the simulation <span class="math notranslate nohighlight">\(6\)</span>.</p>
+<p>For instance, the simulation <span class="math notranslate nohighlight">\(1\)</span> has <span class="math notranslate nohighlight">\(μ_1=3, μ_2=6, μ_3 = 9\)</span>, it surely indicate a large <span class="math notranslate nohighlight">\(F\)</span>-statistic, because larger <span class="math notranslate nohighlight">\(MST\)</span>, however we could still see yet a smaller amount of <span class="math notranslate nohighlight">\(F\)</span>’s that fall short than critical value. The distributions of corresponding p-values are also plotted under the <span class="math notranslate nohighlight">\(F\)</span>-statistic distribution.</p>
+<p>The simulation <span class="math notranslate nohighlight">\(2\)</span> has <span class="math notranslate nohighlight">\(μ_1=3, μ_2=3.1, μ_3 = 2.9\)</span>, unless the standard deviation are dominantly trivial, we won’t expect a high chance of rejecting null hypothesis, and that’s also what the chart shows.</p>
+<p>The difference between simulation <span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(3\)</span> is the <span class="math notranslate nohighlight">\(σ\)</span>, apparently the latter one violates the assumption of homoskedasticity, and the <span class="math notranslate nohighlight">\(σ\)</span>’s mainly are larger than Simulation <span class="math notranslate nohighlight">\(1\)</span>, thus it pushes more distributions of <span class="math notranslate nohighlight">\(F\)</span>-statistic to the left side of <span class="math notranslate nohighlight">\(F_c\)</span>, i.e. fail to reject null.</p>
+<p>The simulation <span class="math notranslate nohighlight">\(4\)</span> complies with assumption of homoskedasticity, and due to variaous <span class="math notranslate nohighlight">\(μ\)</span>’s, presumably we would expect a higher volume of rejection of null hypothesis. Visually, yet a large amount of tests fail to reject, possibly due to relative larger standard deviations.</p>
+<p>The simulation <span class="math notranslate nohighlight">\(5\)</span> and <span class="math notranslate nohighlight">\(6\)</span> privide some interesting insight, when the sample size are small such as <span class="math notranslate nohighlight">\(n=10\)</span> and relatively large <span class="math notranslate nohighlight">\(σ\)</span> would result in a predominant amout of false negative. The straightforward remedy is to increase the sample size as in the simulation <span class="math notranslate nohighlight">\(6\)</span>.</p>
 <p>You can experiment on parameters of simulation <span class="math notranslate nohighlight">\(7\)</span>, <span class="math notranslate nohighlight">\(8\)</span> and <span class="math notranslate nohighlight">\(9\)</span>.</p>
 </div>
 <div class="section" id="lsd-confidence-intervals">
@@ -727,7 +727,7 @@ Danish - Finnish   : -0.6335,    -4.3217,      3.0548
 </div>
 </div>
 <p>Point estimate is straightforward to interprete, if the estimate is further away from <span class="math notranslate nohighlight">\(0\)</span>, we have stronger evidence that two sample means differ.</p>
-<p>But to give a clear statistical inference with <span class="math notranslate nohighlight">\(\alpha\)</span> significance level, we should look at confidence interval. If the interval excludes <span class="math notranslate nohighlight">\(0\)</span>, we could conclude a rejection of <span class="math notranslate nohighlight">\(\mu_i=\mu_j\)</span>. In our example, the only fail to rejection is between Danish and Finnish, it means their male heights are largely indifferentiable.</p>
+<p>But to give a clear statistical inference with <span class="math notranslate nohighlight">\(\alpha\)</span> significance level, we should look at confidence interval. If the interval excludes <span class="math notranslate nohighlight">\(0\)</span>, we could conclude a rejection of <span class="math notranslate nohighlight">\(μ_i=μ_j\)</span>. In our example, the only fail to rejection is between Danish and Finnish, it means their male heights are largely indifferentiable.</p>
 <p>Therefore we conclude that the <span class="math notranslate nohighlight">\(MST\)</span> is mostly contributed by Japanese compared to other countries.</p>
 </div>
 </div>

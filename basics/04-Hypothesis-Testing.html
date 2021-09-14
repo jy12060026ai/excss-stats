@@ -1,612 +1,1161 @@
-
 <!DOCTYPE html>
 
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hypothesis Testing &#8212; From Statistics to Statistical Learning</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+    <title>
+      Hypothesis Testing &#8212; From Statistics to Statistical Learning
+    </title>
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <link href="../_static/css/theme.css" rel="stylesheet" />
+    <link
+      href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css"
+      rel="stylesheet"
+    />
 
-    
-      
+    <link
+      rel="stylesheet"
+      href="../_static/vendor/fontawesome/5.13.0/css/all.min.css"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin
+      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin
+      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2"
+    />
 
-    
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css"
+      type="text/css"
+    />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css"
+    />
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <link
+      rel="preload"
+      as="script"
+      href="../_static/js/index.1c5a1a01449ed65a7b51.js"
+    />
+
+    <script
+      id="documentation_options"
+      data-url_root="../"
+      src="../_static/documentation_options.js"
+    ></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>
+      var togglebuttonSelector =
+        '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';
+    </script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+    <script
+      async="async"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"
+    ></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})
+    </script>
+    <script
+      async="async"
+      src="https://unpkg.com/thebe@0.5.1/lib/index.js"
+    ></script>
+    <script>
+      const thebe_selector = '.thebe';
+      const thebe_selector_input = 'pre';
+      const thebe_selector_output = '.output';
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://integzz.github.io/excss-stats/basics/04-Hypothesis-Testing.html" />
-    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link
+      rel="canonical"
+      href="https://integzz.github.io/excss-stats/basics/04-Hypothesis-Testing.html"
+    />
+    <link rel="shortcut icon" href="../_static/logo.png" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ANOVA" href="05-ANOVA.html" />
-    <link rel="prev" title="Parameter Estimation" href="03-Parameter-Estimation.html" />
+    <link
+      rel="prev"
+      title="Parameter Estimation"
+      href="03-Parameter-Estimation.html"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
     <div class="container-fluid" id="banner"></div>
-
-    
 
     <div class="container-xl">
       <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">From Statistics to Statistical Learning</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   From Statistics to Statistical Learning
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  HandsON
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../handson/02-data-processing.html">
-   Data Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../handson/03-classification.html">
-   Classification
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../handson/04-linear-models.html">
-   Linear Models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../handson/05-support-vector-machines.html">
-   Support Vector Machines
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../handson/06-decision-trees.html">
-   Decision Trees
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../handson/07-ensemble-learning.html">
-   Ensemble Learning
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Statistics
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="01-Descriptive-Statistics.html">
-   Descriptive Statistics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="02-Probability-Review.html">
-   Basic Concepts Refresh
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03-Parameter-Estimation.html">
-   Parameter Estimation
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Hypothesis Testing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05-ANOVA.html">
-   ANOVA
-  </a>
- </li>
-</ul>
+        <div
+          class="col-12 col-md-3 bd-sidebar site-navigation show"
+          id="site-navigation"
+        >
+          <div class="navbar-brand-box">
+            <a class="navbar-brand text-wrap" href="../index.html">
+              <img src="../_static/logo.png" class="logo" alt="logo" />
 
-    </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/basics/04-Hypothesis-Testing.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/integzz/excss-stats/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/integzz/excss-stats//issues/new?title=Issue%20on%20page%20%2Fbasics/04-Hypothesis-Testing.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/integzz/excss-stats/edit/master/basics/04-Hypothesis-Testing.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/integzz/excss-stats/master?urlpath=lab/tree/basics/04-Hypothesis-Testing.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/integzz/excss-stats/blob/master/basics/04-Hypothesis-Testing.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+              <h1 class="site-logo" id="site-title">
+                From Statistics to Statistical Learning
+              </h1>
+            </a>
+          </div>
+          <form
+            class="bd-search d-flex align-items-center"
+            action="../search.html"
+            method="get"
+          >
+            <i class="icon fas fa-search"></i>
+            <input
+              type="search"
+              class="form-control"
+              name="q"
+              id="search-input"
+              placeholder="Search this book..."
+              aria-label="Search this book..."
+              autocomplete="off"
+            />
+          </form>
+          <nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+            <div class="bd-toc-item active">
+              <ul class="nav bd-sidenav">
+                <li class="toctree-l1">
+                  <a class="reference internal" href="../intro.html">
+                    From Statistics to Statistical Learning
+                  </a>
+                </li>
+              </ul>
+              <p class="caption">
+                <span class="caption-text"> HandsON </span>
+              </p>
+              <ul class="nav bd-sidenav">
+                <li class="toctree-l1">
+                  <a
+                    class="reference internal"
+                    href="../handson/02-data-processing.html"
+                  >
+                    Data Processing
+                  </a>
+                </li>
+                <li class="toctree-l1">
+                  <a
+                    class="reference internal"
+                    href="../handson/03-classification.html"
+                  >
+                    Classification
+                  </a>
+                </li>
+                <li class="toctree-l1">
+                  <a
+                    class="reference internal"
+                    href="../handson/04-linear-models.html"
+                  >
+                    Linear Models
+                  </a>
+                </li>
+                <li class="toctree-l1">
+                  <a
+                    class="reference internal"
+                    href="../handson/05-support-vector-machines.html"
+                  >
+                    Support Vector Machines
+                  </a>
+                </li>
+                <li class="toctree-l1">
+                  <a
+                    class="reference internal"
+                    href="../handson/06-decision-trees.html"
+                  >
+                    Decision Trees
+                  </a>
+                </li>
+                <li class="toctree-l1">
+                  <a
+                    class="reference internal"
+                    href="../handson/07-ensemble-learning.html"
+                  >
+                    Ensemble Learning
+                  </a>
+                </li>
+              </ul>
+              <p class="caption">
+                <span class="caption-text"> Statistics </span>
+              </p>
+              <ul class="current nav bd-sidenav">
+                <li class="toctree-l1">
+                  <a
+                    class="reference internal"
+                    href="01-Descriptive-Statistics.html"
+                  >
+                    Descriptive Statistics
+                  </a>
+                </li>
+                <li class="toctree-l1">
+                  <a
+                    class="reference internal"
+                    href="02-Probability-Review.html"
+                  >
+                    Basic Concepts Refresh
+                  </a>
+                </li>
+                <li class="toctree-l1">
+                  <a
+                    class="reference internal"
+                    href="03-Parameter-Estimation.html"
+                  >
+                    Parameter Estimation
+                  </a>
+                </li>
+                <li class="toctree-l1 current active">
+                  <a class="current reference internal" href="#">
+                    Hypothesis Testing
+                  </a>
+                </li>
+                <li class="toctree-l1">
+                  <a class="reference internal" href="05-ANOVA.html"> ANOVA </a>
+                </li>
+              </ul>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Hypothesis Testing
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#concepts-of-hypothesis-testing">
-   Concepts of Hypothesis Testing
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rejection-region-and-p-value">
-   Rejection Region and p-Value
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#one-or-two-tail-test">
-   One- or Two-Tail Test
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inference-about-difference-between-two-means">
-   Inference About Difference Between Two Means
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#two-population-with-known-sigma-1-and-sigma-2">
-     Two Population With Known
-     <span class="math notranslate nohighlight">
-      \(\sigma_1\)
-     </span>
-     and
-     <span class="math notranslate nohighlight">
-      \(\sigma_2\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#two-population-with-unknown-sigma-1-and-sigma-2">
-     Two Population With Unknown
-     <span class="math notranslate nohighlight">
-      \(\sigma_1\)
-     </span>
-     and
-     <span class="math notranslate nohighlight">
-      \(\sigma_2\)
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inference-about-difference-between-two-population-proportions">
-   Inference About Difference Between Two Population Proportions
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#do-banks-discriminate-against-women-clients">
-     Do Banks Discriminate Against Women Clients?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inference-about-a-population-variance">
-   Inference About A Population Variance
-  </a>
- </li>
-</ul>
+          </nav>
+          <!-- To handle the deprecated key -->
 
-            </nav>
+          <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+          </div>
         </div>
-    </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+
+        <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+          <div class="topbar container-xl fixed-top">
+            <div class="topbar-contents row">
+              <div
+                class="
+                  col-12 col-md-3
+                  bd-topbar-whitespace
+                  site-navigation
+                  show
+                "
+              ></div>
+              <div class="col pl-md-4 topbar-main">
+                <button
+                  id="navbar-toggler"
+                  class="navbar-toggler ml-0"
+                  type="button"
+                  data-toggle="collapse"
+                  data-toggle="tooltip"
+                  data-placement="bottom"
+                  data-target=".site-navigation"
+                  aria-controls="navbar-menu"
+                  aria-expanded="true"
+                  aria-label="Toggle navigation"
+                  aria-controls="site-navigation"
+                  title="Toggle navigation"
+                  data-toggle="tooltip"
+                  data-placement="left"
+                >
+                  <i class="fas fa-bars"></i>
+                  <i class="fas fa-arrow-left"></i>
+                  <i class="fas fa-arrow-up"></i>
+                </button>
+
+                <div class="dropdown-buttons-trigger">
+                  <button
+                    id="dropdown-buttons-trigger"
+                    class="btn btn-secondary topbarbtn"
+                    aria-label="Download this page"
+                  >
+                    <i class="fas fa-download"></i>
+                  </button>
+
+                  <div class="dropdown-buttons">
+                    <!-- ipynb file if we had a myst markdown file -->
+
+                    <!-- Download raw file -->
+                    <a
+                      class="dropdown-buttons"
+                      href="../_sources/basics/04-Hypothesis-Testing.ipynb"
+                      ><button
+                        type="button"
+                        class="btn btn-secondary topbarbtn"
+                        title="Download source file"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                      >
+                        .ipynb
+                      </button></a
+                    >
+                    <!-- Download PDF via print -->
+                    <button
+                      type="button"
+                      id="download-print"
+                      class="btn btn-secondary topbarbtn"
+                      title="Print to PDF"
+                      onClick="window.print()"
+                      data-toggle="tooltip"
+                      data-placement="left"
+                    >
+                      .pdf
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Source interaction buttons -->
+
+                <div class="dropdown-buttons-trigger">
+                  <button
+                    id="dropdown-buttons-trigger"
+                    class="btn btn-secondary topbarbtn"
+                    aria-label="Connect with source repository"
+                  >
+                    <i class="fab fa-github"></i>
+                  </button>
+                  <div class="dropdown-buttons sourcebuttons">
+                    <a
+                      class="repository-button"
+                      href="https://github.com/integzz/excss-stats/"
+                      ><button
+                        type="button"
+                        class="btn btn-secondary topbarbtn"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        title="Source repository"
+                      >
+                        <i class="fab fa-github"></i>repository
+                      </button></a
+                    >
+                    <a
+                      class="issues-button"
+                      href="https://github.com/integzz/excss-stats//issues/new?title=Issue%20on%20page%20%2Fbasics/04-Hypothesis-Testing.html&body=Your%20issue%20content%20here."
+                      ><button
+                        type="button"
+                        class="btn btn-secondary topbarbtn"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        title="Open an issue"
+                      >
+                        <i class="fas fa-lightbulb"></i>open issue
+                      </button></a
+                    >
+                    <a
+                      class="edit-button"
+                      href="https://github.com/integzz/excss-stats/edit/master/basics/04-Hypothesis-Testing.ipynb"
+                      ><button
+                        type="button"
+                        class="btn btn-secondary topbarbtn"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                        title="Edit this page"
+                      >
+                        <i class="fas fa-pencil-alt"></i>suggest edit
+                      </button></a
+                    >
+                  </div>
+                </div>
+
+                <!-- Full screen (wrap in <a> to have style consistency -->
+
+                <a class="full-screen-button"
+                  ><button
+                    type="button"
+                    class="btn btn-secondary topbarbtn"
+                    data-toggle="tooltip"
+                    data-placement="bottom"
+                    onclick="toggleFullScreen()"
+                    aria-label="Fullscreen mode"
+                    title="Fullscreen mode"
+                  >
+                    <i class="fas fa-expand"></i></button
+                ></a>
+
+                <!-- Launch buttons -->
+
+                <div class="dropdown-buttons-trigger">
+                  <button
+                    id="dropdown-buttons-trigger"
+                    class="btn btn-secondary topbarbtn"
+                    aria-label="Launch interactive content"
+                  >
+                    <i class="fas fa-rocket"></i>
+                  </button>
+                  <div class="dropdown-buttons">
+                    <a
+                      class="binder-button"
+                      href="https://mybinder.org/v2/gh/integzz/excss-stats/master?urlpath=lab/tree/basics/04-Hypothesis-Testing.ipynb"
+                      ><button
+                        type="button"
+                        class="btn btn-secondary topbarbtn"
+                        title="Launch Binder"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                      >
+                        <img
+                          class="binder-button-logo"
+                          src="../_static/images/logo_binder.svg"
+                          alt="Interact on binder"
+                        />Binder
+                      </button></a
+                    >
+
+                    <a
+                      class="colab-button"
+                      href="https://colab.research.google.com/github/integzz/excss-stats/blob/master/basics/04-Hypothesis-Testing.ipynb"
+                      ><button
+                        type="button"
+                        class="btn btn-secondary topbarbtn"
+                        title="Launch Colab"
+                        data-toggle="tooltip"
+                        data-placement="left"
+                      >
+                        <img
+                          class="colab-button-logo"
+                          src="../_static/images/logo_colab.png"
+                          alt="Interact on Colab"
+                        />Colab
+                      </button></a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Table of contents -->
+              <div class="d-none d-md-block col-md-2 bd-toc show">
+                <div class="tocsection onthispage pt-5 pb-3">
+                  <i class="fas fa-list"></i> Contents
+                </div>
+                <nav id="bd-toc-nav" aria-label="Page">
+                  <ul class="visible nav section-nav flex-column">
+                    <li class="toc-h1 nav-item toc-entry">
+                      <a class="reference internal nav-link" href="#">
+                        Hypothesis Testing
+                      </a>
+                    </li>
+                    <li class="toc-h1 nav-item toc-entry">
+                      <a
+                        class="reference internal nav-link"
+                        href="#concepts-of-hypothesis-testing"
+                      >
+                        Concepts of Hypothesis Testing
+                      </a>
+                    </li>
+                    <li class="toc-h1 nav-item toc-entry">
+                      <a
+                        class="reference internal nav-link"
+                        href="#rejection-region-and-p-value"
+                      >
+                        Rejection Region and p-Value
+                      </a>
+                    </li>
+                    <li class="toc-h1 nav-item toc-entry">
+                      <a
+                        class="reference internal nav-link"
+                        href="#one-or-two-tail-test"
+                      >
+                        One- or Two-Tail Test
+                      </a>
+                    </li>
+                    <li class="toc-h1 nav-item toc-entry">
+                      <a
+                        class="reference internal nav-link"
+                        href="#inference-about-difference-between-two-means"
+                      >
+                        Inference About Difference Between Two Means
+                      </a>
+                      <ul class="visible nav section-nav flex-column">
+                        <li class="toc-h2 nav-item toc-entry">
+                          <a
+                            class="reference internal nav-link"
+                            href="#two-population-with-known-sigma-1-and-sigma-2"
+                          >
+                            Two Population With Known
+                            <span class="math notranslate nohighlight">
+                              \(σ_1\)
+                            </span>
+                            and
+                            <span class="math notranslate nohighlight">
+                              \(σ_2\)
+                            </span>
+                          </a>
+                        </li>
+                        <li class="toc-h2 nav-item toc-entry">
+                          <a
+                            class="reference internal nav-link"
+                            href="#two-population-with-unknown-sigma-1-and-sigma-2"
+                          >
+                            Two Population With Unknown
+                            <span class="math notranslate nohighlight">
+                              \(σ_1\)
+                            </span>
+                            and
+                            <span class="math notranslate nohighlight">
+                              \(σ_2\)
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="toc-h1 nav-item toc-entry">
+                      <a
+                        class="reference internal nav-link"
+                        href="#inference-about-difference-between-two-population-proportions"
+                      >
+                        Inference About Difference Between Two Population
+                        Proportions
+                      </a>
+                      <ul class="visible nav section-nav flex-column">
+                        <li class="toc-h2 nav-item toc-entry">
+                          <a
+                            class="reference internal nav-link"
+                            href="#do-banks-discriminate-against-women-clients"
+                          >
+                            Do Banks Discriminate Against Women Clients?
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="toc-h1 nav-item toc-entry">
+                      <a
+                        class="reference internal nav-link"
+                        href="#inference-about-a-population-variance"
+                      >
+                        Inference About A Population Variance
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div id="main-content" class="row">
+            <div class="col-12 col-md-9 pl-md-3 pr-md-0">
               <div>
-                
-  <div class="section" id="hypothesis-testing">
-<h1>Hypothesis Testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+                <div class="section" id="hypothesis-testing">
+                  <h1>
+                    Hypothesis Testing<a
+                      class="headerlink"
+                      href="#hypothesis-testing"
+                      title="Permalink to this headline"
+                      >¶</a
+                    >
+                  </h1>
+                  <div class="cell docutils container">
+                    <div class="cell_input docutils container">
+                      <div class="highlight-ipython3 notranslate">
+                        <div class="highlight">
+                          <pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="concepts-of-hypothesis-testing">
-<h1>Concepts of Hypothesis Testing<a class="headerlink" href="#concepts-of-hypothesis-testing" title="Permalink to this headline">¶</a></h1>
-<p>You all heard of <strong>null hypothesis</strong> and <strong>alternative hypothesis</strong>, depends on the evidences that we decide to reject the null hypothesis or not. However if we do not have evidences to reject null hypothesis, we can’t say that we accept null hypothesis, rather we say that <em>we can’t reject null hypothesis based on current information</em>.</p>
-<p>Sometimes you might encounter the term of <strong>type I error</strong> and <strong>type II error</strong>, the former characterises the probability of rejecting a true null hypothesis, the latter characterises the probability of failing to reject a false null hypothesis. It might sounds counter-intuitive at first sight, but the plot below tells all story.</p>
-<p>The higher the significance level the lower probability of having type I error, but it increases the probability of having type II error.</p>
-<p>If you are yet bewildered, here is the guideline, the blue shaded area are genuinely generated by null distribution, however they are too distant (i.e. <span class="math notranslate nohighlight">\(2\sigma\)</span> away) from the mean (<span class="math notranslate nohighlight">\(0\)</span> in this example), so they are mistakenly rejected, this is what we call <em>Type I Error</em>.</p>
-<p>The orange shaded area are actually generated by alternative distribution, however they are in the adjacent area of mean of null hypothesis, so we failed to reject they, but wrongly. And this is called <em>Type II Error</em>.</p>
-<p>As you can see from the chart, if null distribution and alternative are far away from each other, the probability of both type of errors diminish to trivial.</p>
-</div>
-<div class="section" id="rejection-region-and-p-value">
-<h1>Rejection Region and p-Value<a class="headerlink" href="#rejection-region-and-p-value" title="Permalink to this headline">¶</a></h1>
-<p><strong>Rejection region</strong> is a range of values such that if the test statistic falls into that range, we decide to reject the null hypothesis in favour of the alternative hypothesis.</p>
-<p>To put it another way, a value has to be far enough from the mean of null distribution to fall into rejection region, then the distance is the evidence that the value might not be produced by null distribution, therefore a rejection of null hypothesis.</p>
-<p>Let’s use some real data for illustration. The data format is <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, best tool is <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/500_persons.csv&#39;</span><span class="p">)</span>
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cell docutils container">
+                    <div class="cell_input docutils container">
+                      <div class="highlight-ipython3 notranslate">
+                        <div class="highlight">
+                          <pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="section" id="concepts-of-hypothesis-testing">
+                  <h1>
+                    Concepts of Hypothesis Testing<a
+                      class="headerlink"
+                      href="#concepts-of-hypothesis-testing"
+                      title="Permalink to this headline"
+                      >¶</a
+                    >
+                  </h1>
+                  <p>
+                    You all heard of <strong>null hypothesis</strong> and
+                    <strong>alternative hypothesis</strong>, depends on the
+                    evidences that we decide to reject the null hypothesis or
+                    not. However if we do not have evidences to reject null
+                    hypothesis, we can’t say that we accept null hypothesis,
+                    rather we say that
+                    <em
+                      >we can’t reject null hypothesis based on current
+                      information</em
+                    >.
+                  </p>
+                  <p>
+                    Sometimes you might encounter the term of
+                    <strong>type I error</strong> and
+                    <strong>type II error</strong>, the former characterises the
+                    probability of rejecting a true null hypothesis, the latter
+                    characterises the probability of failing to reject a false
+                    null hypothesis. It might sounds counter-intuitive at first
+                    sight, but the plot below tells all story.
+                  </p>
+                  <p>
+                    The higher the significance level the lower probability of
+                    having type I error, but it increases the probability of
+                    having type II error.
+                  </p>
+                  <p>
+                    If you are yet bewildered, here is the guideline, the blue
+                    shaded area are genuinely generated by null distribution,
+                    however they are too distant (i.e.
+                    <span class="math notranslate nohighlight">\(2σ\)</span>
+                    away) from the mean (<span
+                      class="math notranslate nohighlight"
+                      >\(0\)</span
+                    >
+                    in this example), so they are mistakenly rejected, this is
+                    what we call <em>Type I Error</em>.
+                  </p>
+                  <p>
+                    The orange shaded area are actually generated by alternative
+                    distribution, however they are in the adjacent area of mean
+                    of null hypothesis, so we failed to reject they, but
+                    wrongly. And this is called <em>Type II Error</em>.
+                  </p>
+                  <p>
+                    As you can see from the chart, if null distribution and
+                    alternative are far away from each other, the probability of
+                    both type of errors diminish to trivial.
+                  </p>
+                </div>
+                <div class="section" id="rejection-region-and-p-value">
+                  <h1>
+                    Rejection Region and p-Value<a
+                      class="headerlink"
+                      href="#rejection-region-and-p-value"
+                      title="Permalink to this headline"
+                      >¶</a
+                    >
+                  </h1>
+                  <p>
+                    <strong>Rejection region</strong> is a range of values such
+                    that if the test statistic falls into that range, we decide
+                    to reject the null hypothesis in favour of the alternative
+                    hypothesis.
+                  </p>
+                  <p>
+                    To put it another way, a value has to be far enough from the
+                    mean of null distribution to fall into rejection region,
+                    then the distance is the evidence that the value might not
+                    be produced by null distribution, therefore a rejection of
+                    null hypothesis.
+                  </p>
+                  <p>
+                    Let’s use some real data for illustration. The data format
+                    is
+                    <code class="docutils literal notranslate"
+                      ><span class="pre">.csv</span></code
+                    >, best tool is
+                    <code class="docutils literal notranslate"
+                      ><span class="pre">pandas</span></code
+                    >
+                    library.
+                  </p>
+                  <div class="cell docutils container">
+                    <div class="cell_input docutils container">
+                      <div class="highlight-ipython3 notranslate">
+                        <div class="highlight">
+                          <pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/500_persons.csv&#39;</span><span class="p">)</span>
 <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cell_output docutils container">
+                      <div class="output text_html">
+                        <div>
+                          <style scoped>
+                            .dataframe tbody tr th:only-of-type {
+                              vertical-align: middle;
+                            }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+                            .dataframe tbody tr th {
+                              vertical-align: top;
+                            }
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Gender</th>
-      <th>Height</th>
-      <th>Weight</th>
-      <th>Index</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Male</td>
-      <td>174</td>
-      <td>96</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Male</td>
-      <td>189</td>
-      <td>87</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Female</td>
-      <td>185</td>
-      <td>110</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Female</td>
-      <td>195</td>
-      <td>104</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Male</td>
-      <td>149</td>
-      <td>61</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Null and alternative hypothesis are
-$<span class="math notranslate nohighlight">\(
-H_0: \text{Average male height is 172}\newline
-H_1: \text{Average male height isn't 172}
-\)</span>$</p>
-<p>Calculate the sample mean and standard deviation of male height</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">male_mean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Male&#39;</span><span class="p">][</span><span class="s1">&#39;Height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+                            .dataframe thead th {
+                              text-align: right;
+                            }
+                          </style>
+                          <table border="1" class="dataframe">
+                            <thead>
+                              <tr style="text-align: right">
+                                <th></th>
+                                <th>Gender</th>
+                                <th>Height</th>
+                                <th>Weight</th>
+                                <th>Index</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th>0</th>
+                                <td>Male</td>
+                                <td>174</td>
+                                <td>96</td>
+                                <td>4</td>
+                              </tr>
+                              <tr>
+                                <th>1</th>
+                                <td>Male</td>
+                                <td>189</td>
+                                <td>87</td>
+                                <td>2</td>
+                              </tr>
+                              <tr>
+                                <th>2</th>
+                                <td>Female</td>
+                                <td>185</td>
+                                <td>110</td>
+                                <td>4</td>
+                              </tr>
+                              <tr>
+                                <th>3</th>
+                                <td>Female</td>
+                                <td>195</td>
+                                <td>104</td>
+                                <td>3</td>
+                              </tr>
+                              <tr>
+                                <th>4</th>
+                                <td>Male</td>
+                                <td>149</td>
+                                <td>61</td>
+                                <td>3</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    Null and alternative hypothesis are $<span
+                      class="math notranslate nohighlight"
+                      >\( H_0: \text{Average male height is 172}\newline H_1:
+                      \text{Average male height isn't 172} \)</span
+                    >$
+                  </p>
+                  <p>
+                    Calculate the sample mean and standard deviation of male
+                    height
+                  </p>
+                  <div class="cell docutils container">
+                    <div class="cell_input docutils container">
+                      <div class="highlight-ipython3 notranslate">
+                        <div class="highlight">
+                          <pre><span></span><span class="n">male_mean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Male&#39;</span><span class="p">][</span><span class="s1">&#39;Height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">male_std</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Male&#39;</span><span class="p">][</span><span class="s1">&#39;Height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">male_std_error</span> <span class="o">=</span> <span class="n">male_std</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Male&#39;</span><span class="p">]))</span>
 <span class="n">male_null</span> <span class="o">=</span> <span class="mi">172</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The rejection region is simply an opposite view of expressing confidence interval
-$<span class="math notranslate nohighlight">\(
-\bar{x}&gt;\mu + t_\alpha\frac{s}{\sqrt{n}}\\
-\bar{x}&lt;\mu - t_\alpha\frac{s}{\sqrt{n}}
-\)</span>$</p>
-<p>Assume significance level <span class="math notranslate nohighlight">\(5\%\)</span>, then <span class="math notranslate nohighlight">\(+t_\alpha = t_{.025}\)</span> and <span class="math notranslate nohighlight">\(-t_{\alpha} = t_{.975}\)</span>, where <span class="math notranslate nohighlight">\(t_{.025}\)</span> and <span class="math notranslate nohighlight">\(t_{.975}\)</span> can be calculated by <code class="docutils literal notranslate"><span class="pre">.stat.t.ppf</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Male&#39;</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span>
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    The rejection region is simply an opposite view of
+                    expressing confidence interval $<span
+                      class="math notranslate nohighlight"
+                      >\( \bar{x}&gt;μ + t_\alpha\frac{s}{\sqrt{n}}\\
+                      \bar{x}&lt;μ - t_\alpha\frac{s}{\sqrt{n}} \)</span
+                    >$
+                  </p>
+                  <p>
+                    Assume significance level
+                    <span class="math notranslate nohighlight">\(5\%\)</span>,
+                    then
+                    <span class="math notranslate nohighlight"
+                      >\(+t_\alpha = t_{.025}\)</span
+                    >
+                    and
+                    <span class="math notranslate nohighlight"
+                      >\(-t_{\alpha} = t_{.975}\)</span
+                    >, where
+                    <span class="math notranslate nohighlight"
+                      >\(t_{.025}\)</span
+                    >
+                    and
+                    <span class="math notranslate nohighlight"
+                      >\(t_{.975}\)</span
+                    >
+                    can be calculated by
+                    <code class="docutils literal notranslate"
+                      ><span class="pre">.stat.t.ppf</span></code
+                    >.
+                  </p>
+                  <div class="cell docutils container">
+                    <div class="cell_input docutils container">
+                      <div class="highlight-ipython3 notranslate">
+                        <div class="highlight">
+                          <pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Male&#39;</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span>
 <span class="n">t_975</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">.975</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">);</span> <span class="n">t_975</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.9697339922715282
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t_025</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">.025</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">);</span> <span class="n">t_025</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.9697339922715287
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The rejection region of null hypothesis is &lt;</span><span class="si">{}</span><span class="s1"> and &gt;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">male_null</span> <span class="o">-</span> <span class="n">t_975</span><span class="o">*</span><span class="n">male_std_error</span><span class="p">,</span> <span class="n">male_null</span> <span class="o">+</span> <span class="n">t_975</span><span class="o">*</span><span class="n">male_std_error</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The rejection region of null hypothesis is &lt;169.85242784779035 and &gt;174.14757215220965
-</pre></div>
-</div>
-</div>
-</div>
-<p>whereas the <code class="docutils literal notranslate"><span class="pre">male_mean</span></code> falls into
-the rejection region, we reject null hypothesis in favour of alternative hypothesis</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">male_mean</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>169.64897959183673
-</pre></div>
-</div>
-</div>
-</div>
-<p>Alternatively we can construct <span class="math notranslate nohighlight">\(t\)</span>-statistic
-$<span class="math notranslate nohighlight">\(
-t=\frac{\bar{x}-\mu}{s/\sqrt{n}}
-\)</span><span class="math notranslate nohighlight">\(
-Rejection region is where \)</span>t<span class="math notranslate nohighlight">\(-statistic larger or smaller than critical values
-\)</span><span class="math notranslate nohighlight">\(
-t&gt;t_{\alpha} = t_{.025} \text{   and   } t&lt;t_{\alpha} = t_{.975}
-\)</span>$</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">male_mean</span> <span class="o">-</span> <span class="n">male_null</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">male_std_error</span><span class="p">);</span> <span class="n">t</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.1563349150893543
-</pre></div>
-</div>
-</div>
-</div>
-<p>In this case, the <span class="math notranslate nohighlight">\(t\)</span> statistic falls short than critical value <span class="math notranslate nohighlight">\(t_{.025}\)</span>, which also tells that the sample mean deviates about <span class="math notranslate nohighlight">\(2.15\)</span> standard errors away from the mean of null hypothesis, fairly significant evidence to reject null hypothesis. We also say the test is <strong>statistically significant</strong>.</p>
-<p>Here is the demonstration of rejection region in terms of both original unit (cm) and <span class="math notranslate nohighlight">\(t\)</span>-statistic, the rejection region are shaded in pink. Codes are messy, thus hidden in <code class="docutils literal notranslate"><span class="pre">plot_material</span></code>.</p>
-<p>Rejection region gives a yes or no answer, but <strong>p-value</strong> can give a probability how rare/extreme the test statistic is, given the null hypothesis is true. It can be easily retrieved by <code class="docutils literal notranslate"><span class="pre">.stats.t.cdf</span></code> function if the test statistic is negative as in our example, if positive then use <code class="docutils literal notranslate"><span class="pre">1-.stats.t.cdf</span></code>. The p-value in our example is</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.016017555878266296
-</pre></div>
-</div>
-</div>
-</div>
-<p>It indicates that if <span class="math notranslate nohighlight">\(H_0 = 172\)</span> is true, the probability of a sample mean of <span class="math notranslate nohighlight">\(169.64\)</span> or smaller has around <span class="math notranslate nohighlight">\(1.6\%\)</span> probability.</p>
-</div>
-<div class="section" id="one-or-two-tail-test">
-<h1>One- or Two-Tail Test<a class="headerlink" href="#one-or-two-tail-test" title="Permalink to this headline">¶</a></h1>
-<p>The height example is a two-tail test, meaning constructing rejecting region on both sides, there are one-tail tests as well
-$<span class="math notranslate nohighlight">\(
-H_0: \mu = \mu_0\\
-H_1: \mu &gt; \mu_0
-\)</span><span class="math notranslate nohighlight">\(
-or 
-\)</span><span class="math notranslate nohighlight">\(
-H_0: \mu = \mu_0\\
-H_1: \mu &lt; \mu_0
-\)</span><span class="math notranslate nohighlight">\(
-Recall that in two-tail test, we divide the significance level by two, \)</span>2.5%$ on each side, but in one-tail test the significance level stays on either side as a whole.</p>
-<p>The figure below is the demonstration of one-tail test with <span class="math notranslate nohighlight">\(5\%\)</span> significance level on either side. The horizontal axis represents <span class="math notranslate nohighlight">\(t\)</span>-statistic.</p>
-</div>
-<div class="section" id="inference-about-difference-between-two-means">
-<h1>Inference About Difference Between Two Means<a class="headerlink" href="#inference-about-difference-between-two-means" title="Permalink to this headline">¶</a></h1>
-<p>If the difference of means of two population is the primary concern, for instance we’d like to investigate whether man and women’s starting salary level differs, we still can develop interval estimator and hypothesis test as in previous examples.</p>
-<div class="section" id="two-population-with-known-sigma-1-and-sigma-2">
-<h2>Two Population With Known <span class="math notranslate nohighlight">\(\sigma_1\)</span> and <span class="math notranslate nohighlight">\(\sigma_2\)</span><a class="headerlink" href="#two-population-with-known-sigma-1-and-sigma-2" title="Permalink to this headline">¶</a></h2>
-<p>The point estimator of the difference of two population means is
-$<span class="math notranslate nohighlight">\(
-\bar{x}_1-\bar{x}_2
-\)</span><span class="math notranslate nohighlight">\(
-and its standard error is 
-\)</span><span class="math notranslate nohighlight">\(
-\sigma_{\bar{x}_{1}-\bar{x}_{2}}=\sqrt{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}}
-\)</span><span class="math notranslate nohighlight">\(
-if both populations have a normal distribution, then sampling distribution of \)</span>\bar{x}_1-\bar{x}_2<span class="math notranslate nohighlight">\( also have a normal distribution. Then the \)</span>z<span class="math notranslate nohighlight">\( statistic has a normal distribution
-\)</span><span class="math notranslate nohighlight">\(
-z=\frac{\left(\bar{x}_{1}-\bar{x}_{2}\right)-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}}}
-\)</span>$</p>
-<p>The interval estimator with known <span class="math notranslate nohighlight">\(\sigma_1\)</span> and <span class="math notranslate nohighlight">\(\sigma_2\)</span> is constructed by rearranging <span class="math notranslate nohighlight">\(z\)</span>-statistic
-$<span class="math notranslate nohighlight">\(
-\bar{x}_{1}-\bar{x}_{2} \pm z_{\alpha / 2} \sqrt{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}}
-\)</span>$</p>
-<p>We can simulate a case of population height, first create two populations of male and female with <span class="math notranslate nohighlight">\(\mu_1 = 175\)</span> and <span class="math notranslate nohighlight">\(\mu_2 = 170\)</span>, also <span class="math notranslate nohighlight">\(\sigma_1=10\)</span> and <span class="math notranslate nohighlight">\(\sigma_2=8\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">male_population</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span>
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cell_output docutils container">
+                      <div
+                        class="
+                          output
+                          text_plain
+                          highlight-myst-ansi
+                          notranslate
+                        "
+                      >
+                        <div class="highlight">
+                          <pre><span></span>1.9697339922715282
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cell docutils container">
+                    <div class="cell_input docutils container">
+                      <div class="highlight-ipython3 notranslate">
+                        <div class="highlight">
+                          <pre><span></span><span class="n">t_025</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">.025</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">);</span> <span class="n">t_025</span>
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cell_output docutils container">
+                      <div
+                        class="
+                          output
+                          text_plain
+                          highlight-myst-ansi
+                          notranslate
+                        "
+                      >
+                        <div class="highlight">
+                          <pre><span></span>-1.9697339922715287
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cell docutils container">
+                    <div class="cell_input docutils container">
+                      <div class="highlight-ipython3 notranslate">
+                        <div class="highlight">
+                          <pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The rejection region of null hypothesis is &lt;</span><span class="si">{}</span><span class="s1"> and &gt;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">male_null</span> <span class="o">-</span> <span class="n">t_975</span><span class="o">*</span><span class="n">male_std_error</span><span class="p">,</span> <span class="n">male_null</span> <span class="o">+</span> <span class="n">t_975</span><span class="o">*</span><span class="n">male_std_error</span><span class="p">))</span>
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cell_output docutils container">
+                      <div
+                        class="output stream highlight-myst-ansi notranslate"
+                      >
+                        <div class="highlight">
+                          <pre><span></span>The rejection region of null hypothesis is &lt;169.85242784779035 and &gt;174.14757215220965
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    whereas the
+                    <code class="docutils literal notranslate"
+                      ><span class="pre">male_mean</span></code
+                    >
+                    falls into the rejection region, we reject null hypothesis
+                    in favour of alternative hypothesis
+                  </p>
+                  <div class="cell docutils container">
+                    <div class="cell_input docutils container">
+                      <div class="highlight-ipython3 notranslate">
+                        <div class="highlight">
+                          <pre><span></span><span class="n">male_mean</span>
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cell_output docutils container">
+                      <div
+                        class="
+                          output
+                          text_plain
+                          highlight-myst-ansi
+                          notranslate
+                        "
+                      >
+                        <div class="highlight">
+                          <pre><span></span>169.64897959183673
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    Alternatively we can construct
+                    <span class="math notranslate nohighlight">\(t\)</span
+                    >-statistic $<span class="math notranslate nohighlight"
+                      >\( t=\frac{\bar{x}-μ}{s/\sqrt{n}} \)</span
+                    ><span class="math notranslate nohighlight"
+                      >\( Rejection region is where \)</span
+                    >t<span class="math notranslate nohighlight"
+                      >\(-statistic larger or smaller than critical values
+                      \)</span
+                    ><span class="math notranslate nohighlight"
+                      >\( t&gt;t_{\alpha} = t_{.025} \text{ and }
+                      t&lt;t_{\alpha} = t_{.975} \)</span
+                    >$
+                  </p>
+                  <div class="cell docutils container">
+                    <div class="cell_input docutils container">
+                      <div class="highlight-ipython3 notranslate">
+                        <div class="highlight">
+                          <pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">male_mean</span> <span class="o">-</span> <span class="n">male_null</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">male_std_error</span><span class="p">);</span> <span class="n">t</span>
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cell_output docutils container">
+                      <div
+                        class="
+                          output
+                          text_plain
+                          highlight-myst-ansi
+                          notranslate
+                        "
+                      >
+                        <div class="highlight">
+                          <pre><span></span>-2.1563349150893543
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    In this case, the
+                    <span class="math notranslate nohighlight">\(t\)</span>
+                    statistic falls short than critical value
+                    <span class="math notranslate nohighlight"
+                      >\(t_{.025}\)</span
+                    >, which also tells that the sample mean deviates about
+                    <span class="math notranslate nohighlight">\(2.15\)</span>
+                    standard errors away from the mean of null hypothesis,
+                    fairly significant evidence to reject null hypothesis. We
+                    also say the test is
+                    <strong>statistically significant</strong>.
+                  </p>
+                  <p>
+                    Here is the demonstration of rejection region in terms of
+                    both original unit (cm) and
+                    <span class="math notranslate nohighlight">\(t\)</span
+                    >-statistic, the rejection region are shaded in pink. Codes
+                    are messy, thus hidden in
+                    <code class="docutils literal notranslate"
+                      ><span class="pre">plot_material</span></code
+                    >.
+                  </p>
+                  <p>
+                    Rejection region gives a yes or no answer, but
+                    <strong>p-value</strong> can give a probability how
+                    rare/extreme the test statistic is, given the null
+                    hypothesis is true. It can be easily retrieved by
+                    <code class="docutils literal notranslate"
+                      ><span class="pre">.stats.t.cdf</span></code
+                    >
+                    function if the test statistic is negative as in our
+                    example, if positive then use
+                    <code class="docutils literal notranslate"
+                      ><span class="pre">1-.stats.t.cdf</span></code
+                    >. The p-value in our example is
+                  </p>
+                  <div class="cell docutils container">
+                    <div class="cell_input docutils container">
+                      <div class="highlight-ipython3 notranslate">
+                        <div class="highlight">
+                          <pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span>
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cell_output docutils container">
+                      <div
+                        class="
+                          output
+                          text_plain
+                          highlight-myst-ansi
+                          notranslate
+                        "
+                      >
+                        <div class="highlight">
+                          <pre><span></span>0.016017555878266296
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    It indicates that if
+                    <span class="math notranslate nohighlight"
+                      >\(H_0 = 172\)</span
+                    >
+                    is true, the probability of a sample mean of
+                    <span class="math notranslate nohighlight">\(169.64\)</span>
+                    or smaller has around
+                    <span class="math notranslate nohighlight">\(1.6\%\)</span>
+                    probability.
+                  </p>
+                </div>
+                <div class="section" id="one-or-two-tail-test">
+                  <h1>
+                    One- or Two-Tail Test<a
+                      class="headerlink"
+                      href="#one-or-two-tail-test"
+                      title="Permalink to this headline"
+                      >¶</a
+                    >
+                  </h1>
+                  <p>
+                    The height example is a two-tail test, meaning constructing
+                    rejecting region on both sides, there are one-tail tests as
+                    well $<span class="math notranslate nohighlight"
+                      >\( H_0: μ = μ_0\\ H_1: μ &gt; μ_0 \)</span
+                    ><span class="math notranslate nohighlight">\( or \)</span
+                    ><span class="math notranslate nohighlight"
+                      >\( H_0: μ = μ_0\\ H_1: μ &lt; μ_0 \)</span
+                    ><span class="math notranslate nohighlight"
+                      >\( Recall that in two-tail test, we divide the
+                      significance level by two, \)</span
+                    >2.5%$ on each side, but in one-tail test the significance
+                    level stays on either side as a whole.
+                  </p>
+                  <p>
+                    The figure below is the demonstration of one-tail test with
+                    <span class="math notranslate nohighlight">\(5\%\)</span>
+                    significance level on either side. The horizontal axis
+                    represents
+                    <span class="math notranslate nohighlight">\(t\)</span
+                    >-statistic.
+                  </p>
+                </div>
+                <div
+                  class="section"
+                  id="inference-about-difference-between-two-means"
+                >
+                  <h1>
+                    Inference About Difference Between Two Means<a
+                      class="headerlink"
+                      href="#inference-about-difference-between-two-means"
+                      title="Permalink to this headline"
+                      >¶</a
+                    >
+                  </h1>
+                  <p>
+                    If the difference of means of two population is the primary
+                    concern, for instance we’d like to investigate whether man
+                    and women’s starting salary level differs, we still can
+                    develop interval estimator and hypothesis test as in
+                    previous examples.
+                  </p>
+                  <div
+                    class="section"
+                    id="two-population-with-known-sigma-1-and-sigma-2"
+                  >
+                    <h2>
+                      Two Population With Known
+                      <span class="math notranslate nohighlight">\(σ_1\)</span>
+                      and
+                      <span class="math notranslate nohighlight">\(σ_2\)</span
+                      ><a
+                        class="headerlink"
+                        href="#two-population-with-known-sigma-1-and-sigma-2"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <p>
+                      The point estimator of the difference of two population
+                      means is $<span class="math notranslate nohighlight"
+                        >\( \bar{x}_1-\bar{x}_2 \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\( and its standard error is \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\(
+                        σ_{\bar{x}_{1}-\bar{x}_{2}}=\sqrt{\frac{σ_{1}^{2}}{n_{1}}+\frac{σ_{2}^{2}}{n_{2}}}
+                        \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\( if both populations have a normal distribution, then
+                        sampling distribution of \)</span
+                      >\bar{x}_1-\bar{x}_2<span
+                        class="math notranslate nohighlight"
+                        >\( also have a normal distribution. Then the \)</span
+                      >z<span class="math notranslate nohighlight"
+                        >\( statistic has a normal distribution \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\(
+                        z=\frac{\left(\bar{x}_{1}-\bar{x}_{2}\right)-(μ_1-μ_2)}{\sqrt{\frac{σ_{1}^{2}}{n_{1}}+\frac{σ_{2}^{2}}{n_{2}}}}
+                        \)</span
+                      >$
+                    </p>
+                    <p>
+                      The interval estimator with known
+                      <span class="math notranslate nohighlight">\(σ_1\)</span>
+                      and
+                      <span class="math notranslate nohighlight">\(σ_2\)</span>
+                      is constructed by rearranging
+                      <span class="math notranslate nohighlight">\(z\)</span
+                      >-statistic $<span class="math notranslate nohighlight"
+                        >\( \bar{x}_{1}-\bar{x}_{2} \pm z_{\alpha / 2}
+                        \sqrt{\frac{σ_{1}^{2}}{n_{1}}+\frac{σ_{2}^{2}}{n_{2}}}
+                        \)</span
+                      >$
+                    </p>
+                    <p>
+                      We can simulate a case of population height, first create
+                      two populations of male and female with
+                      <span class="math notranslate nohighlight"
+                        >\(μ_1 = 175\)</span
+                      >
+                      and
+                      <span class="math notranslate nohighlight"
+                        >\(μ_2 = 170\)</span
+                      >, also
+                      <span class="math notranslate nohighlight"
+                        >\(σ_1=10\)</span
+                      >
+                      and
+                      <span class="math notranslate nohighlight">\(σ_2=8\)</span
+                      >.
+                    </p>
+                    <div class="cell docutils container">
+                      <div class="cell_input docutils container">
+                        <div class="highlight-ipython3 notranslate">
+                          <div class="highlight">
+                            <pre><span></span><span class="n">male_population</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span>
     <span class="n">loc</span><span class="o">=</span><span class="mi">175</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>  <span class="c1"># generate male population of 10000</span>
 <span class="n">female_population</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span>
     <span class="n">loc</span><span class="o">=</span><span class="mi">170</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>  <span class="c1"># generate famale population of 10000</span>
@@ -629,70 +1178,144 @@ $<span class="math notranslate nohighlight">\(
 <span class="nb">print</span><span class="p">(</span>
     <span class="s1">&#39;Confidence interval of the difference of the population means is (</span><span class="si">{:.2f}</span><span class="s1">, </span><span class="si">{:.2f}</span><span class="s1">).&#39;</span>
     <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">LCL</span><span class="p">,</span> <span class="n">UCL</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Point estimate of the difference of the population means is 7.05.
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="cell_output docutils container">
+                        <div
+                          class="output stream highlight-myst-ansi notranslate"
+                        >
+                          <div class="highlight">
+                            <pre><span></span>Point estimate of the difference of the population means is 7.05.
 Confidence interval of the difference of the population means is (4.54, 9.56).
-</pre></div>
-</div>
-</div>
-</div>
-<p>There are three forms of hypothesis</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{array}{lll}
-H_{0}: \mu_{1}-\mu_{2} \geq D_{0} &amp; H_{0}: \mu_{1}-\mu_{2} \leq D_{0} &amp; H_{0}: \mu_{1}-\mu_{2}=D_{0} \\
-H_{\mathrm{1}}: \mu_{1}-\mu_{2} &lt; D_{0} &amp; H_{\mathrm{1}}: \mu_{1}-\mu_{2}&gt;D_{0} &amp; H_{\mathrm{1}}: \mu_{1}-\mu_{2} \neq D_{0}
-\end{array}
-\end{split}\]</div>
-<p>The <span class="math notranslate nohighlight">\(z\)</span> statistic test has the same mechanism as in one population inference, we would like to know how many standard deviation away from the null hypothesis of difference of population mean.
-$<span class="math notranslate nohighlight">\(
-z=\frac{\left(\bar{x}_{1}-\bar{x}_{2}\right)-D_{0}}{\sqrt{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}}}=\frac{\left(\bar{x}_{1}-\bar{x}_{2}\right)-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}}}
-\)</span><span class="math notranslate nohighlight">\(
-Back to our example, suppose our hypothesis is the men and women has the same average height
-\)</span><span class="math notranslate nohighlight">\(
-H_0:\mu_1-\mu_2 = 0\\
-H_1:\mu_1-\mu_2 \neq 0
-\)</span>$</p>
-<p>We actually know that we will reject null hypothesis, because data generation parameter is <span class="math notranslate nohighlight">\(\mu_1=175\)</span> and <span class="math notranslate nohighlight">\(\mu_2=170\)</span>, here is the results</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="p">((</span><span class="n">male_sample_mean</span> <span class="o">-</span> <span class="n">female_sample_mean</span><span class="p">)</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">standard_error</span>
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p>There are three forms of hypothesis</p>
+                    <div class="math notranslate nohighlight">
+                      \[\begin{split} \begin{array}{lll} H_{0}: μ_{1}-μ_{2} \geq
+                      D_{0} &amp; H_{0}: μ_{1}-μ_{2} \leq D_{0} &amp; H_{0}:
+                      μ_{1}-μ_{2}=D_{0} \\ H_{\mathrm{1}}: μ_{1}-μ_{2} &lt;
+                      D_{0} &amp; H_{\mathrm{1}}: μ_{1}-μ_{2}&gt;D_{0} &amp;
+                      H_{\mathrm{1}}: μ_{1}-μ_{2} \neq D_{0} \end{array}
+                      \end{split}\]
+                    </div>
+                    <p>
+                      The
+                      <span class="math notranslate nohighlight">\(z\)</span>
+                      statistic test has the same mechanism as in one population
+                      inference, we would like to know how many standard
+                      deviation away from the null hypothesis of difference of
+                      population mean. $<span
+                        class="math notranslate nohighlight"
+                        >\(
+                        z=\frac{\left(\bar{x}_{1}-\bar{x}_{2}\right)-D_{0}}{\sqrt{\frac{σ_{1}^{2}}{n_{1}}+\frac{σ_{2}^{2}}{n_{2}}}}=\frac{\left(\bar{x}_{1}-\bar{x}_{2}\right)-(μ_1-μ_2)}{\sqrt{\frac{σ_{1}^{2}}{n_{1}}+\frac{σ_{2}^{2}}{n_{2}}}}
+                        \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\( Back to our example, suppose our hypothesis is the
+                        men and women has the same average height \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\( H_0:μ_1-μ_2 = 0\\ H_1:μ_1-μ_2 \neq 0 \)</span
+                      >$
+                    </p>
+                    <p>
+                      We actually know that we will reject null hypothesis,
+                      because data generation parameter is
+                      <span class="math notranslate nohighlight"
+                        >\(μ_1=175\)</span
+                      >
+                      and
+                      <span class="math notranslate nohighlight"
+                        >\(μ_2=170\)</span
+                      >, here is the results
+                    </p>
+                    <div class="cell docutils container">
+                      <div class="cell_input docutils container">
+                        <div class="highlight-ipython3 notranslate">
+                          <div class="highlight">
+                            <pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="p">((</span><span class="n">male_sample_mean</span> <span class="o">-</span> <span class="n">female_sample_mean</span><span class="p">)</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">standard_error</span>
 <span class="n">p_value</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;z statistic: </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p-Value: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_value</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>z statistic: 5.51
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="cell_output docutils container">
+                        <div
+                          class="output stream highlight-myst-ansi notranslate"
+                        >
+                          <div class="highlight">
+                            <pre><span></span>z statistic: 5.51
 p-Value: 1.826897821910478e-08
-</pre></div>
-</div>
-</div>
-</div>
-<p>We reject the null hypothesis <span class="math notranslate nohighlight">\(\mu_1=\mu_2\)</span> in favour of alternative hypothesis <span class="math notranslate nohighlight">\(\mu_1\neq\mu_2\)</span>.</p>
-</div>
-<div class="section" id="two-population-with-unknown-sigma-1-and-sigma-2">
-<h2>Two Population With Unknown <span class="math notranslate nohighlight">\(\sigma_1\)</span> and <span class="math notranslate nohighlight">\(\sigma_2\)</span><a class="headerlink" href="#two-population-with-unknown-sigma-1-and-sigma-2" title="Permalink to this headline">¶</a></h2>
-<p>As you have guess, interval estimator with two population with unknown <span class="math notranslate nohighlight">\(\sigma_1\)</span> and <span class="math notranslate nohighlight">\(\sigma_2\)</span> is
-$<span class="math notranslate nohighlight">\(
-\bar{x}_{1}-\bar{x}_{2} \pm t_{\alpha / 2} \sqrt{\frac{s_{1}^{2}}{n_{1}}+\frac{s_{2}^{2}}{n_{2}}}
-\)</span><span class="math notranslate nohighlight">\(
-And \)</span>t<span class="math notranslate nohighlight">\(-statistic
-\)</span><span class="math notranslate nohighlight">\(
-t=\frac{\left(\bar{x}_{1}-\bar{x}_{2}\right)-D_{0}}{\sqrt{\frac{s_{1}^{2}}{n_{1}}+\frac{s_{2}^{2}}{n_{2}}}}
-\)</span><span class="math notranslate nohighlight">\(
-However the degree of freedom has a nastier form
-\)</span><span class="math notranslate nohighlight">\(
-d f=\frac{\left(\frac{s_{1}^{2}}{n_{1}}+\frac{s_{2}^{2}}{n_{2}}\right)^{2}}{\frac{1}{n_{1}-1}\left(\frac{s_{1}^{2}}{n_{1}}\right)^{2}+\frac{1}{n_{2}-1}\left(\frac{s_{2}^{2}}{n_{2}}\right)^{2}}
-\)</span>$</p>
-<p>Besides that, rest of procedures are the same.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">male_sample_variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">male_sample</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p>
+                      We reject the null hypothesis
+                      <span class="math notranslate nohighlight"
+                        >\(μ_1=μ_2\)</span
+                      >
+                      in favour of alternative hypothesis
+                      <span class="math notranslate nohighlight"
+                        >\(μ_1\neqμ_2\)</span
+                      >.
+                    </p>
+                  </div>
+                  <div
+                    class="section"
+                    id="two-population-with-unknown-sigma-1-and-sigma-2"
+                  >
+                    <h2>
+                      Two Population With Unknown
+                      <span class="math notranslate nohighlight">\(σ_1\)</span>
+                      and
+                      <span class="math notranslate nohighlight">\(σ_2\)</span
+                      ><a
+                        class="headerlink"
+                        href="#two-population-with-unknown-sigma-1-and-sigma-2"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <p>
+                      As you have guess, interval estimator with two population
+                      with unknown
+                      <span class="math notranslate nohighlight">\(σ_1\)</span>
+                      and
+                      <span class="math notranslate nohighlight">\(σ_2\)</span>
+                      is $<span class="math notranslate nohighlight"
+                        >\( \bar{x}_{1}-\bar{x}_{2} \pm t_{\alpha / 2}
+                        \sqrt{\frac{s_{1}^{2}}{n_{1}}+\frac{s_{2}^{2}}{n_{2}}}
+                        \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\( And \)</span
+                      >t<span class="math notranslate nohighlight"
+                        >\(-statistic \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\(
+                        t=\frac{\left(\bar{x}_{1}-\bar{x}_{2}\right)-D_{0}}{\sqrt{\frac{s_{1}^{2}}{n_{1}}+\frac{s_{2}^{2}}{n_{2}}}}
+                        \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\( However the degree of freedom has a nastier form
+                        \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\( d
+                        f=\frac{\left(\frac{s_{1}^{2}}{n_{1}}+\frac{s_{2}^{2}}{n_{2}}\right)^{2}}{\frac{1}{n_{1}-1}\left(\frac{s_{1}^{2}}{n_{1}}\right)^{2}+\frac{1}{n_{2}-1}\left(\frac{s_{2}^{2}}{n_{2}}\right)^{2}}
+                        \)</span
+                      >$
+                    </p>
+                    <p>Besides that, rest of procedures are the same.</p>
+                    <div class="cell docutils container">
+                      <div class="cell_input docutils container">
+                        <div class="highlight-ipython3 notranslate">
+                          <div class="highlight">
+                            <pre><span></span><span class="n">male_sample_variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">male_sample</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">female_sample_variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">female_sample</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">standard_error_unknown</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">male_sample_variance</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">+</span>
@@ -712,103 +1335,229 @@ d f=\frac{\left(\frac{s_{1}^{2}}{n_{1}}+\frac{s_{2}^{2}}{n_{2}}\right)^{2}}{\fra
 <span class="nb">print</span><span class="p">(</span>
     <span class="s1">&#39;Confidence interval of the difference of the population means is (</span><span class="si">{:.2f}</span><span class="s1">, </span><span class="si">{:.2f}</span><span class="s1">).&#39;</span>
     <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">LCL</span><span class="p">,</span> <span class="n">UCL</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Degree of freedom: 196
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="cell_output docutils container">
+                        <div
+                          class="output stream highlight-myst-ansi notranslate"
+                        >
+                          <div class="highlight">
+                            <pre><span></span>Degree of freedom: 196
 t-statistic: 4.9945
 Confidence interval of the difference of the population means is (4.27, 9.84).
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="inference-about-difference-between-two-population-proportions">
-<h1>Inference About Difference Between Two Population Proportions<a class="headerlink" href="#inference-about-difference-between-two-population-proportions" title="Permalink to this headline">¶</a></h1>
-<p>This is one of most widely used inference technique in business field. We will introduce it by walking through an example.</p>
-<div class="section" id="do-banks-discriminate-against-women-clients">
-<h2>Do Banks Discriminate Against Women Clients?<a class="headerlink" href="#do-banks-discriminate-against-women-clients" title="Permalink to this headline">¶</a></h2>
-<p>A market research company just surveyed <span class="math notranslate nohighlight">\(3139\)</span> business owners, of whom <span class="math notranslate nohighlight">\(649\)</span> are female. <span class="math notranslate nohighlight">\(59\)</span> women were turned down when applying for a business loan, in contrast <span class="math notranslate nohighlight">\(128\)</span> men were turned down.</p>
-<p>What we would like to know is if banks have possible gender bias?</p>
-<p>The sample proportions of loan rejections are
-$<span class="math notranslate nohighlight">\(
-\hat{p}_1=\frac{59}{649}=9.0\%\\
-\hat{p}_2=\frac{128}{2490}=5.1\%
-\)</span>$</p>
-<p>where <span class="math notranslate nohighlight">\(\hat{p}_1\)</span> and <span class="math notranslate nohighlight">\(\hat{p}_2\)</span> are rejection proportion of women and men respectively.</p>
-<p>You certainly can stop here and report these numbers with a conclusion that women clients are indeed discriminated. But we can also take a more scientific attitude, to minimise the possibility of a fluke. Therefore we continue the hypothesis testing.</p>
-<p>Hypotheses specified as
-$<span class="math notranslate nohighlight">\(
-H_0: p_1 - p_2=0\\
-H_1:  p_1 - p_2&gt;0
-\)</span><span class="math notranslate nohighlight">\(
-If we know \)</span>p_1<span class="math notranslate nohighlight">\( and \)</span>p_2<span class="math notranslate nohighlight">\(, the standard error of sample distribution of \)</span>\hat{p}_1-\hat{p}_2<span class="math notranslate nohighlight">\( is 
-\)</span><span class="math notranslate nohighlight">\(
-\sigma_{\hat{p}_1-\hat{p}_2}=\sqrt{\frac{p_1(1-p_1)}{n_1}+\frac{p_2(1-p_2)}{n_2}}
-\)</span><span class="math notranslate nohighlight">\(
-Unfortunately, we know nothing about them. However null hypothesis \)</span>p_1=p_2<span class="math notranslate nohighlight">\( allows us to formulate a **pooled proportion estimate**,
-\)</span><span class="math notranslate nohighlight">\(
-\hat{p}=\frac{x_1+x_2}{n_1+n_1}
-\)</span><span class="math notranslate nohighlight">\(
-The standard error becomes
-\)</span><span class="math notranslate nohighlight">\(
-\sigma_{\hat{p}_1-\hat{p}_2}=\sqrt{\hat{p}(1-\hat{p})\bigg(\frac{1}{n_1}+\frac{1}{n_2}\bigg)}
-\)</span>$</p>
-<p>Pooled proportion estimates is</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_hat</span> <span class="o">=</span> <span class="p">(</span><span class="mi">59</span> <span class="o">+</span> <span class="mi">128</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">649</span> <span class="o">+</span> <span class="mi">2490</span><span class="p">)</span>
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="section"
+                  id="inference-about-difference-between-two-population-proportions"
+                >
+                  <h1>
+                    Inference About Difference Between Two Population
+                    Proportions<a
+                      class="headerlink"
+                      href="#inference-about-difference-between-two-population-proportions"
+                      title="Permalink to this headline"
+                      >¶</a
+                    >
+                  </h1>
+                  <p>
+                    This is one of most widely used inference technique in
+                    business field. We will introduce it by walking through an
+                    example.
+                  </p>
+                  <div
+                    class="section"
+                    id="do-banks-discriminate-against-women-clients"
+                  >
+                    <h2>
+                      Do Banks Discriminate Against Women Clients?<a
+                        class="headerlink"
+                        href="#do-banks-discriminate-against-women-clients"
+                        title="Permalink to this headline"
+                        >¶</a
+                      >
+                    </h2>
+                    <p>
+                      A market research company just surveyed
+                      <span class="math notranslate nohighlight">\(3139\)</span>
+                      business owners, of whom
+                      <span class="math notranslate nohighlight">\(649\)</span>
+                      are female.
+                      <span class="math notranslate nohighlight">\(59\)</span>
+                      women were turned down when applying for a business loan,
+                      in contrast
+                      <span class="math notranslate nohighlight">\(128\)</span>
+                      men were turned down.
+                    </p>
+                    <p>
+                      What we would like to know is if banks have possible
+                      gender bias?
+                    </p>
+                    <p>
+                      The sample proportions of loan rejections are $<span
+                        class="math notranslate nohighlight"
+                        >\( \hat{p}_1=\frac{59}{649}=9.0\%\\
+                        \hat{p}_2=\frac{128}{2490}=5.1\% \)</span
+                      >$
+                    </p>
+                    <p>
+                      where
+                      <span class="math notranslate nohighlight"
+                        >\(\hat{p}_1\)</span
+                      >
+                      and
+                      <span class="math notranslate nohighlight"
+                        >\(\hat{p}_2\)</span
+                      >
+                      are rejection proportion of women and men respectively.
+                    </p>
+                    <p>
+                      You certainly can stop here and report these numbers with
+                      a conclusion that women clients are indeed discriminated.
+                      But we can also take a more scientific attitude, to
+                      minimise the possibility of a fluke. Therefore we continue
+                      the hypothesis testing.
+                    </p>
+                    <p>
+                      Hypotheses specified as $<span
+                        class="math notranslate nohighlight"
+                        >\( H_0: p_1 - p_2=0\\ H_1: p_1 - p_2&gt;0 \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\( If we know \)</span
+                      >p_1<span class="math notranslate nohighlight"
+                        >\( and \)</span
+                      >p_2<span class="math notranslate nohighlight"
+                        >\(, the standard error of sample distribution of
+                        \)</span
+                      >\hat{p}_1-\hat{p}_2<span
+                        class="math notranslate nohighlight"
+                        >\( is \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\(
+                        σ_{\hat{p}_1-\hat{p}_2}=\sqrt{\frac{p_1(1-p_1)}{n_1}+\frac{p_2(1-p_2)}{n_2}}
+                        \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\( Unfortunately, we know nothing about them. However
+                        null hypothesis \)</span
+                      >p_1=p_2<span class="math notranslate nohighlight"
+                        >\( allows us to formulate a **pooled proportion
+                        estimate**, \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\( \hat{p}=\frac{x_1+x_2}{n_1+n_1} \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\( The standard error becomes \)</span
+                      ><span class="math notranslate nohighlight"
+                        >\(
+                        σ_{\hat{p}_1-\hat{p}_2}=\sqrt{\hat{p}(1-\hat{p})\bigg(\frac{1}{n_1}+\frac{1}{n_2}\bigg)}
+                        \)</span
+                      >$
+                    </p>
+                    <p>Pooled proportion estimates is</p>
+                    <div class="cell docutils container">
+                      <div class="cell_input docutils container">
+                        <div class="highlight-ipython3 notranslate">
+                          <div class="highlight">
+                            <pre><span></span><span class="n">p_hat</span> <span class="o">=</span> <span class="p">(</span><span class="mi">59</span> <span class="o">+</span> <span class="mi">128</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">649</span> <span class="o">+</span> <span class="mi">2490</span><span class="p">)</span>
 <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p_hat</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_hat</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">649</span><span class="o">+</span><span class="mi">1</span><span class="o">/</span><span class="mi">2490</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Value of test statistic is</p>
-<div class="math notranslate nohighlight">
-\[
-z=\frac{\hat{p}_1-\hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})\bigg(\frac{1}{n_1}+\frac{1}{n_2}\bigg)}}
-\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="mf">.09</span><span class="o">-</span><span class="mf">0.051</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span>
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p>Value of test statistic is</p>
+                    <div class="math notranslate nohighlight">
+                      \[
+                      z=\frac{\hat{p}_1-\hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})\bigg(\frac{1}{n_1}+\frac{1}{n_2}\bigg)}}
+                      \]
+                    </div>
+                    <div class="cell docutils container">
+                      <div class="cell_input docutils container">
+                        <div class="highlight-ipython3 notranslate">
+                          <div class="highlight">
+                            <pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="mf">.09</span><span class="o">-</span><span class="mf">0.051</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test statistic of z is </span><span class="si">{:.4f}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test statistic of z is 3.7386.
-</pre></div>
-</div>
-</div>
-</div>
-<p>Without checking the critical value, we could safely conclude a fail to null hypothesis after seeing a test statistic great than <span class="math notranslate nohighlight">\(3\)</span>.</p>
-</div>
-</div>
-<div class="section" id="inference-about-a-population-variance">
-<h1>Inference About A Population Variance<a class="headerlink" href="#inference-about-a-population-variance" title="Permalink to this headline">¶</a></h1>
-<p>Previously we have seen the pointer estimator of <span class="math notranslate nohighlight">\(\sigma^2\)</span> is
-$<span class="math notranslate nohighlight">\(
-s^2=\frac{\Sigma\left(x_{i}-\bar{x}\right)^{2}}{n-1}
-\)</span><span class="math notranslate nohighlight">\(
-However because of a square, it doesn't have the familiar normal or \)</span>t<span class="math notranslate nohighlight">\(-statistic. The test statistic of \)</span>\sigma^2<span class="math notranslate nohighlight">\( has a \)</span>\chi^2<span class="math notranslate nohighlight">\( distribution
-\)</span><span class="math notranslate nohighlight">\(
-\chi^2=\frac{(n-1) s^{2}}{\sigma^{2}_0}
-\)</span><span class="math notranslate nohighlight">\(
-with \)</span>\nu =n-1<span class="math notranslate nohighlight">\( degree of freedom. With some algebraic manipulation, the confidence interval estimator of \)</span>95%<span class="math notranslate nohighlight">\( confidence level is
-\)</span><span class="math notranslate nohighlight">\(
-\frac{(n-1) s^{2}}{\chi_{.025}^{2}} \leq \sigma^{2} \leq \frac{(n-1) s^{2}}{\chi_{.975}^{2}}
-\)</span><span class="math notranslate nohighlight">\(
-where \)</span>\chi^2_{0.025}<span class="math notranslate nohighlight">\(
-To use our generated population height data, let's assume we want to know if variance of female height is less than \)</span>50<span class="math notranslate nohighlight">\(, hypotheses are
-\)</span><span class="math notranslate nohighlight">\(
-H_0: \sigma^2 \geq 50\\
-H_1: \sigma^2 &lt;50
-\)</span>$</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chi_square_statistic</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">female_sample</span><span class="p">)</span><span class="o">*</span><span class="n">female_sample_variance</span><span class="o">/</span><span class="mi">50</span>
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="cell_output docutils container">
+                        <div
+                          class="output stream highlight-myst-ansi notranslate"
+                        >
+                          <div class="highlight">
+                            <pre><span></span>Test statistic of z is 3.7386.
+</pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p>
+                      Without checking the critical value, we could safely
+                      conclude a fail to null hypothesis after seeing a test
+                      statistic great than
+                      <span class="math notranslate nohighlight">\(3\)</span>.
+                    </p>
+                  </div>
+                </div>
+                <div class="section" id="inference-about-a-population-variance">
+                  <h1>
+                    Inference About A Population Variance<a
+                      class="headerlink"
+                      href="#inference-about-a-population-variance"
+                      title="Permalink to this headline"
+                      >¶</a
+                    >
+                  </h1>
+                  <p>
+                    Previously we have seen the pointer estimator of
+                    <span class="math notranslate nohighlight">\(σ^2\)</span>
+                    is $<span class="math notranslate nohighlight"
+                      >\( s^2=\frac{\Sigma\left(x_{i}-\bar{x}\right)^{2}}{n-1}
+                      \)</span
+                    ><span class="math notranslate nohighlight"
+                      >\( However because of a square, it doesn't have the
+                      familiar normal or \)</span
+                    >t<span class="math notranslate nohighlight"
+                      >\(-statistic. The test statistic of \)</span
+                    >σ^2<span class="math notranslate nohighlight"
+                      >\( has a \)</span
+                    >\chi^2<span class="math notranslate nohighlight"
+                      >\( distribution \)</span
+                    ><span class="math notranslate nohighlight"
+                      >\( \chi^2=\frac{(n-1) s^{2}}{σ^{2}_0} \)</span
+                    ><span class="math notranslate nohighlight">\( with \)</span
+                    >\nu =n-1<span class="math notranslate nohighlight"
+                      >\( degree of freedom. With some algebraic manipulation,
+                      the confidence interval estimator of \)</span
+                    >95%<span class="math notranslate nohighlight"
+                      >\( confidence level is \)</span
+                    ><span class="math notranslate nohighlight"
+                      >\( \frac{(n-1) s^{2}}{\chi_{.025}^{2}} \leq σ^{2} \leq
+                      \frac{(n-1) s^{2}}{\chi_{.975}^{2}} \)</span
+                    ><span class="math notranslate nohighlight"
+                      >\( where \)</span
+                    >\chi^2_{0.025}<span class="math notranslate nohighlight"
+                      >\( To use our generated population height data, let's
+                      assume we want to know if variance of female height is
+                      less than \)</span
+                    >50<span class="math notranslate nohighlight"
+                      >\(, hypotheses are \)</span
+                    ><span class="math notranslate nohighlight"
+                      >\( H_0: σ^2 \geq 50\\ H_1: σ^2 &lt;50 \)</span
+                    >$
+                  </p>
+                  <div class="cell docutils container">
+                    <div class="cell_input docutils container">
+                      <div class="highlight-ipython3 notranslate">
+                        <div class="highlight">
+                          <pre><span></span><span class="n">chi_square_statistic</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">female_sample</span><span class="p">)</span><span class="o">*</span><span class="n">female_sample_variance</span><span class="o">/</span><span class="mi">50</span>
 <span class="n">df</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">female_sample</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
 <span class="n">LCL</span> <span class="o">=</span> <span class="n">df</span><span class="o">*</span><span class="n">female_sample_variance</span><span class="o">/</span><span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">.975</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
 <span class="n">UCL</span> <span class="o">=</span> <span class="n">df</span><span class="o">*</span><span class="n">female_sample_variance</span><span class="o">/</span><span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">.025</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
@@ -816,91 +1565,92 @@ H_1: \sigma^2 &lt;50
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Chi-square statistic: </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chi_square_statistic</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p-value: </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">chi_square_statistic</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Confidence interval: (</span><span class="si">{:.2f}</span><span class="s1">, </span><span class="si">{:.2f}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">LCL</span><span class="p">,</span> <span class="n">UCL</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Female sample variance: 88.73575734163444
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cell_output docutils container">
+                      <div
+                        class="output stream highlight-myst-ansi notranslate"
+                      >
+                        <div class="highlight">
+                          <pre><span></span>Female sample variance: 88.73575734163444
 Chi-square statistic: 177.47151468326888.
 p-value: 0.9999978160032517.
 Confidence interval: (68.41, 119.75)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Hypothesis test states that we don’t have evidence to reject null hypothesis.</p>
-</div>
+</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    Hypothesis test states that we don’t have evidence to reject
+                    null hypothesis.
+                  </p>
+                </div>
 
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            kernelName: "python3",
-            path: "./basics"
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
-
+                <script type="text/x-thebe-config">
+                  {
+                      requestKernel: true,
+                      binderOptions: {
+                          repo: "binder-examples/jupyter-stacks-datascience",
+                          ref: "master",
+                      },
+                      codeMirrorConfig: {
+                          theme: "abcdef",
+                          mode: "python"
+                      },
+                      kernelOptions: {
+                          kernelName: "python3",
+                          path: "./basics"
+                      },
+                      predefinedOutput: true
+                  }
+                </script>
+                <script>
+                  kernelName = 'python3';
+                </script>
               </div>
-              
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="03-Parameter-Estimation.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Parameter Estimation</p>
+              <div class="prev-next-bottom">
+                <div id="prev">
+                  <a
+                    class="left-prev"
+                    href="03-Parameter-Estimation.html"
+                    title="previous page"
+                  >
+                    <i class="prevnext-label fas fa-angle-left"></i>
+                    <div class="prevnext-info">
+                      <p class="prevnext-label">previous</p>
+                      <p class="prevnext-title">Parameter Estimation</p>
+                    </div>
+                  </a>
+                </div>
+                <div id="next">
+                  <a class="right-next" href="05-ANOVA.html" title="next page">
+                    <div class="prevnext-info">
+                      <p class="prevnext-label">next</p>
+                      <p class="prevnext-title">ANOVA</p>
+                    </div>
+                    <i class="prevnext-label fas fa-angle-right"></i>
+                  </a>
+                </div>
+              </div>
             </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="05-ANOVA.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">ANOVA</p>
+          </div>
+          <footer class="footer mt-5 mt-md-0">
+            <div class="container">
+              <p>
+                By integzz<br />
+
+                &copy; Copyright 2021.<br />
+              </p>
             </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By integzz<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+          </footer>
+        </main>
       </div>
     </div>
-  
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  
+    <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
   </body>
 </html>

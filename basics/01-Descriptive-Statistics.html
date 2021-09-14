@@ -446,7 +446,7 @@
 <h2>Measure Of Location<a class="headerlink" href="#measure-of-location" title="Permalink to this headline">¶</a></h2>
 <p>The most important <strong>mean</strong> we need is <strong>arithmetic mean</strong>, which is prevalent in all kinds of statistical techniques.
 $<span class="math notranslate nohighlight">\(
-\mu = \frac{1}{N}\sum_{i=1}^Nx_i\\
+μ = \frac{1}{N}\sum_{i=1}^Nx_i\\
 \bar{x} = \frac{1}{n}\sum_{i=1}^nx_i
 \)</span><span class="math notranslate nohighlight">\(
 The former one is _population mean_, the latter is _sample mean_. The formulae appear the same, but with different indication. \)</span>N<span class="math notranslate nohighlight">\( is the population size, imagine the number of all human beings on earth, on the other hand, \)</span>n<span class="math notranslate nohighlight">\( is sample size, for instance a sample of \)</span>1000$ persons from UK.</p>
@@ -559,10 +559,10 @@ If you can’t make sense out of it, accept a fact that geometric mean is common
 </div>
 </div>
 <p>Before moving any further, we must clarify two statistical concepts: <strong>population</strong> and <strong>sample</strong>. For example, we want to know the variance of all human adults height, therefore we ought to measure all adults (population) on earth in order to calculate the variance, however the mission is impossible, instead we measure a smaller group of adults (sample) to make inferential statements about population.</p>
-<p>Population and sample variance</font> differ in degree of freedom, where <span class="math notranslate nohighlight">\(N\)</span> is the population size, whereas <span class="math notranslate nohighlight">\(n\)</span> is the sample size, <span class="math notranslate nohighlight">\(\mu\)</span> is the population mean and <span class="math notranslate nohighlight">\(\bar{x}\)</span> is the sample mean. The formulae of variances are</p>
+<p>Population and sample variance</font> differ in degree of freedom, where <span class="math notranslate nohighlight">\(N\)</span> is the population size, whereas <span class="math notranslate nohighlight">\(n\)</span> is the sample size, <span class="math notranslate nohighlight">\(μ\)</span> is the population mean and <span class="math notranslate nohighlight">\(\bar{x}\)</span> is the sample mean. The formulae of variances are</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\sigma^2 = \frac{\sum(x_i - \mu)^2}{N}\\
+σ^2 = \frac{\sum(x_i - μ)^2}{N}\\
 s^2 = \frac{\sum(x_i - \bar{x})^2}{n-1}
 \end{split}\]</div>
 <p>The latter is an unbiased estimator of population variance, which is also the <em>sample variance</em>.</p>
@@ -595,7 +595,7 @@ s^2 = \frac{\sum(x_i - \bar{x})^2}{n-1}
 </div>
 </div>
 <p>Theoretically, we can have tremendous amount of samples, say <span class="math notranslate nohighlight">\(10000\)</span> samples. Yes, I mean <span class="math notranslate nohighlight">\(10000\)</span> samples, not the sample size, but this is just a thought experiment, will never be achieved in real world. Again, pure demonstrative purpose.</p>
-<p>What we are doing next: generate <span class="math notranslate nohighlight">\(10000\)</span> samples, calculate the sample variances, plot histogram. The vertical line is the mean of sampling distribution of variance estimates. We set standard deviation of <span class="math notranslate nohighlight">\(\sigma = 10\)</span>, the theoretical variance <span class="math notranslate nohighlight">\(\sigma^2=100\)</span>, therefore we see the point estimator is doing a fair well job.</p>
+<p>What we are doing next: generate <span class="math notranslate nohighlight">\(10000\)</span> samples, calculate the sample variances, plot histogram. The vertical line is the mean of sampling distribution of variance estimates. We set standard deviation of <span class="math notranslate nohighlight">\(σ = 10\)</span>, the theoretical variance <span class="math notranslate nohighlight">\(σ^2=100\)</span>, therefore we see the point estimator is doing a fair well job.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_height_array</span> <span class="o">=</span> <span class="p">[]</span>
@@ -610,7 +610,7 @@ s^2 = \frac{\sum(x_i - \bar{x})^2}{n-1}
 <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample_height_array</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
     <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample_height_array</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">n</span><span class="p">),</span>
-    <span class="sa">f</span><span class="s1">&#39;$\mu_\sigma = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample_height_array</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
+    <span class="sa">f</span><span class="s1">&#39;$μ_σ = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample_height_array</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sampling Distribution of Variance Estimates&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -624,7 +624,7 @@ s^2 = \frac{\sum(x_i - \bar{x})^2}{n-1}
 <p>But we shall keep in mind that <strong>standard deviation</strong> is the most popular measurement of variability. The population/sample standard deviation is simply the square root of variances respectively.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\sigma = \sqrt{\sigma^2}\\
+σ = \sqrt{σ^2}\\
 s = \sqrt{s^2}
 \end{split}\]</div>
 <p>Similar to variance function in NumPy.</p>
@@ -736,7 +736,7 @@ p \geq 1-\frac{1}{z^2}
 <h2>Measures of Association Between Two Variables<a class="headerlink" href="#measures-of-association-between-two-variables" title="Permalink to this headline">¶</a></h2>
 <p>With similar notation, the <strong>population</strong> and <strong>sample covariance</strong> is defined as:
 $<span class="math notranslate nohighlight">\(
-\sigma_{xy} \frac{\sum(x_i-\mu_x)(y_i-\mu_y)}{N}\\
+σ_{xy} \frac{\sum(x_i-μ_x)(y_i-μ_y)}{N}\\
 s_{xy} \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{n-1}
 \)</span>$</p>
 <p>Generate two random arrays, then evaluate a covariance matrix. The values on the diagonal presents the variance, the off-diagonal presents the covariance.</p>
@@ -758,7 +758,7 @@ s_{xy} \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{n-1}
 <p><strong>Correlation Coefficent</strong> is normalized version of covariance, just like the standard deviation is the normalised variance, some statistics textbook calls it <i>Pearson Product Moment Correlation Coefficient</i>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\rho = \frac{\sigma_{xy}}{\sigma_x\sigma_y}\\
+\rho = \frac{σ_{xy}}{σ_xσ_y}\\
 r_{xy}=\frac{s_{xy}}{s_xs_y}
 \end{split}\]</div>
 <p>For the sake of everyone’s sanity, not to cluster the lecture notes with repetive codes, some of them were transported in to <code class="docutils literal notranslate"><span class="pre">plot_material.py</span></code> module. Take a look inside if you are curious.</p>
