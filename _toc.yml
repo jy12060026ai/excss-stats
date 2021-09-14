@@ -29,5 +29,5 @@ parts:
       - file: basics/01-Descriptive-Statistics
       - file: basics/02-Probability-Review
       - file: basics/03-Parameter-Estimation
-      - file: basics/04.Hypothesis-Testing
-      - file: basics/05.ANOVA
+      - file: basics/04-Hypothesis-Testing
+      - file: basics/05-ANOVA
