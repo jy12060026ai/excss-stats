@@ -4,4 +4,7 @@ numpy
 pandas
 seaborn
 scipy
+scikit-learn
 statsmodels
+keras
+tensorflow
