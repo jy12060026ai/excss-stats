@@ -867,8 +867,8 @@ Name: income_cat, dtype: int64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3    0.350533
 2    0.318798
 4    0.176357
-5    0.114583
-1    0.039729
+5    0.114341
+1    0.039971
 Name: income_cat, dtype: float64
 </pre></div>
 </div>
@@ -952,10 +952,10 @@ Name: income_cat, dtype: float64
     <tr>
       <th>1</th>
       <td>0.039826</td>
-      <td>0.039729</td>
+      <td>0.039971</td>
       <td>0.040213</td>
       <td>0.973236</td>
-      <td>-0.243309</td>
+      <td>0.364964</td>
     </tr>
     <tr>
       <th>2</th>
@@ -984,10 +984,10 @@ Name: income_cat, dtype: float64
     <tr>
       <th>5</th>
       <td>0.114438</td>
-      <td>0.114583</td>
+      <td>0.114341</td>
       <td>0.109496</td>
       <td>-4.318374</td>
-      <td>0.127011</td>
+      <td>-0.084674</td>
     </tr>
   </tbody>
 </table>
@@ -1043,7 +1043,7 @@ Name: income_cat, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x122259d60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x127f5beb0&gt;
 </pre></div>
 </div>
 <img alt="../_images/02-data-processing_30_1.png" src="../_images/02-data-processing_30_1.png" />
@@ -1109,14 +1109,14 @@ Name: income_cat, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>median_house_value    1.000000
-median_income         0.687160
-total_rooms           0.135097
-housing_median_age    0.114110
-households            0.064506
-total_bedrooms        0.047689
-population           -0.026920
-longitude            -0.047432
-latitude             -0.142724
+median_income         0.687151
+total_rooms           0.135140
+housing_median_age    0.114146
+households            0.064590
+total_bedrooms        0.047781
+population           -0.026882
+longitude            -0.047466
+latitude             -0.142673
 Name: median_house_value, dtype: float64
 </pre></div>
 </div>
@@ -1135,7 +1135,7 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x122455550&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x1279a2370&gt;
 </pre></div>
 </div>
 <img alt="../_images/02-data-processing_35_1.png" src="../_images/02-data-processing_35_1.png" />
@@ -1174,17 +1174,17 @@ Name: median_house_value, dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>median_house_value          1.000000
-median_income               0.687160
-rooms_per_household         0.146285
-total_rooms                 0.135097
-housing_median_age          0.114110
-households                  0.064506
-total_bedrooms              0.047689
-population_per_household   -0.021985
-population                 -0.026920
-longitude                  -0.047432
-latitude                   -0.142724
-bedrooms_per_room          -0.259984
+median_income               0.687151
+rooms_per_household         0.146255
+total_rooms                 0.135140
+housing_median_age          0.114146
+households                  0.064590
+total_bedrooms              0.047781
+population_per_household   -0.021991
+population                 -0.026882
+longitude                  -0.047466
+latitude                   -0.142673
+bedrooms_per_room          -0.259952
 Name: median_house_value, dtype: float64
 </pre></div>
 </div>
@@ -1262,33 +1262,33 @@ Name: median_house_value, dtype: float64
     </tr>
     <tr>
       <th>mean</th>
-      <td>-119.575834</td>
-      <td>35.639577</td>
-      <td>28.653101</td>
-      <td>2622.728319</td>
-      <td>534.973890</td>
-      <td>1419.790819</td>
-      <td>497.060380</td>
-      <td>3.875589</td>
-      <td>206990.920724</td>
-      <td>5.440341</td>
-      <td>0.212878</td>
-      <td>3.096437</td>
+      <td>-119.575635</td>
+      <td>35.639314</td>
+      <td>28.653404</td>
+      <td>2622.539789</td>
+      <td>534.914639</td>
+      <td>1419.687379</td>
+      <td>497.011810</td>
+      <td>3.875884</td>
+      <td>207005.322372</td>
+      <td>5.440406</td>
+      <td>0.212873</td>
+      <td>3.096469</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>2.001860</td>
-      <td>2.138058</td>
-      <td>12.574726</td>
-      <td>2138.458419</td>
-      <td>412.699041</td>
-      <td>1115.686241</td>
-      <td>375.720845</td>
-      <td>1.904950</td>
-      <td>115703.014830</td>
-      <td>2.611712</td>
-      <td>0.057379</td>
-      <td>11.584826</td>
+      <td>2.001828</td>
+      <td>2.137963</td>
+      <td>12.574819</td>
+      <td>2138.417080</td>
+      <td>412.665649</td>
+      <td>1115.663036</td>
+      <td>375.696156</td>
+      <td>1.904931</td>
+      <td>115701.297250</td>
+      <td>2.611696</td>
+      <td>0.057378</td>
+      <td>11.584825</td>
     </tr>
     <tr>
       <th>min</th>
@@ -1314,26 +1314,26 @@ Name: median_house_value, dtype: float64
       <td>295.000000</td>
       <td>784.000000</td>
       <td>279.000000</td>
-      <td>2.566775</td>
+      <td>2.566950</td>
       <td>119800.000000</td>
-      <td>4.442040</td>
+      <td>4.442168</td>
       <td>0.175304</td>
-      <td>2.431287</td>
+      <td>2.431352</td>
     </tr>
     <tr>
       <th>50%</th>
       <td>-118.510000</td>
       <td>34.260000</td>
       <td>29.000000</td>
-      <td>2119.500000</td>
+      <td>2119.000000</td>
       <td>433.000000</td>
       <td>1164.000000</td>
       <td>408.000000</td>
-      <td>3.540900</td>
+      <td>3.541550</td>
       <td>179500.000000</td>
-      <td>5.232284</td>
-      <td>0.203031</td>
-      <td>2.817653</td>
+      <td>5.232342</td>
+      <td>0.203027</td>
+      <td>2.817661</td>
     </tr>
     <tr>
       <th>75%</th>
@@ -1342,12 +1342,12 @@ Name: median_house_value, dtype: float64
       <td>37.000000</td>
       <td>3141.000000</td>
       <td>644.000000</td>
-      <td>1719.250000</td>
+      <td>1719.000000</td>
       <td>602.000000</td>
-      <td>4.744475</td>
+      <td>4.745325</td>
       <td>263900.000000</td>
       <td>6.056361</td>
-      <td>0.239831</td>
+      <td>0.239816</td>
       <td>3.281420</td>
     </tr>
     <tr>
@@ -1419,64 +1419,64 @@ Name: median_house_value, dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>4629</th>
-      <td>-118.30</td>
-      <td>34.07</td>
-      <td>18.0</td>
-      <td>3759.0</td>
+      <th>1606</th>
+      <td>-122.08</td>
+      <td>37.88</td>
+      <td>26.0</td>
+      <td>2947.0</td>
       <td>NaN</td>
-      <td>3296.0</td>
-      <td>1462.0</td>
-      <td>2.2708</td>
+      <td>825.0</td>
+      <td>626.0</td>
+      <td>2.9330</td>
+      <td>NEAR BAY</td>
+    </tr>
+    <tr>
+      <th>10915</th>
+      <td>-117.87</td>
+      <td>33.73</td>
+      <td>45.0</td>
+      <td>2264.0</td>
+      <td>NaN</td>
+      <td>1970.0</td>
+      <td>499.0</td>
+      <td>3.4193</td>
       <td>&lt;1H OCEAN</td>
     </tr>
     <tr>
-      <th>6068</th>
-      <td>-117.86</td>
-      <td>34.01</td>
-      <td>16.0</td>
-      <td>4632.0</td>
+      <th>19150</th>
+      <td>-122.70</td>
+      <td>38.35</td>
+      <td>14.0</td>
+      <td>2313.0</td>
       <td>NaN</td>
-      <td>3038.0</td>
-      <td>727.0</td>
-      <td>5.1762</td>
+      <td>954.0</td>
+      <td>397.0</td>
+      <td>3.7813</td>
       <td>&lt;1H OCEAN</td>
     </tr>
     <tr>
-      <th>17923</th>
-      <td>-121.97</td>
-      <td>37.35</td>
-      <td>30.0</td>
-      <td>1955.0</td>
+      <th>4186</th>
+      <td>-118.23</td>
+      <td>34.13</td>
+      <td>48.0</td>
+      <td>1308.0</td>
       <td>NaN</td>
-      <td>999.0</td>
-      <td>386.0</td>
-      <td>4.6328</td>
+      <td>835.0</td>
+      <td>294.0</td>
+      <td>4.2891</td>
       <td>&lt;1H OCEAN</td>
     </tr>
     <tr>
-      <th>13656</th>
-      <td>-117.30</td>
-      <td>34.05</td>
-      <td>6.0</td>
-      <td>2155.0</td>
+      <th>16885</th>
+      <td>-122.40</td>
+      <td>37.58</td>
+      <td>26.0</td>
+      <td>3281.0</td>
       <td>NaN</td>
-      <td>1039.0</td>
-      <td>391.0</td>
-      <td>1.6675</td>
-      <td>INLAND</td>
-    </tr>
-    <tr>
-      <th>19252</th>
-      <td>-122.79</td>
-      <td>38.48</td>
-      <td>7.0</td>
-      <td>6837.0</td>
-      <td>NaN</td>
-      <td>3468.0</td>
-      <td>1405.0</td>
-      <td>3.1662</td>
-      <td>&lt;1H OCEAN</td>
+      <td>1145.0</td>
+      <td>480.0</td>
+      <td>6.3580</td>
+      <td>NEAR OCEAN</td>
     </tr>
   </tbody>
 </table>
@@ -1528,64 +1528,64 @@ Name: median_house_value, dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>4629</th>
-      <td>-118.30</td>
-      <td>34.07</td>
-      <td>18.0</td>
-      <td>3759.0</td>
+      <th>1606</th>
+      <td>-122.08</td>
+      <td>37.88</td>
+      <td>26.0</td>
+      <td>2947.0</td>
       <td>433.0</td>
-      <td>3296.0</td>
-      <td>1462.0</td>
-      <td>2.2708</td>
+      <td>825.0</td>
+      <td>626.0</td>
+      <td>2.9330</td>
+      <td>NEAR BAY</td>
+    </tr>
+    <tr>
+      <th>10915</th>
+      <td>-117.87</td>
+      <td>33.73</td>
+      <td>45.0</td>
+      <td>2264.0</td>
+      <td>433.0</td>
+      <td>1970.0</td>
+      <td>499.0</td>
+      <td>3.4193</td>
       <td>&lt;1H OCEAN</td>
     </tr>
     <tr>
-      <th>6068</th>
-      <td>-117.86</td>
-      <td>34.01</td>
-      <td>16.0</td>
-      <td>4632.0</td>
+      <th>19150</th>
+      <td>-122.70</td>
+      <td>38.35</td>
+      <td>14.0</td>
+      <td>2313.0</td>
       <td>433.0</td>
-      <td>3038.0</td>
-      <td>727.0</td>
-      <td>5.1762</td>
+      <td>954.0</td>
+      <td>397.0</td>
+      <td>3.7813</td>
       <td>&lt;1H OCEAN</td>
     </tr>
     <tr>
-      <th>17923</th>
-      <td>-121.97</td>
-      <td>37.35</td>
-      <td>30.0</td>
-      <td>1955.0</td>
+      <th>4186</th>
+      <td>-118.23</td>
+      <td>34.13</td>
+      <td>48.0</td>
+      <td>1308.0</td>
       <td>433.0</td>
-      <td>999.0</td>
-      <td>386.0</td>
-      <td>4.6328</td>
+      <td>835.0</td>
+      <td>294.0</td>
+      <td>4.2891</td>
       <td>&lt;1H OCEAN</td>
     </tr>
     <tr>
-      <th>13656</th>
-      <td>-117.30</td>
-      <td>34.05</td>
-      <td>6.0</td>
-      <td>2155.0</td>
+      <th>16885</th>
+      <td>-122.40</td>
+      <td>37.58</td>
+      <td>26.0</td>
+      <td>3281.0</td>
       <td>433.0</td>
-      <td>1039.0</td>
-      <td>391.0</td>
-      <td>1.6675</td>
-      <td>INLAND</td>
-    </tr>
-    <tr>
-      <th>19252</th>
-      <td>-122.79</td>
-      <td>38.48</td>
-      <td>7.0</td>
-      <td>6837.0</td>
-      <td>433.0</td>
-      <td>3468.0</td>
-      <td>1405.0</td>
-      <td>3.1662</td>
-      <td>&lt;1H OCEAN</td>
+      <td>1145.0</td>
+      <td>480.0</td>
+      <td>6.3580</td>
+      <td>NEAR OCEAN</td>
     </tr>
   </tbody>
 </table>
@@ -1631,8 +1631,8 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-118.51  ,   34.26  ,   29.    , 2119.5   ,  433.    , 1164.    ,
-        408.    ,    3.5409])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-118.51   ,   34.26   ,   29.     , 2119.     ,  433.     ,
+       1164.     ,  408.     ,    3.54155])
 </pre></div>
 </div>
 </div>
@@ -1644,8 +1644,8 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-118.51  ,   34.26  ,   29.    , 2119.5   ,  433.    , 1164.    ,
-        408.    ,    3.5409])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-118.51   ,   34.26   ,   29.     , 2119.     ,  433.     ,
+       1164.     ,  408.     ,    3.54155])
 </pre></div>
 </div>
 </div>
@@ -1702,59 +1702,59 @@ Name: median_house_value, dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>4629</th>
-      <td>-118.30</td>
-      <td>34.07</td>
-      <td>18.0</td>
-      <td>3759.0</td>
+      <th>1606</th>
+      <td>-122.08</td>
+      <td>37.88</td>
+      <td>26.0</td>
+      <td>2947.0</td>
       <td>433.0</td>
-      <td>3296.0</td>
-      <td>1462.0</td>
-      <td>2.2708</td>
+      <td>825.0</td>
+      <td>626.0</td>
+      <td>2.9330</td>
     </tr>
     <tr>
-      <th>6068</th>
-      <td>-117.86</td>
-      <td>34.01</td>
-      <td>16.0</td>
-      <td>4632.0</td>
+      <th>10915</th>
+      <td>-117.87</td>
+      <td>33.73</td>
+      <td>45.0</td>
+      <td>2264.0</td>
       <td>433.0</td>
-      <td>3038.0</td>
-      <td>727.0</td>
-      <td>5.1762</td>
+      <td>1970.0</td>
+      <td>499.0</td>
+      <td>3.4193</td>
     </tr>
     <tr>
-      <th>17923</th>
-      <td>-121.97</td>
-      <td>37.35</td>
-      <td>30.0</td>
-      <td>1955.0</td>
+      <th>19150</th>
+      <td>-122.70</td>
+      <td>38.35</td>
+      <td>14.0</td>
+      <td>2313.0</td>
       <td>433.0</td>
-      <td>999.0</td>
-      <td>386.0</td>
-      <td>4.6328</td>
+      <td>954.0</td>
+      <td>397.0</td>
+      <td>3.7813</td>
     </tr>
     <tr>
-      <th>13656</th>
-      <td>-117.30</td>
-      <td>34.05</td>
-      <td>6.0</td>
-      <td>2155.0</td>
+      <th>4186</th>
+      <td>-118.23</td>
+      <td>34.13</td>
+      <td>48.0</td>
+      <td>1308.0</td>
       <td>433.0</td>
-      <td>1039.0</td>
-      <td>391.0</td>
-      <td>1.6675</td>
+      <td>835.0</td>
+      <td>294.0</td>
+      <td>4.2891</td>
     </tr>
     <tr>
-      <th>19252</th>
-      <td>-122.79</td>
-      <td>38.48</td>
-      <td>7.0</td>
-      <td>6837.0</td>
+      <th>16885</th>
+      <td>-122.40</td>
+      <td>37.58</td>
+      <td>26.0</td>
+      <td>3281.0</td>
       <td>433.0</td>
-      <td>3468.0</td>
-      <td>1405.0</td>
-      <td>3.1662</td>
+      <td>1145.0</td>
+      <td>480.0</td>
+      <td>6.3580</td>
     </tr>
   </tbody>
 </table>
@@ -1817,59 +1817,59 @@ Name: median_house_value, dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>17606</th>
-      <td>-121.89</td>
-      <td>37.29</td>
-      <td>38.0</td>
-      <td>1568.0</td>
-      <td>351.0</td>
-      <td>710.0</td>
-      <td>339.0</td>
-      <td>2.7042</td>
+      <th>12655</th>
+      <td>-121.46</td>
+      <td>38.52</td>
+      <td>29.0</td>
+      <td>3873.0</td>
+      <td>797.0</td>
+      <td>2237.0</td>
+      <td>706.0</td>
+      <td>2.1736</td>
     </tr>
     <tr>
-      <th>18632</th>
-      <td>-121.93</td>
-      <td>37.05</td>
-      <td>14.0</td>
-      <td>679.0</td>
-      <td>108.0</td>
-      <td>306.0</td>
-      <td>113.0</td>
-      <td>6.4214</td>
+      <th>15502</th>
+      <td>-117.23</td>
+      <td>33.09</td>
+      <td>7.0</td>
+      <td>5320.0</td>
+      <td>855.0</td>
+      <td>2015.0</td>
+      <td>768.0</td>
+      <td>6.3373</td>
     </tr>
     <tr>
-      <th>14650</th>
-      <td>-117.20</td>
-      <td>32.77</td>
-      <td>31.0</td>
-      <td>1952.0</td>
-      <td>471.0</td>
-      <td>936.0</td>
-      <td>462.0</td>
-      <td>2.8621</td>
+      <th>2908</th>
+      <td>-119.04</td>
+      <td>35.37</td>
+      <td>44.0</td>
+      <td>1618.0</td>
+      <td>310.0</td>
+      <td>667.0</td>
+      <td>300.0</td>
+      <td>2.8750</td>
     </tr>
     <tr>
-      <th>3230</th>
-      <td>-119.61</td>
-      <td>36.31</td>
-      <td>25.0</td>
-      <td>1847.0</td>
-      <td>371.0</td>
-      <td>1460.0</td>
-      <td>353.0</td>
-      <td>1.8839</td>
+      <th>14053</th>
+      <td>-117.13</td>
+      <td>32.75</td>
+      <td>24.0</td>
+      <td>1877.0</td>
+      <td>519.0</td>
+      <td>898.0</td>
+      <td>483.0</td>
+      <td>2.2264</td>
     </tr>
     <tr>
-      <th>3555</th>
-      <td>-118.59</td>
-      <td>34.23</td>
-      <td>17.0</td>
-      <td>6592.0</td>
-      <td>1525.0</td>
-      <td>4459.0</td>
-      <td>1463.0</td>
-      <td>3.0347</td>
+      <th>20496</th>
+      <td>-118.70</td>
+      <td>34.28</td>
+      <td>27.0</td>
+      <td>3536.0</td>
+      <td>646.0</td>
+      <td>1837.0</td>
+      <td>580.0</td>
+      <td>4.4964</td>
     </tr>
   </tbody>
 </table>
@@ -1907,39 +1907,39 @@ Name: median_house_value, dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>17606</th>
-      <td>&lt;1H OCEAN</td>
+      <th>12655</th>
+      <td>INLAND</td>
     </tr>
     <tr>
-      <th>18632</th>
-      <td>&lt;1H OCEAN</td>
-    </tr>
-    <tr>
-      <th>14650</th>
+      <th>15502</th>
       <td>NEAR OCEAN</td>
     </tr>
     <tr>
-      <th>3230</th>
+      <th>2908</th>
       <td>INLAND</td>
     </tr>
     <tr>
-      <th>3555</th>
+      <th>14053</th>
+      <td>NEAR OCEAN</td>
+    </tr>
+    <tr>
+      <th>20496</th>
       <td>&lt;1H OCEAN</td>
     </tr>
     <tr>
-      <th>19480</th>
-      <td>INLAND</td>
+      <th>1481</th>
+      <td>NEAR BAY</td>
     </tr>
     <tr>
-      <th>8879</th>
+      <th>18125</th>
       <td>&lt;1H OCEAN</td>
     </tr>
     <tr>
-      <th>13685</th>
-      <td>INLAND</td>
+      <th>5830</th>
+      <td>&lt;1H OCEAN</td>
     </tr>
     <tr>
-      <th>4937</th>
+      <th>17989</th>
       <td>&lt;1H OCEAN</td>
     </tr>
     <tr>
@@ -1981,13 +1981,13 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0., 0.],
-       [1., 0., 0., 0., 0.],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 1., 0., 0., 0.],
        [0., 0., 0., 0., 1.],
-       ...,
        [0., 1., 0., 0., 0.],
+       ...,
        [1., 0., 0., 0., 0.],
-       [0., 0., 0., 1., 0.]])
+       [1., 0., 0., 0., 0.],
+       [0., 1., 0., 0., 0.]])
 </pre></div>
 </div>
 </div>
@@ -2100,74 +2100,74 @@ Name: median_house_value, dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>17606</th>
-      <td>-121.89</td>
-      <td>37.29</td>
-      <td>38.0</td>
-      <td>1568.0</td>
-      <td>351.0</td>
-      <td>710.0</td>
-      <td>339.0</td>
-      <td>2.7042</td>
-      <td>&lt;1H OCEAN</td>
-      <td>4.625369</td>
-      <td>2.094395</td>
-    </tr>
-    <tr>
-      <th>18632</th>
-      <td>-121.93</td>
-      <td>37.05</td>
-      <td>14.0</td>
-      <td>679.0</td>
-      <td>108.0</td>
-      <td>306.0</td>
-      <td>113.0</td>
-      <td>6.4214</td>
-      <td>&lt;1H OCEAN</td>
-      <td>6.00885</td>
-      <td>2.707965</td>
-    </tr>
-    <tr>
-      <th>14650</th>
-      <td>-117.2</td>
-      <td>32.77</td>
-      <td>31.0</td>
-      <td>1952.0</td>
-      <td>471.0</td>
-      <td>936.0</td>
-      <td>462.0</td>
-      <td>2.8621</td>
-      <td>NEAR OCEAN</td>
-      <td>4.225108</td>
-      <td>2.025974</td>
-    </tr>
-    <tr>
-      <th>3230</th>
-      <td>-119.61</td>
-      <td>36.31</td>
-      <td>25.0</td>
-      <td>1847.0</td>
-      <td>371.0</td>
-      <td>1460.0</td>
-      <td>353.0</td>
-      <td>1.8839</td>
+      <th>12655</th>
+      <td>-121.46</td>
+      <td>38.52</td>
+      <td>29.0</td>
+      <td>3873.0</td>
+      <td>797.0</td>
+      <td>2237.0</td>
+      <td>706.0</td>
+      <td>2.1736</td>
       <td>INLAND</td>
-      <td>5.232295</td>
-      <td>4.135977</td>
+      <td>5.485836</td>
+      <td>3.168555</td>
     </tr>
     <tr>
-      <th>3555</th>
-      <td>-118.59</td>
-      <td>34.23</td>
-      <td>17.0</td>
-      <td>6592.0</td>
-      <td>1525.0</td>
-      <td>4459.0</td>
-      <td>1463.0</td>
-      <td>3.0347</td>
+      <th>15502</th>
+      <td>-117.23</td>
+      <td>33.09</td>
+      <td>7.0</td>
+      <td>5320.0</td>
+      <td>855.0</td>
+      <td>2015.0</td>
+      <td>768.0</td>
+      <td>6.3373</td>
+      <td>NEAR OCEAN</td>
+      <td>6.927083</td>
+      <td>2.623698</td>
+    </tr>
+    <tr>
+      <th>2908</th>
+      <td>-119.04</td>
+      <td>35.37</td>
+      <td>44.0</td>
+      <td>1618.0</td>
+      <td>310.0</td>
+      <td>667.0</td>
+      <td>300.0</td>
+      <td>2.875</td>
+      <td>INLAND</td>
+      <td>5.393333</td>
+      <td>2.223333</td>
+    </tr>
+    <tr>
+      <th>14053</th>
+      <td>-117.13</td>
+      <td>32.75</td>
+      <td>24.0</td>
+      <td>1877.0</td>
+      <td>519.0</td>
+      <td>898.0</td>
+      <td>483.0</td>
+      <td>2.2264</td>
+      <td>NEAR OCEAN</td>
+      <td>3.886128</td>
+      <td>1.859213</td>
+    </tr>
+    <tr>
+      <th>20496</th>
+      <td>-118.7</td>
+      <td>34.28</td>
+      <td>27.0</td>
+      <td>3536.0</td>
+      <td>646.0</td>
+      <td>1837.0</td>
+      <td>580.0</td>
+      <td>4.4964</td>
       <td>&lt;1H OCEAN</td>
-      <td>4.50581</td>
-      <td>3.047847</td>
+      <td>6.096552</td>
+      <td>3.167241</td>
     </tr>
   </tbody>
 </table>
@@ -2202,19 +2202,19 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.15604281,  0.77194962,  0.74333089, ..., -0.31205452,
-        -0.08649871,  0.15531753],
-       [-1.17602483,  0.6596948 , -1.1653172 , ...,  0.21768338,
-        -0.03353391, -0.83628902],
-       [ 1.18684903, -1.34218285,  0.18664186, ..., -0.46531516,
-        -0.09240499,  0.4222004 ],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.94135046,  1.34743822,  0.02756357, ...,  0.01739526,
+         0.00622264, -0.12112176],
+       [ 1.17178212, -1.19243966, -1.72201763, ...,  0.56925554,
+        -0.04081077, -0.81086696],
+       [ 0.26758118, -0.1259716 ,  1.22045984, ..., -0.01802432,
+        -0.07537122, -0.33827252],
        ...,
-       [ 1.58648943, -0.72478134, -1.56295222, ...,  0.3469342 ,
-        -0.03055414, -0.52177644],
-       [ 0.78221312, -0.85106801,  0.18664186, ...,  0.02499488,
-         0.06150916, -0.30340741],
-       [-1.43579109,  0.99645926,  1.85670895, ..., -0.22852947,
-        -0.09586294,  0.10180567]])
+       [-1.5707942 ,  1.31001828,  1.53856552, ..., -0.5092404 ,
+        -0.03743619,  0.32286937],
+       [-1.56080303,  1.2492109 , -1.1653327 , ...,  0.32814891,
+        -0.05915604, -0.45702273],
+       [-1.28105026,  2.02567448, -0.13148926, ...,  0.01407228,
+         0.00657083, -0.12169672]])
 </pre></div>
 </div>
 </div>
@@ -2248,19 +2248,19 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.15604281,  0.77194962,  0.74333089, ...,  0.        ,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.94135046,  1.34743822,  0.02756357, ...,  0.        ,
          0.        ,  0.        ],
-       [-1.17602483,  0.6596948 , -1.1653172 , ...,  0.        ,
-         0.        ,  0.        ],
-       [ 1.18684903, -1.34218285,  0.18664186, ...,  0.        ,
+       [ 1.17178212, -1.19243966, -1.72201763, ...,  0.        ,
          0.        ,  1.        ],
+       [ 0.26758118, -0.1259716 ,  1.22045984, ...,  0.        ,
+         0.        ,  0.        ],
        ...,
-       [ 1.58648943, -0.72478134, -1.56295222, ...,  0.        ,
+       [-1.5707942 ,  1.31001828,  1.53856552, ...,  0.        ,
          0.        ,  0.        ],
-       [ 0.78221312, -0.85106801,  0.18664186, ...,  0.        ,
+       [-1.56080303,  1.2492109 , -1.1653327 , ...,  0.        ,
          0.        ,  0.        ],
-       [-1.43579109,  0.99645926,  1.85670895, ...,  0.        ,
-         1.        ,  0.        ]])
+       [-1.28105026,  2.02567448, -0.13148926, ...,  0.        ,
+         0.        ,  0.        ]])
 </pre></div>
 </div>
 </div>
@@ -2347,19 +2347,19 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.15604281,  0.77194962,  0.74333089, ...,  0.        ,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.94135046,  1.34743822,  0.02756357, ...,  0.        ,
          0.        ,  0.        ],
-       [-1.17602483,  0.6596948 , -1.1653172 , ...,  0.        ,
-         0.        ,  0.        ],
-       [ 1.18684903, -1.34218285,  0.18664186, ...,  0.        ,
+       [ 1.17178212, -1.19243966, -1.72201763, ...,  0.        ,
          0.        ,  1.        ],
+       [ 0.26758118, -0.1259716 ,  1.22045984, ...,  0.        ,
+         0.        ,  0.        ],
        ...,
-       [ 1.58648943, -0.72478134, -1.56295222, ...,  0.        ,
+       [-1.5707942 ,  1.31001828,  1.53856552, ...,  0.        ,
          0.        ,  0.        ],
-       [ 0.78221312, -0.85106801,  0.18664186, ...,  0.        ,
+       [-1.56080303,  1.2492109 , -1.1653327 , ...,  0.        ,
          0.        ,  0.        ],
-       [-1.43579109,  0.99645926,  1.85670895, ...,  0.        ,
-         1.        ,  0.        ]])
+       [-1.28105026,  2.02567448, -0.13148926, ...,  0.        ,
+         0.        ,  0.        ]])
 </pre></div>
 </div>
 </div>
@@ -2411,8 +2411,8 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predictions: [210644.60459286 317768.80697211 210956.43331178  59218.98886849
- 189747.55849879]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predictions: [ 85657.90192014 305492.60737488 152056.46122456 186095.70946094
+ 244550.67966089]
 </pre></div>
 </div>
 </div>
@@ -2425,7 +2425,7 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Labels: [286600.0, 340600.0, 196900.0, 46300.0, 254500.0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Labels: [72100.0, 279600.0, 82700.0, 112500.0, 238300.0]
 </pre></div>
 </div>
 </div>
@@ -2437,25 +2437,25 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.15604281,  0.77194962,  0.74333089, -0.49323393, -0.44543821,
-        -0.63621141, -0.42069842, -0.61493744, -0.31205452, -0.08649871,
-         0.15531753,  1.        ,  0.        ,  0.        ,  0.        ,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.94135046,  1.34743822,  0.02756357,  0.58477745,  0.64037127,
+         0.73260236,  0.55628602, -0.8936472 ,  0.01739526,  0.00622264,
+        -0.12112176,  0.        ,  1.        ,  0.        ,  0.        ,
          0.        ],
-       [-1.17602483,  0.6596948 , -1.1653172 , -0.90896655, -1.0369278 ,
-        -0.99833135, -1.02222705,  1.33645936,  0.21768338, -0.03353391,
-        -0.83628902,  1.        ,  0.        ,  0.        ,  0.        ,
-         0.        ],
-       [ 1.18684903, -1.34218285,  0.18664186, -0.31365989, -0.15334458,
-        -0.43363936, -0.0933178 , -0.5320456 , -0.46531516, -0.09240499,
-         0.4222004 ,  0.        ,  0.        ,  0.        ,  0.        ,
+       [ 1.17178212, -1.19243966, -1.72201763,  1.26146668,  0.78156132,
+         0.53361152,  0.72131799,  1.292168  ,  0.56925554, -0.04081077,
+        -0.81086696,  0.        ,  0.        ,  0.        ,  0.        ,
          1.        ],
-       [-0.01706767,  0.31357576, -0.29052016, -0.36276217, -0.39675594,
-         0.03604096, -0.38343559, -1.04556555, -0.07966124,  0.08973561,
-        -0.19645314,  0.        ,  1.        ,  0.        ,  0.        ,
+       [ 0.26758118, -0.1259716 ,  1.22045984, -0.46977281, -0.54513828,
+        -0.67467519, -0.52440722, -0.52543365, -0.01802432, -0.07537122,
+        -0.33827252,  0.        ,  1.        ,  0.        ,  0.        ,
          0.        ],
-       [ 0.49247384, -0.65929936, -0.92673619,  1.85619316,  2.41221109,
-         2.72415407,  2.57097492, -0.44143679, -0.35783383, -0.00419445,
-         0.2699277 ,  1.        ,  0.        ,  0.        ,  0.        ,
+       [ 1.22173797, -1.35147437, -0.37006852, -0.34865152, -0.03636724,
+        -0.46761716, -0.03729672, -0.86592882, -0.59513997, -0.10680295,
+         0.96120521,  0.        ,  0.        ,  0.        ,  0.        ,
+         1.        ],
+       [ 0.43743108, -0.63581817, -0.13148926,  0.42717947,  0.27279028,
+         0.37406031,  0.22089846,  0.32575178,  0.2512412 ,  0.00610923,
+        -0.47451338,  1.        ,  0.        ,  0.        ,  0.        ,
          0.        ]])
 </pre></div>
 </div>
@@ -2478,7 +2478,7 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>68628.19819848923
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>68627.87390018745
 </pre></div>
 </div>
 </div>
@@ -2499,7 +2499,7 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49439.89599001897
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49438.66860915802
 </pre></div>
 </div>
 </div>
@@ -2573,11 +2573,11 @@ Name: median_house_value, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scores: [70194.33680785 66855.16363941 72432.58244769 70758.73896782
- 71115.88230639 75585.14172901 70262.86139133 70273.6325285
- 75366.87952553 71231.65726027]
-Mean: 71407.68766037929
-Standard deviation: 2439.4345041191004
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scores: [72831.45749112 69973.18438322 69528.56551415 72517.78229792
+ 69145.50006909 79094.74123727 68960.045444   73344.50225684
+ 69826.02473916 71077.09753998]
+Mean: 71629.89009727491
+Standard deviation: 2914.035468468928
 </pre></div>
 </div>
 </div>
@@ -2595,11 +2595,11 @@ Standard deviation: 2439.4345041191004
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scores: [66782.73843989 66960.118071   70347.95244419 74739.57052552
- 68031.13388938 71193.84183426 64969.63056405 68281.61137997
- 71552.91566558 67665.10082067]
-Mean: 69052.46136345083
-Standard deviation: 2731.674001798348
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scores: [71762.76364394 64114.99166359 67771.17124356 68635.19072082
+ 66846.14089488 72528.03725385 73997.08050233 68802.33629334
+ 66443.28836884 70139.79923956]
+Mean: 69104.07998247063
+Standard deviation: 2880.3282098180634
 </pre></div>
 </div>
 </div>
@@ -2634,7 +2634,7 @@ Standard deviation: 2731.674001798348
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18603.515021376355
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18650.698705770003
 </pre></div>
 </div>
 </div>
@@ -2652,11 +2652,11 @@ Standard deviation: 2731.674001798348
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scores: [49519.80364233 47461.9115823  50029.02762854 52325.28068953
- 49308.39426421 53446.37892622 48634.8036574  47585.73832311
- 53490.10699751 50021.5852922 ]
-Mean: 50182.303100336096
-Standard deviation: 2097.0810550985693
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scores: [51559.63379638 48737.57100062 47210.51269766 51875.21247297
+ 47577.50470123 51863.27467888 52746.34645573 50065.1762751
+ 48664.66818196 54055.90894609]
+Mean: 50435.58092066179
+Standard deviation: 2203.3381412764606
 </pre></div>
 </div>
 </div>
@@ -2674,13 +2674,13 @@ Standard deviation: 2097.0810550985693
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count       10.000000
-mean     69052.461363
-std       2879.437224
-min      64969.630564
-25%      67136.363758
-50%      68156.372635
-75%      70982.369487
-max      74739.570526
+mean     69104.079982
+std       3036.132517
+min      64114.991664
+25%      67077.398482
+50%      68718.763507
+75%      71357.022543
+max      73997.080502
 dtype: float64
 </pre></div>
 </div>
@@ -2705,7 +2705,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>111094.6308539982
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>111095.06635291966
 </pre></div>
 </div>
 </div>
@@ -2738,8 +2738,8 @@ dtype: float64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomizedSearchCV(cv=5, estimator=RandomForestRegressor(random_state=42),
-                   param_distributions={&#39;max_features&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x1215f0d30&gt;,
-                                        &#39;n_estimators&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x121d12550&gt;},
+                   param_distributions={&#39;max_features&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x128f6b820&gt;,
+                                        &#39;n_estimators&#39;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x128f62820&gt;},
                    random_state=42, scoring=&#39;neg_mean_squared_error&#39;)
 </pre></div>
 </div>
@@ -2754,16 +2754,16 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49150.70756927707 {&#39;max_features&#39;: 7, &#39;n_estimators&#39;: 180}
-51389.889203389284 {&#39;max_features&#39;: 5, &#39;n_estimators&#39;: 15}
-50796.155224308866 {&#39;max_features&#39;: 3, &#39;n_estimators&#39;: 72}
-50835.13360315349 {&#39;max_features&#39;: 5, &#39;n_estimators&#39;: 21}
-49280.9449827171 {&#39;max_features&#39;: 7, &#39;n_estimators&#39;: 122}
-50774.90662363929 {&#39;max_features&#39;: 3, &#39;n_estimators&#39;: 75}
-50682.78888164288 {&#39;max_features&#39;: 3, &#39;n_estimators&#39;: 88}
-49608.99608105296 {&#39;max_features&#39;: 5, &#39;n_estimators&#39;: 100}
-50473.61930350219 {&#39;max_features&#39;: 3, &#39;n_estimators&#39;: 150}
-64429.84143294435 {&#39;max_features&#39;: 5, &#39;n_estimators&#39;: 2}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49117.55344336652 {&#39;max_features&#39;: 7, &#39;n_estimators&#39;: 180}
+51450.63202856348 {&#39;max_features&#39;: 5, &#39;n_estimators&#39;: 15}
+50692.53588182537 {&#39;max_features&#39;: 3, &#39;n_estimators&#39;: 72}
+50783.614493515 {&#39;max_features&#39;: 5, &#39;n_estimators&#39;: 21}
+49162.89877456354 {&#39;max_features&#39;: 7, &#39;n_estimators&#39;: 122}
+50655.798471042704 {&#39;max_features&#39;: 3, &#39;n_estimators&#39;: 75}
+50513.856319990606 {&#39;max_features&#39;: 3, &#39;n_estimators&#39;: 88}
+49521.17201976928 {&#39;max_features&#39;: 5, &#39;n_estimators&#39;: 100}
+50302.90440763418 {&#39;max_features&#39;: 3, &#39;n_estimators&#39;: 150}
+65167.02018649492 {&#39;max_features&#39;: 5, &#39;n_estimators&#39;: 2}
 </pre></div>
 </div>
 </div>
@@ -2776,10 +2776,10 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([7.24699052e-02, 6.38080322e-02, 4.27504395e-02, 1.65343807e-02,
-       1.56100762e-02, 1.60929106e-02, 1.52149598e-02, 3.45178404e-01,
-       5.74445360e-02, 1.08468449e-01, 7.05907498e-02, 8.77441303e-03,
-       1.60563229e-01, 6.10403994e-05, 3.08961266e-03, 3.34886200e-03])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([7.13721236e-02, 6.28935545e-02, 4.30092772e-02, 1.64086555e-02,
+       1.55670107e-02, 1.64745016e-02, 1.53753328e-02, 3.45190341e-01,
+       5.95258394e-02, 1.10738856e-01, 6.97457058e-02, 8.67185471e-03,
+       1.58662678e-01, 6.67961748e-05, 2.68890007e-03, 3.60857368e-03])
 </pre></div>
 </div>
 </div>
@@ -2795,22 +2795,22 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0.3451784043801197, &#39;median_income&#39;),
- (0.1605632289158767, &#39;INLAND&#39;),
- (0.10846844860879654, &#39;pop_per_hhold&#39;),
- (0.07246990515559049, &#39;longitude&#39;),
- (0.07059074984842853, &#39;bedrooms_per_room&#39;),
- (0.06380803224443841, &#39;latitude&#39;),
- (0.057444535971841064, &#39;rooms_per_hhold&#39;),
- (0.04275043945662488, &#39;housing_median_age&#39;),
- (0.01653438073955306, &#39;total_rooms&#39;),
- (0.016092910597195798, &#39;population&#39;),
- (0.015610076150868492, &#39;total_bedrooms&#39;),
- (0.015214959838627942, &#39;households&#39;),
- (0.008774413032023276, &#39;&lt;1H OCEAN&#39;),
- (0.003348861998751043, &#39;NEAR OCEAN&#39;),
- (0.0030896126618977565, &#39;NEAR BAY&#39;),
- (6.104039936629334e-05, &#39;ISLAND&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0.34519034100319007, &#39;median_income&#39;),
+ (0.15866267751808202, &#39;INLAND&#39;),
+ (0.11073885589189819, &#39;pop_per_hhold&#39;),
+ (0.07137212359389712, &#39;longitude&#39;),
+ (0.06974570580531124, &#39;bedrooms_per_room&#39;),
+ (0.06289355447798799, &#39;latitude&#39;),
+ (0.05952583935728965, &#39;rooms_per_hhold&#39;),
+ (0.04300927718434756, &#39;housing_median_age&#39;),
+ (0.01647450156625561, &#39;population&#39;),
+ (0.016408655481155894, &#39;total_rooms&#39;),
+ (0.015567010725199514, &#39;total_bedrooms&#39;),
+ (0.015375332753137499, &#39;households&#39;),
+ (0.008671854710510336, &#39;&lt;1H OCEAN&#39;),
+ (0.003608573683092269, &#39;NEAR OCEAN&#39;),
+ (0.002688900073839445, &#39;NEAR BAY&#39;),
+ (6.679617480568294e-05, &#39;ISLAND&#39;)]
 </pre></div>
 </div>
 </div>
@@ -2838,7 +2838,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46910.92117024934
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46981.841079394515
 </pre></div>
 </div>
 </div>
@@ -2864,7 +2864,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([44945.41068188, 48797.32686039])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([45009.73121871, 48874.43992557])
 </pre></div>
 </div>
 </div>
@@ -2881,7 +2881,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(44945.4106818769, 48797.32686039384)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(45009.731218709014, 48874.439925573766)
 </pre></div>
 </div>
 </div>
@@ -2896,7 +2896,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(44945.999723355504, 48796.78430953023)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(45010.32226226656, 48873.89561172567)
 </pre></div>
 </div>
 </div>
@@ -2919,8 +2919,8 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([210644.60459286, 317768.80697211, 210956.43331178,  59218.98886849,
-       189747.55849879])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 85657.90192014, 305492.60737488, 152056.46122456, 186095.70946094,
+       244550.67966089])
 </pre></div>
 </div>
 </div>
@@ -3034,11 +3034,11 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0.3451784043801197, &#39;median_income&#39;),
- (0.1605632289158767, &#39;INLAND&#39;),
- (0.10846844860879654, &#39;pop_per_hhold&#39;),
- (0.07246990515559049, &#39;longitude&#39;),
- (0.07059074984842853, &#39;bedrooms_per_room&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0.34519034100319007, &#39;median_income&#39;),
+ (0.15866267751808202, &#39;INLAND&#39;),
+ (0.11073885589189819, &#39;pop_per_hhold&#39;),
+ (0.07137212359389712, &#39;longitude&#39;),
+ (0.06974570580531124, &#39;bedrooms_per_room&#39;)]
 </pre></div>
 </div>
 </div>
@@ -3069,9 +3069,9 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.15604281, -0.61493744, -0.08649871,  0.15531753,  0.        ],
-       [-1.17602483,  1.33645936, -0.03353391, -0.83628902,  0.        ],
-       [ 1.18684903, -0.5320456 , -0.09240499,  0.4222004 ,  0.        ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.94135046, -0.8936472 ,  0.00622264, -0.12112176,  1.        ],
+       [ 1.17178212,  1.292168  , -0.04081077, -0.81086696,  0.        ],
+       [ 0.26758118, -0.52543365, -0.07537122, -0.33827252,  1.        ]])
 </pre></div>
 </div>
 </div>
@@ -3084,9 +3084,9 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.15604281, -0.61493744, -0.08649871,  0.15531753,  0.        ],
-       [-1.17602483,  1.33645936, -0.03353391, -0.83628902,  0.        ],
-       [ 1.18684903, -0.5320456 , -0.09240499,  0.4222004 ,  0.        ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.94135046, -0.8936472 ,  0.00622264, -0.12112176,  1.        ],
+       [ 1.17178212,  1.292168  , -0.04081077, -0.81086696,  0.        ],
+       [ 0.26758118, -0.52543365, -0.07537122, -0.33827252,  1.        ]])
 </pre></div>
 </div>
 </div>
