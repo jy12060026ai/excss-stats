@@ -18,9 +18,9 @@ parts:
     chapters:
       - file: handson-dl/101-intro-keras
       - file: handson-dl/102-training-deep-neural-networks
-  #     - file: handson-dl/103-custom-models-and-training-with-tensorflow
-  #     - file: handson-dl/104-loading-and-preprocessing-data
-  #     - file: handson-dl/105-deep-computer-vision-with-cnns
-  #     - file: handson-dl/106-processing-sequences-using-rnns-and-cnns
-  #     - file: handson-dl/107-nlp-with-rnns-and-attention
+  #     - file: handson-dl/103-custom-models
+  #     - file: handson-dl/104-preprocessing-data
+  #     - file: handson-dl/105-deep-computer-vision
+  #     - file: handson-dl/106-processing-sequences
+  #     - file: handson-dl/107-nlp-and-attention
   #     - file: handson-dl/108-autoencoders-and-gans
