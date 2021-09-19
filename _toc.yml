@@ -14,10 +14,10 @@ parts:
       - file: handson/07-ensemble-learning
       # - file: handson/08-dimensionality-reduction
       # - file: handson/09-unsupervised-learning
-  # - caption: HandsON DL
-  #   chapters:
-  #     - file: handson-dl/101-intro-keras
-  #     - file: handson-dl/102-training-deep-neural-networks
+  - caption: HandsON DL
+    chapters:
+      - file: handson-dl/101-intro-keras
+      - file: handson-dl/102-training-deep-neural-networks
   #     - file: handson-dl/103-custom-models-and-training-with-tensorflow
   #     - file: handson-dl/104-loading-and-preprocessing-data
   #     - file: handson-dl/105-deep-computer-vision-with-cnns

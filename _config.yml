@@ -44,9 +44,9 @@ html:
   extra_footer: '' # Will be displayed underneath the footer.
   home_page_in_navbar: true # Whether to include your home page in the left Navigation Bar
   navbar_number_sections: false # Add a number to each section in your left navbar
-  use_edit_page_button: true # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
-  use_issues_button: true # Whether to add an "open an issue" button
-  use_repository_button: true # Whether to add a link to your repository button
+  use_edit_page_button: false # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
+  use_issues_button: false # Whether to add an "open an issue" button
+  use_repository_button: false # Whether to add a link to your repository button
   use_multitoc_numbering: true # Continuous numbering across parts/chapters
 
 # Information about where the book exists on the web
