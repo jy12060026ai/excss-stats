@@ -17,7 +17,7 @@ parts:
   - caption: HandsON DL
     chapters:
       - file: handson-dl/101-intro-keras
-      - file: handson-dl/102-training-deep-neural-networks
+      # - file: handson-dl/102-training-deep-neural-networks
       - file: handson-dl/103-custom-models
   #     - file: handson-dl/104-preprocessing-data
   #     - file: handson-dl/105-deep-computer-vision
