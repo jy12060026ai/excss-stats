@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Parameter Estimation &#8212; From Statistics to Statistical Learning</title>
+    <title>Parameter Testing &#8212; From Statistics to Statistical Learning</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -111,11 +111,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../handson/03-classification.html">
-   Classification
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../handson/04-linear-models.html">
    Linear Models
   </a>
@@ -133,6 +128,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../handson/07-ensemble-learning.html">
    Ensemble Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../handson/08-dimensionality-reduction.html">
+   Dimensionality Reduction
   </a>
  </li>
 </ul>
@@ -161,67 +161,67 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01-Probability-and-Counting.html">
-   Chapter 1: Probability and Counting
+   Probability and Counting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02-Conditional-Probability.html">
-   Chapter 2: Conditional Probability
+   Conditional Probability
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="03-Random-Variables-and-their-Distributions.html">
-   Chapter 3: Random Variables and their Distributions
+   Random Variables and their Distributions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="04-Expectation.html">
-   Chapter 4: Expectation
+   Expectation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="05-Continuous-Random-Variables.html">
-   Chapter 5: Continuous Random Variables
+   Continuous Random Variables
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="06-Moments.html">
-   Chapter 6: Moments
+   Moments
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="07-Joint-Distributions.html">
-   Chapter 7: Joint Distributions
+   Joint Distributions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="08-Transformations.html">
-   Chapter 8: Transformations
+   Transformations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="09-Conditional-Expectation.html">
-   Chapter 9: Conditional Expectation
+   Conditional Expectation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10-Inequalities-and-Limit-Theorems.html">
-   Chapter 10: Inequalities and Limit Theorems
+   Inequalities and Limit Theorems
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11-Markov-Chains.html">
-   Chapter 11: Markov Chains
+   Markov Chains
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="12-Markov-Chain-Monte-Carlo.html">
-   Chapter 12: Markov Chain Monte Carlo
+   Markov Chain Monte Carlo
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="13-Poisson-Processes.html">
-   Chapter 13: Poisson Processes
+   Poisson Processes
   </a>
  </li>
  <li class="toctree-l1">
@@ -231,12 +231,17 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Parameter Estimation
+   Parameter Testing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="16-Non-Parameter-Testing.html">
    Non Parameter Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="17-Survival-Analysis.html">
+   Survival Analysis
   </a>
  </li>
 </ul>
@@ -350,7 +355,7 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Parameter Estimation
+   Parameter Testing
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
@@ -397,14 +402,12 @@
         
               <div>
                 
-  <div class="section" id="parameter-estimation">
-<h1>Parameter Estimation<a class="headerlink" href="#parameter-estimation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="parameter-testing">
+<h1>Parameter Testing<a class="headerlink" href="#parameter-testing" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 </pre></div>
 </div>
 </div>
@@ -632,7 +635,7 @@ P\bigg(\bar{x}-Z_{α/2}\frac{σ}{\sqrt{n}}&lt;μ&lt;\bar{x}+Z_{α/2}\frac{σ}{\s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(7.223410107115866, 8.007410107115867)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(7.031604229155037, 7.815604229155038)
 </pre></div>
 </div>
 </div>
@@ -662,8 +665,8 @@ P\bigg(\bar{x}-Z_{α/2}\frac{σ}{\sqrt{n}}&lt;μ&lt;\bar{x}+Z_{α/2}\frac{σ}{\s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of simulation: 10000
-Number of inclusion: 9480
-Inclusion rate: 0.948
+Number of inclusion: 9469
+Inclusion rate: 0.9469
 </pre></div>
 </div>
 </div>
@@ -693,8 +696,8 @@ s = \sqrt{\frac{∑(x_i - \bar{x})^2}{n-1}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6.044105967745958, 8.523331653317967)
-(6.025930459212483, 8.541507161851442)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5.991857921113399, 8.471083606685408)
+(5.50776375963453, 8.955177768164278)
 </pre></div>
 </div>
 </div>
@@ -721,8 +724,8 @@ s = \sqrt{\frac{∑(x_i - \bar{x})^2}{n-1}}
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of simulation: 10000
-Number of inclusion: 9480
-Inclusion rate: 0.948
+Number of inclusion: 9469
+Inclusion rate: 0.9469
 </pre></div>
 </div>
 </div>

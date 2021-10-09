@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -56,7 +58,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Support Vector Machines" href="05-support-vector-machines.html" />
-    <link rel="prev" title="Classification" href="03-classification.html" />
+    <link rel="prev" title="Data Processing" href="02-data-processing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -108,11 +110,6 @@
    Data Processing
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03-classification.html">
-   Classification
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Linear Models
@@ -131,6 +128,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="07-ensemble-learning.html">
    Ensemble Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-dimensionality-reduction.html">
+   Dimensionality Reduction
   </a>
  </li>
 </ul>
@@ -159,67 +161,67 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/01-Probability-and-Counting.html">
-   Chapter 1: Probability and Counting
+   Probability and Counting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/02-Conditional-Probability.html">
-   Chapter 2: Conditional Probability
+   Conditional Probability
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/03-Random-Variables-and-their-Distributions.html">
-   Chapter 3: Random Variables and their Distributions
+   Random Variables and their Distributions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/04-Expectation.html">
-   Chapter 4: Expectation
+   Expectation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/05-Continuous-Random-Variables.html">
-   Chapter 5: Continuous Random Variables
+   Continuous Random Variables
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/06-Moments.html">
-   Chapter 6: Moments
+   Moments
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/07-Joint-Distributions.html">
-   Chapter 7: Joint Distributions
+   Joint Distributions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/08-Transformations.html">
-   Chapter 8: Transformations
+   Transformations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/09-Conditional-Expectation.html">
-   Chapter 9: Conditional Expectation
+   Conditional Expectation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/10-Inequalities-and-Limit-Theorems.html">
-   Chapter 10: Inequalities and Limit Theorems
+   Inequalities and Limit Theorems
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/11-Markov-Chains.html">
-   Chapter 11: Markov Chains
+   Markov Chains
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/12-Markov-Chain-Monte-Carlo.html">
-   Chapter 12: Markov Chain Monte Carlo
+   Markov Chain Monte Carlo
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/13-Poisson-Processes.html">
-   Chapter 13: Poisson Processes
+   Poisson Processes
   </a>
  </li>
  <li class="toctree-l1">
@@ -229,12 +231,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/15-Parameter-Testing.html">
-   Parameter Estimation
+   Parameter Testing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/16-Non-Parameter-Testing.html">
    Non Parameter Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/17-Survival-Analysis.html">
+   Survival Analysis
   </a>
  </li>
 </ul>
@@ -2229,11 +2236,11 @@ Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdo
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="03-classification.html" title="previous page">
+        <a class="left-prev" href="02-data-processing.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Classification</p>
+                <p class="prevnext-title">Data Processing</p>
             </div>
         </a>
     </div>

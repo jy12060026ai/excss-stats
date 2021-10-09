@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; From Statistics to Statistical Learning</title>
+    <title>Survival Analysis &#8212; From Statistics to Statistical Learning</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -108,11 +108,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../handson/03-classification.html">
-   Classification
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../handson/04-linear-models.html">
    Linear Models
   </a>
@@ -130,6 +125,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../handson/07-ensemble-learning.html">
    Ensemble Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../handson/08-dimensionality-reduction.html">
+   Dimensionality Reduction
   </a>
  </li>
 </ul>
@@ -155,70 +155,70 @@
   Probablity
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01-Probability-and-Counting.html">
-   Chapter 1: Probability and Counting
+   Probability and Counting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02-Conditional-Probability.html">
-   Chapter 2: Conditional Probability
+   Conditional Probability
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="03-Random-Variables-and-their-Distributions.html">
-   Chapter 3: Random Variables and their Distributions
+   Random Variables and their Distributions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="04-Expectation.html">
-   Chapter 4: Expectation
+   Expectation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="05-Continuous-Random-Variables.html">
-   Chapter 5: Continuous Random Variables
+   Continuous Random Variables
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="06-Moments.html">
-   Chapter 6: Moments
+   Moments
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="07-Joint-Distributions.html">
-   Chapter 7: Joint Distributions
+   Joint Distributions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="08-Transformations.html">
-   Chapter 8: Transformations
+   Transformations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="09-Conditional-Expectation.html">
-   Chapter 9: Conditional Expectation
+   Conditional Expectation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10-Inequalities-and-Limit-Theorems.html">
-   Chapter 10: Inequalities and Limit Theorems
+   Inequalities and Limit Theorems
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11-Markov-Chains.html">
-   Chapter 11: Markov Chains
+   Markov Chains
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="12-Markov-Chain-Monte-Carlo.html">
-   Chapter 12: Markov Chain Monte Carlo
+   Markov Chain Monte Carlo
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="13-Poisson-Processes.html">
-   Chapter 13: Poisson Processes
+   Poisson Processes
   </a>
  </li>
  <li class="toctree-l1">
@@ -228,12 +228,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="15-Parameter-Testing.html">
-   Parameter Estimation
+   Parameter Testing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="16-Non-Parameter-Testing.html">
    Non Parameter Testing
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Survival Analysis
   </a>
  </li>
 </ul>
@@ -340,14 +345,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -356,12 +353,12 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="survival-analysis">
+<h1>Survival Analysis<a class="headerlink" href="#survival-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 </pre></div>
 </div>
 </div>
@@ -408,44 +405,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_24242/2156339275.py:8: DeprecationWarning: In future, it will be an error for &#39;np.bool_&#39; scalars to be interpreted as an index
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_72000/1372225160.py:8: DeprecationWarning: In future, it will be an error for &#39;np.bool_&#39; scalars to be interpreted as an index
   actual_subs = np.array([[func1.rvs(), func2.rvs()][func3.rvs() &lt; 0.5]
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_24242</span><span class="o">/</span><span class="mf">2156339275.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> 
-<span class="ne">---&gt; </span><span class="mi">15</span> <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">lss</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">plot_lifetimes</span><span class="p">(</span><span class="n">observed_subs</span><span class="p">,</span> <span class="n">event_observed</span><span class="o">=</span><span class="n">observed</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/matplotlib/__init__.py</span> in <span class="ni">inner</span><span class="nt">(ax, data, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1359</span>     <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1360</span>         <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1361</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">sanitize_sequence</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1362</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1363</span>         <span class="n">bound</span> <span class="o">=</span> <span class="n">new_sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/matplotlib/axes/_axes.py</span> in <span class="ni">vlines</span><span class="nt">(self, x, ymin, ymax, colors, linestyles, label, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1118</span>                                      <span class="n">linestyles</span><span class="o">=</span><span class="n">linestyles</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1119</span>         <span class="bp">self</span><span class="o">.</span><span class="n">add_collection</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">autolim</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1120</span>         <span class="n">lines</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1121</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1122</span>         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-
-<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/matplotlib/artist.py</span> in <span class="ni">update</span><span class="nt">(self, props)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1060</span>                     <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;set_</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1061</span>                     <span class="k">if</span> <span class="ow">not</span> <span class="n">callable</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1062</span>                         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">!r}</span><span class="s2"> object &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1063</span>                                              <span class="sa">f</span><span class="s2">&quot;has no property </span><span class="si">{</span><span class="n">k</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1064</span>                     <span class="n">ret</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
-
-<span class="ne">AttributeError</span>: &#39;LineCollection&#39; object has no property &#39;lss&#39;
-</pre></div>
-</div>
-<img alt="../_images/17-Survival-Analysis_3_2.png" src="../_images/17-Survival-Analysis_3_2.png" />
+<img alt="../_images/17-Survival-Analysis_4_1.png" src="../_images/17-Survival-Analysis_4_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -474,7 +438,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/17-Survival-Analysis_4_0.png" src="../_images/17-Survival-Analysis_4_0.png" />
+<img alt="../_images/17-Survival-Analysis_5_0.png" src="../_images/17-Survival-Analysis_5_0.png" />
+</div>
 </div>
 </div>
 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 12: Markov Chain Monte Carlo &#8212; From Statistics to Statistical Learning</title>
+    <title>Markov Chain Monte Carlo &#8212; From Statistics to Statistical Learning</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 13: Poisson Processes" href="13-Poisson-Processes.html" />
-    <link rel="prev" title="Chapter 11: Markov Chains" href="11-Markov-Chains.html" />
+    <link rel="next" title="Poisson Processes" href="13-Poisson-Processes.html" />
+    <link rel="prev" title="Markov Chains" href="11-Markov-Chains.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -111,11 +111,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../handson/03-classification.html">
-   Classification
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../handson/04-linear-models.html">
    Linear Models
   </a>
@@ -133,6 +128,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../handson/07-ensemble-learning.html">
    Ensemble Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../handson/08-dimensionality-reduction.html">
+   Dimensionality Reduction
   </a>
  </li>
 </ul>
@@ -161,67 +161,67 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01-Probability-and-Counting.html">
-   Chapter 1: Probability and Counting
+   Probability and Counting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02-Conditional-Probability.html">
-   Chapter 2: Conditional Probability
+   Conditional Probability
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="03-Random-Variables-and-their-Distributions.html">
-   Chapter 3: Random Variables and their Distributions
+   Random Variables and their Distributions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="04-Expectation.html">
-   Chapter 4: Expectation
+   Expectation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="05-Continuous-Random-Variables.html">
-   Chapter 5: Continuous Random Variables
+   Continuous Random Variables
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="06-Moments.html">
-   Chapter 6: Moments
+   Moments
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="07-Joint-Distributions.html">
-   Chapter 7: Joint Distributions
+   Joint Distributions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="08-Transformations.html">
-   Chapter 8: Transformations
+   Transformations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="09-Conditional-Expectation.html">
-   Chapter 9: Conditional Expectation
+   Conditional Expectation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="10-Inequalities-and-Limit-Theorems.html">
-   Chapter 10: Inequalities and Limit Theorems
+   Inequalities and Limit Theorems
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11-Markov-Chains.html">
-   Chapter 11: Markov Chains
+   Markov Chains
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Chapter 12: Markov Chain Monte Carlo
+   Markov Chain Monte Carlo
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="13-Poisson-Processes.html">
-   Chapter 13: Poisson Processes
+   Poisson Processes
   </a>
  </li>
  <li class="toctree-l1">
@@ -231,12 +231,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="15-Parameter-Testing.html">
-   Parameter Estimation
+   Parameter Testing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="16-Non-Parameter-Testing.html">
    Non Parameter Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="17-Survival-Analysis.html">
+   Survival Analysis
   </a>
  </li>
 </ul>
@@ -369,8 +374,8 @@
         
               <div>
                 
-  <div class="section" id="chapter-12-markov-chain-monte-carlo">
-<h1>Chapter 12: Markov Chain Monte Carlo<a class="headerlink" href="#chapter-12-markov-chain-monte-carlo" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="markov-chain-monte-carlo">
+<h1>Markov Chain Monte Carlo<a class="headerlink" href="#markov-chain-monte-carlo" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -607,7 +612,7 @@ median of p = 0.6921336843178136
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Chapter 11: Markov Chains</p>
+                <p class="prevnext-title">Markov Chains</p>
             </div>
         </a>
     </div>
@@ -615,7 +620,7 @@ median of p = 0.6921336843178136
         <a class="right-next" href="13-Poisson-Processes.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Chapter 13: Poisson Processes</p>
+                <p class="prevnext-title">Poisson Processes</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
