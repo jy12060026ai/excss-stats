@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -75,6 +75,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="_static/logo.png" class="logo" alt="logo">
       
@@ -145,6 +149,93 @@
  <li class="toctree-l1">
   <a class="reference internal" href="handson-dl/103-custom-models.html">
    Custom Models
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Probablity
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/01-Probability-and-Counting.html">
+   Chapter 1: Probability and Counting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/02-Conditional-Probability.html">
+   Chapter 2: Conditional Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/03-Random-Variables-and-their-Distributions.html">
+   Chapter 3: Random Variables and their Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/04-Expectation.html">
+   Chapter 4: Expectation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/05-Continuous-Random-Variables.html">
+   Chapter 5: Continuous Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/06-Moments.html">
+   Chapter 6: Moments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/07-Joint-Distributions.html">
+   Chapter 7: Joint Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/08-Transformations.html">
+   Chapter 8: Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/09-Conditional-Expectation.html">
+   Chapter 9: Conditional Expectation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/10-Inequalities-and-Limit-Theorems.html">
+   Chapter 10: Inequalities and Limit Theorems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/11-Markov-Chains.html">
+   Chapter 11: Markov Chains
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/12-Markov-Chain-Monte-Carlo.html">
+   Chapter 12: Markov Chain Monte Carlo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/13-Poisson-Processes.html">
+   Chapter 13: Poisson Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/14-Sampling.html">
+   Sampling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/15-Parameter-Testing.html">
+   Parameter Estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="probability/16-Non-Parameter-Testing.html">
+   Non Parameter Testing
   </a>
  </li>
 </ul>
@@ -296,10 +387,10 @@
                 
   <div class="section" id="from-statistics-to-statistical-learning">
 <h1>From Statistics to Statistical Learning<a class="headerlink" href="#from-statistics-to-statistical-learning" title="Permalink to this headline">¶</a></h1>
-<p>A Notebook Collection of the Following Machine Learning Books with Enhanced Readability:</p>
+<p>A Notebook Collection of the Following Data Science Books with Enhanced Readability:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/">Hands-on Machine Learning with Scikit-Learn, Keras &amp; TensorFlow</a> (HandsOnML2)</p></li>
-<li><p><a class="reference external" href="https://www.statlearning.com/">An Introduction to Statistical Learning</a> (ISLR)</p></li>
+<li><p><a class="reference external" href="https://www.routledge.com/Introduction-to-Probability-Second-Edition/Blitzstein-Hwang/p/book/9781138369917">Introduction to Probability</a></p></li>
 </ul>
 <div class="section" id="code-styles">
 <h2>1. Code Styles<a class="headerlink" href="#code-styles" title="Permalink to this headline">¶</a></h2>
@@ -604,6 +695,8 @@ A\Bigg[\frac12\ \frac13\ ⋯\ \frac1{99}\Bigg]
 </div>
 <div class="toctree-wrapper compound">
 </div>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -649,7 +742,7 @@ A\Bigg[\frac12\ \frac13\ ⋯\ \frac1{99}\Bigg]
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

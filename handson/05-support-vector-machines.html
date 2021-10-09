@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -74,6 +74,10 @@
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../_static/logo.png" class="logo" alt="logo">
       
@@ -144,6 +148,93 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../handson-dl/103-custom-models.html">
    Custom Models
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Probablity
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/01-Probability-and-Counting.html">
+   Chapter 1: Probability and Counting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/02-Conditional-Probability.html">
+   Chapter 2: Conditional Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/03-Random-Variables-and-their-Distributions.html">
+   Chapter 3: Random Variables and their Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/04-Expectation.html">
+   Chapter 4: Expectation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/05-Continuous-Random-Variables.html">
+   Chapter 5: Continuous Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/06-Moments.html">
+   Chapter 6: Moments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/07-Joint-Distributions.html">
+   Chapter 7: Joint Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/08-Transformations.html">
+   Chapter 8: Transformations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/09-Conditional-Expectation.html">
+   Chapter 9: Conditional Expectation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/10-Inequalities-and-Limit-Theorems.html">
+   Chapter 10: Inequalities and Limit Theorems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/11-Markov-Chains.html">
+   Chapter 11: Markov Chains
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/12-Markov-Chain-Monte-Carlo.html">
+   Chapter 12: Markov Chain Monte Carlo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/13-Poisson-Processes.html">
+   Chapter 13: Poisson Processes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/14-Sampling.html">
+   Sampling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/15-Parameter-Testing.html">
+   Parameter Estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/16-Non-Parameter-Testing.html">
+   Non Parameter Testing
   </a>
  </li>
 </ul>
@@ -1773,14 +1864,18 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
 <p>First, let’s load the dataset and split it into a training set and a test set. We could use <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> but people usually just take the first 60,000 instances for the training set, and the last 10,000 instances for the test set (this makes it possible to compare your model’s performance with others):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_openml</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s1">&#39;mnist_784&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data_home</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># X, y = fetch_openml(&#39;mnist_784&#39;,</span>
+<span class="c1">#                     version=1,</span>
+<span class="c1">#                     as_frame=True,</span>
+<span class="c1">#                     return_X_y=True,</span>
+<span class="c1">#                     data_home=&#39;data&#39;)</span>
+<span class="c1"># y = y.astype(np.int8)</span>
+<span class="c1"># X.to_feather(&#39;data/mnist_784_X.feather&#39;)</span>
+<span class="c1"># y.to_frame().to_feather(&#39;data/mnist_784_y.feather&#39;)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_feather</span><span class="p">(</span><span class="s1">&#39;data/mnist_784_X.feather&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_feather</span><span class="p">(</span><span class="s1">&#39;data/mnist_784_y.feather&#39;</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2241,7 +2336,7 @@ SGDClassifier(alpha=0.00200): [0.117] [[0.77714169 0.72981762]]
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
