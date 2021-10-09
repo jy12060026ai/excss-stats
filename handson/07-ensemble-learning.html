@@ -42,8 +42,6 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -540,9 +538,13 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression 0.864
-RandomForestClassifier 0.896
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier 0.896
 SVC 0.896
-VotingClassifier 0.912
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VotingClassifier 0.912
 </pre></div>
 </div>
 </div>
@@ -581,9 +583,13 @@ VotingClassifier 0.912
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression 0.864
-RandomForestClassifier 0.896
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier 0.896
 SVC 0.896
-VotingClassifier 0.92
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VotingClassifier 0.92
 </pre></div>
 </div>
 </div>
@@ -892,6 +898,10 @@ petal width (cm) 0.4233579963547682
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_44746/867223868.py:2: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples,), for example using ravel().
+  rnd_clf.fit(X, y)
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier(random_state=42)
 </pre></div>
 </div>
@@ -1356,6 +1366,16 @@ petal width (cm) 0.4233579963547682
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">4146796959.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="s1">&#39;mnist_784&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data_home</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;fetch_openml&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1374,6 +1394,34 @@ petal width (cm) 0.4233579963547682
                                                   <span class="n">y_train_val</span><span class="p">,</span>
                                                   <span class="n">test_size</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
                                                   <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">2779890092.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">X_train_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train_val</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>                                                             <span class="n">y</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>                                                             <span class="n">test_size</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                                                             <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_train_val</span><span class="p">,</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/model_selection/_split.py</span> in <span class="ni">train_test_split</span><span class="nt">(test_size, train_size, random_state, shuffle, stratify, *arrays)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2420</span> 
+<span class="g g-Whitespace">   </span><span class="mi">2421</span>     <span class="n">n_samples</span> <span class="o">=</span> <span class="n">_num_samples</span><span class="p">(</span><span class="n">arrays</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="ne">-&gt; </span><span class="mi">2422</span>     <span class="n">n_train</span><span class="p">,</span> <span class="n">n_test</span> <span class="o">=</span> <span class="n">_validate_shuffle_split</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2423</span>         <span class="n">n_samples</span><span class="p">,</span> <span class="n">test_size</span><span class="p">,</span> <span class="n">train_size</span><span class="p">,</span> <span class="n">default_test_size</span><span class="o">=</span><span class="mf">0.25</span>
+<span class="g g-Whitespace">   </span><span class="mi">2424</span>     <span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/model_selection/_split.py</span> in <span class="ni">_validate_shuffle_split</span><span class="nt">(n_samples, test_size, train_size, default_test_size)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2041</span>         <span class="ow">and</span> <span class="p">(</span><span class="n">test_size</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">test_size</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2042</span>     <span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">2043</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2044</span>             <span class="s2">&quot;test_size=</span><span class="si">{0}</span><span class="s2"> should be either positive and smaller&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2045</span>             <span class="s2">&quot; than the number of samples </span><span class="si">{1}</span><span class="s2"> or a float in the &quot;</span>
+
+<span class="ne">ValueError</span>: test_size=10000 should be either positive and smaller than the number of samples 100 or a float in the (0, 1) range
 </pre></div>
 </div>
 </div>
@@ -1409,9 +1457,37 @@ petal width (cm) 0.4233579963547682
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training the RandomForestClassifier(random_state=42)
-Training the ExtraTreesClassifier(random_state=42)
-Training the LinearSVC(max_iter=100, random_state=42, tol=20)
-Training the MLPClassifier(random_state=42)
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">1212106657.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">for</span> <span class="n">estimator</span> <span class="ow">in</span> <span class="n">estimators</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training the&quot;</span><span class="p">,</span> <span class="n">estimator</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">364</span>         <span class="bp">self</span><span class="o">.</span><span class="n">n_outputs_</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">365</span> 
+<span class="ne">--&gt; </span><span class="mi">366</span>         <span class="n">y</span><span class="p">,</span> <span class="n">expanded_class_weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_y_class_weight</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">367</span> 
+<span class="g g-Whitespace">    </span><span class="mi">368</span>         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;dtype&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="o">!=</span> <span class="n">DOUBLE</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">y</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">contiguous</span><span class="p">:</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">_validate_y_class_weight</span><span class="nt">(self, y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">721</span> 
+<span class="g g-Whitespace">    </span><span class="mi">722</span>     <span class="k">def</span> <span class="nf">_validate_y_class_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">723</span>         <span class="n">check_classification_targets</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span> 
+<span class="g g-Whitespace">    </span><span class="mi">725</span>         <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/utils/multiclass.py</span> in <span class="ni">check_classification_targets</span><span class="nt">(y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>         <span class="s2">&quot;multilabel-sequences&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span>     <span class="p">]:</span>
+<span class="ne">--&gt; </span><span class="mi">198</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown label type: </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">y_type</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">199</span> 
+<span class="g g-Whitespace">    </span><span class="mi">200</span> 
+
+<span class="ne">ValueError</span>: Unknown label type: &#39;continuous&#39;
 </pre></div>
 </div>
 </div>
@@ -1423,7 +1499,36 @@ Training the MLPClassifier(random_state=42)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.9692, 0.9715, 0.859, 0.9629]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">4014192845.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">[</span><span class="n">estimator</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">)</span> <span class="k">for</span> <span class="n">estimator</span> <span class="ow">in</span> <span class="n">estimators</span><span class="p">]</span>
+
+<span class="nn">/var/folders/93/795zm8c93m16_92qkk86t0_r0000gn/T/ipykernel_44746/4014192845.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">[</span><span class="n">estimator</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">)</span> <span class="k">for</span> <span class="n">estimator</span> <span class="ow">in</span> <span class="n">estimators</span><span class="p">]</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/base.py</span> in <span class="ni">score</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">640</span>         <span class="kn">from</span> <span class="nn">.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="g g-Whitespace">    </span><span class="mi">641</span> 
+<span class="ne">--&gt; </span><span class="mi">642</span>         <span class="k">return</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span> 
+<span class="g g-Whitespace">    </span><span class="mi">644</span>     <span class="k">def</span> <span class="nf">_more_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">predict</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>             <span class="n">The</span> <span class="n">predicted</span> <span class="n">classes</span><span class="o">.</span>
+<span class="g g-Whitespace">    </span><span class="mi">796</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">797</span><span class="s2">         proba = self.predict_proba(X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">798</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">799</span><span class="s2">         if self.n_outputs_ == 1:</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">predict_proba</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">845</span><span class="s2">         all_proba = [</span>
+<span class="g g-Whitespace">    </span><span class="mi">846</span><span class="s2">             np.zeros((X.shape[0], j), dtype=np.float64)</span>
+<span class="nn">--&gt; 847             for j</span> in <span class="ni">np.atleast_1d</span><span class="nt">(self.n_classes_)</span>
+<span class="g g-Whitespace">    </span><span class="mi">848</span><span class="s2">         ]</span>
+<span class="g g-Whitespace">    </span><span class="mi">849</span><span class="s2">         lock = threading.Lock()</span>
+
+<span class="ne">AttributeError</span>: &#39;RandomForestClassifier&#39; object has no attribute &#39;n_classes_&#39;
 </pre></div>
 </div>
 </div>
@@ -1463,13 +1568,26 @@ Training the MLPClassifier(random_state=42)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VotingClassifier(estimators=[(&#39;random_forest_clf&#39;,
-                              RandomForestClassifier(random_state=42)),
-                             (&#39;extra_trees_clf&#39;,
-                              ExtraTreesClassifier(random_state=42)),
-                             (&#39;svm_clf&#39;,
-                              LinearSVC(max_iter=100, random_state=42, tol=20)),
-                             (&#39;mlp_clf&#39;, MLPClassifier(random_state=42))])
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">211308664.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">voting_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_voting.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span>             <span class="n">Returns</span> <span class="n">the</span> <span class="n">instance</span> <span class="n">itself</span><span class="o">.</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">309</span><span class="s2">         check_classification_targets(y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span><span class="s2">         if isinstance(y, np.ndarray) and len(y.shape) &gt; 1 and y.shape[1] &gt; 1:</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span><span class="s2">             raise NotImplementedError(</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/utils/multiclass.py</span> in <span class="ni">check_classification_targets</span><span class="nt">(y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span><span class="s2">         &quot;multilabel-sequences&quot;,</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span><span class="s2">     ]:</span>
+<span class="ne">--&gt; </span><span class="mi">198</span><span class="s2">         raise ValueError(&quot;Unknown label type: </span><span class="si">%r</span><span class="s2">&quot; % y_type)</span>
+<span class="g g-Whitespace">    </span><span class="mi">199</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span><span class="s2"> </span>
+
+<span class="ne">ValueError</span>: Unknown label type: &#39;continuous&#39;
 </pre></div>
 </div>
 </div>
@@ -1481,7 +1599,33 @@ Training the MLPClassifier(random_state=42)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9703
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NotFittedError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">2055375332.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">voting_clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/base.py</span> in <span class="ni">score</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">640</span>         <span class="kn">from</span> <span class="nn">.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="g g-Whitespace">    </span><span class="mi">641</span> 
+<span class="ne">--&gt; </span><span class="mi">642</span>         <span class="k">return</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span> 
+<span class="g g-Whitespace">    </span><span class="mi">644</span>     <span class="k">def</span> <span class="nf">_more_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_voting.py</span> in <span class="ni">predict</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">337</span>             <span class="n">Predicted</span> <span class="k">class</span> <span class="nc">labels</span><span class="o">.</span>
+<span class="g g-Whitespace">    </span><span class="mi">338</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">339</span><span class="s2">         check_is_fitted(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">340</span><span class="s2">         if self.voting == &quot;soft&quot;:</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span><span class="s2">             maj = np.argmax(self.predict_proba(X), axis=1)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/utils/validation.py</span> in <span class="ni">check_is_fitted</span><span class="nt">(estimator, attributes, msg, all_or_any)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1206</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1207</span><span class="s2">     if not fitted:</span>
+<span class="ne">-&gt; </span><span class="mi">1208</span><span class="s2">         raise NotFittedError(msg % {&quot;name&quot;: type(estimator).__name__})</span>
+<span class="g g-Whitespace">   </span><span class="mi">1209</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1210</span><span class="s2"> </span>
+
+<span class="ne">NotFittedError</span>: This VotingClassifier instance is not fitted yet. Call &#39;fit&#39; with appropriate arguments before using this estimator.
 </pre></div>
 </div>
 </div>
@@ -1493,7 +1637,12 @@ Training the MLPClassifier(random_state=42)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0, 0.0, 0.0, 0.0]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">3981885243.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">[</span><span class="n">estimator</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">)</span> <span class="k">for</span> <span class="n">estimator</span> <span class="ow">in</span> <span class="n">voting_clf</span><span class="o">.</span><span class="n">estimators_</span><span class="p">]</span>
+
+<span class="ne">AttributeError</span>: &#39;VotingClassifier&#39; object has no attribute &#39;estimators_&#39;
 </pre></div>
 </div>
 </div>
@@ -1540,10 +1689,12 @@ Training the MLPClassifier(random_state=42)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[RandomForestClassifier(random_state=42),
- ExtraTreesClassifier(random_state=42),
- LinearSVC(max_iter=100, random_state=42, tol=20),
- MLPClassifier(random_state=42)]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">3877735606.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">voting_clf</span><span class="o">.</span><span class="n">estimators_</span>
+
+<span class="ne">AttributeError</span>: &#39;VotingClassifier&#39; object has no attribute &#39;estimators_&#39;
 </pre></div>
 </div>
 </div>
@@ -1552,6 +1703,16 @@ Training the MLPClassifier(random_state=42)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">voting_clf</span><span class="o">.</span><span class="n">estimators_</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">2049606398.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">del</span> <span class="n">voting_clf</span><span class="o">.</span><span class="n">estimators_</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="ne">AttributeError</span>: &#39;VotingClassifier&#39; object has no attribute &#39;estimators_&#39;
 </pre></div>
 </div>
 </div>
@@ -1564,7 +1725,33 @@ Training the MLPClassifier(random_state=42)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9739
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NotFittedError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">2055375332.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">voting_clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/base.py</span> in <span class="ni">score</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">640</span>         <span class="kn">from</span> <span class="nn">.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="g g-Whitespace">    </span><span class="mi">641</span> 
+<span class="ne">--&gt; </span><span class="mi">642</span>         <span class="k">return</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span> 
+<span class="g g-Whitespace">    </span><span class="mi">644</span>     <span class="k">def</span> <span class="nf">_more_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_voting.py</span> in <span class="ni">predict</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">337</span>             <span class="n">Predicted</span> <span class="k">class</span> <span class="nc">labels</span><span class="o">.</span>
+<span class="g g-Whitespace">    </span><span class="mi">338</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">339</span><span class="s2">         check_is_fitted(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">340</span><span class="s2">         if self.voting == &quot;soft&quot;:</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span><span class="s2">             maj = np.argmax(self.predict_proba(X), axis=1)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/utils/validation.py</span> in <span class="ni">check_is_fitted</span><span class="nt">(estimator, attributes, msg, all_or_any)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1206</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1207</span><span class="s2">     if not fitted:</span>
+<span class="ne">-&gt; </span><span class="mi">1208</span><span class="s2">         raise NotFittedError(msg % {&quot;name&quot;: type(estimator).__name__})</span>
+<span class="g g-Whitespace">   </span><span class="mi">1209</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1210</span><span class="s2"> </span>
+
+<span class="ne">NotFittedError</span>: This VotingClassifier instance is not fitted yet. Call &#39;fit&#39; with appropriate arguments before using this estimator.
 </pre></div>
 </div>
 </div>
@@ -1584,7 +1771,33 @@ Training the MLPClassifier(random_state=42)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9704
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NotFittedError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">2055375332.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">voting_clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/base.py</span> in <span class="ni">score</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">640</span>         <span class="kn">from</span> <span class="nn">.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="g g-Whitespace">    </span><span class="mi">641</span> 
+<span class="ne">--&gt; </span><span class="mi">642</span>         <span class="k">return</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span> 
+<span class="g g-Whitespace">    </span><span class="mi">644</span>     <span class="k">def</span> <span class="nf">_more_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_voting.py</span> in <span class="ni">predict</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">337</span>             <span class="n">Predicted</span> <span class="k">class</span> <span class="nc">labels</span><span class="o">.</span>
+<span class="g g-Whitespace">    </span><span class="mi">338</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">339</span><span class="s2">         check_is_fitted(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">340</span><span class="s2">         if self.voting == &quot;soft&quot;:</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span><span class="s2">             maj = np.argmax(self.predict_proba(X), axis=1)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/utils/validation.py</span> in <span class="ni">check_is_fitted</span><span class="nt">(estimator, attributes, msg, all_or_any)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1206</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1207</span><span class="s2">     if not fitted:</span>
+<span class="ne">-&gt; </span><span class="mi">1208</span><span class="s2">         raise NotFittedError(msg % {&quot;name&quot;: type(estimator).__name__})</span>
+<span class="g g-Whitespace">   </span><span class="mi">1209</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1210</span><span class="s2"> </span>
+
+<span class="ne">NotFittedError</span>: This VotingClassifier instance is not fitted yet. Call &#39;fit&#39; with appropriate arguments before using this estimator.
 </pre></div>
 </div>
 </div>
@@ -1599,7 +1812,34 @@ Training the MLPClassifier(random_state=42)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9706
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NotFittedError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">2753827395.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">voting_clf</span><span class="o">.</span><span class="n">voting</span> <span class="o">=</span> <span class="s2">&quot;hard&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">voting_clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/base.py</span> in <span class="ni">score</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">640</span>         <span class="kn">from</span> <span class="nn">.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="g g-Whitespace">    </span><span class="mi">641</span> 
+<span class="ne">--&gt; </span><span class="mi">642</span>         <span class="k">return</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span> 
+<span class="g g-Whitespace">    </span><span class="mi">644</span>     <span class="k">def</span> <span class="nf">_more_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_voting.py</span> in <span class="ni">predict</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">337</span>             <span class="n">Predicted</span> <span class="k">class</span> <span class="nc">labels</span><span class="o">.</span>
+<span class="g g-Whitespace">    </span><span class="mi">338</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">339</span><span class="s2">         check_is_fitted(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">340</span><span class="s2">         if self.voting == &quot;soft&quot;:</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span><span class="s2">             maj = np.argmax(self.predict_proba(X), axis=1)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/utils/validation.py</span> in <span class="ni">check_is_fitted</span><span class="nt">(estimator, attributes, msg, all_or_any)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1206</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1207</span><span class="s2">     if not fitted:</span>
+<span class="ne">-&gt; </span><span class="mi">1208</span><span class="s2">         raise NotFittedError(msg % {&quot;name&quot;: type(estimator).__name__})</span>
+<span class="g g-Whitespace">   </span><span class="mi">1209</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1210</span><span class="s2"> </span>
+
+<span class="ne">NotFittedError</span>: This VotingClassifier instance is not fitted yet. Call &#39;fit&#39; with appropriate arguments before using this estimator.
 </pre></div>
 </div>
 </div>
@@ -1611,7 +1851,12 @@ Training the MLPClassifier(random_state=42)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0, 0.0, 0.0]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">3338930125.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="p">[</span><span class="n">estimator</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="k">for</span> <span class="n">estimator</span> <span class="ow">in</span> <span class="n">voting_clf</span><span class="o">.</span><span class="n">estimators_</span><span class="p">]</span>
+
+<span class="ne">AttributeError</span>: &#39;VotingClassifier&#39; object has no attribute &#39;estimators_&#39;
 </pre></div>
 </div>
 </div>
@@ -1630,6 +1875,32 @@ Training the MLPClassifier(random_state=42)
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">2586723075.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">estimator</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">estimators</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">X_val_predictions</span><span class="p">[:,</span> <span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">predict</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>             <span class="n">The</span> <span class="n">predicted</span> <span class="n">classes</span><span class="o">.</span>
+<span class="g g-Whitespace">    </span><span class="mi">796</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">797</span><span class="s2">         proba = self.predict_proba(X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">798</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">799</span><span class="s2">         if self.n_outputs_ == 1:</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">predict_proba</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">845</span><span class="s2">         all_proba = [</span>
+<span class="g g-Whitespace">    </span><span class="mi">846</span><span class="s2">             np.zeros((X.shape[0], j), dtype=np.float64)</span>
+<span class="nn">--&gt; 847             for j</span> in <span class="ni">np.atleast_1d</span><span class="nt">(self.n_classes_)</span>
+<span class="g g-Whitespace">    </span><span class="mi">848</span><span class="s2">         ]</span>
+<span class="g g-Whitespace">    </span><span class="mi">849</span><span class="s2">         lock = threading.Lock()</span>
+
+<span class="ne">AttributeError</span>: &#39;RandomForestClassifier&#39; object has no attribute &#39;n_classes_&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1638,13 +1909,32 @@ Training the MLPClassifier(random_state=42)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[5., 5., 5., 5.],
-       [8., 8., 8., 8.],
-       [2., 2., 3., 2.],
-       ...,
-       [7., 7., 7., 7.],
-       [6., 6., 6., 6.],
-       [7., 7., 7., 7.]], dtype=float32)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.4304436e+28,  1.3255911e+00, -2.0190655e+11,  1.2942116e+00],
+       [ 3.5293408e-06,  1.2686632e+00, -4.4915792e-25,  1.2442905e+00],
+       [ 1.7233498e+02,  1.2125653e+00, -5.2184741e+11,  1.1828585e+00],
+       [ 3.0917445e+19,  1.1572952e+00,  1.8211063e-20,  1.1358219e+00],
+       [-1.6803176e+11,  1.1105363e+00,  6.0650854e+33,  1.0817112e+00],
+       [ 5.6380158e+25,  1.0591881e+00, -4.3325582e+36,  1.0379719e+00],
+       [-6.1797318e-31,  1.0196335e+00,  2.0101826e+34,  1.0047795e+00],
+       [ 5.2396037e-33,  9.9321371e-01,  1.3666738e-16,  9.7967243e-01],
+       [ 1.0424140e-20,  9.7060305e-01,  5.6095136e-21,  9.6237773e-01],
+       [ 9.0942436e-35,  9.5476890e-01, -2.4252783e+14,  9.4787472e-01],
+       [ 1.5198584e+16,  9.3919450e-01, -2.3421670e+16,  9.3108469e-01],
+       [-1.9832651e-12,  9.1934133e-01,  5.1789375e+17,  9.1232288e-01],
+       [-2.4846342e+36,  9.0413851e-01, -6.2644941e+24,  8.9520353e-01],
+       [-2.0190655e+11,  1.2942116e+00,  3.5293408e-06,  1.2686632e+00],
+       [-4.4915792e-25,  1.2442905e+00,  1.7233498e+02,  1.2125653e+00],
+       [-5.2184741e+11,  1.1828585e+00,  3.0917445e+19,  1.1572952e+00],
+       [ 1.8211063e-20,  1.1358219e+00, -1.6803176e+11,  1.1105363e+00],
+       [ 6.0650854e+33,  1.0817112e+00,  5.6380158e+25,  1.0591881e+00],
+       [-4.3325582e+36,  1.0379719e+00, -6.1797318e-31,  1.0196335e+00],
+       [ 2.0101826e+34,  1.0047795e+00,  5.2396037e-33,  9.9321371e-01],
+       [ 1.3666738e-16,  9.7967243e-01,  1.0424140e-20,  9.7060305e-01],
+       [ 5.6095136e-21,  9.6237773e-01,  9.0942436e-35,  9.5476890e-01],
+       [-2.4252783e+14,  9.4787472e-01,  1.5198584e+16,  9.3919450e-01],
+       [-2.3421670e+16,  9.3108469e-01, -1.9832651e-12,  9.1934133e-01],
+       [ 5.1789375e+17,  9.1232288e-01, -2.4846342e+36,  9.0413851e-01]],
+      dtype=float32)
 </pre></div>
 </div>
 </div>
@@ -1657,7 +1947,34 @@ Training the MLPClassifier(random_state=42)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier(n_estimators=200, oob_score=True, random_state=42)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">111942359.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">rnd_forest_blender</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">oob_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">rnd_forest_blender</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_val_predictions</span><span class="p">,</span> <span class="n">y_val</span><span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">364</span>         <span class="bp">self</span><span class="o">.</span><span class="n">n_outputs_</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">365</span> 
+<span class="ne">--&gt; </span><span class="mi">366</span>         <span class="n">y</span><span class="p">,</span> <span class="n">expanded_class_weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_y_class_weight</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">367</span> 
+<span class="g g-Whitespace">    </span><span class="mi">368</span>         <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;dtype&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="o">!=</span> <span class="n">DOUBLE</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">y</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">contiguous</span><span class="p">:</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">_validate_y_class_weight</span><span class="nt">(self, y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">721</span> 
+<span class="g g-Whitespace">    </span><span class="mi">722</span>     <span class="k">def</span> <span class="nf">_validate_y_class_weight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">723</span>         <span class="n">check_classification_targets</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span> 
+<span class="g g-Whitespace">    </span><span class="mi">725</span>         <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/utils/multiclass.py</span> in <span class="ni">check_classification_targets</span><span class="nt">(y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>         <span class="s2">&quot;multilabel-sequences&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span>     <span class="p">]:</span>
+<span class="ne">--&gt; </span><span class="mi">198</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unknown label type: </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">y_type</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">199</span> 
+<span class="g g-Whitespace">    </span><span class="mi">200</span> 
+
+<span class="ne">ValueError</span>: Unknown label type: &#39;continuous&#39;
 </pre></div>
 </div>
 </div>
@@ -1669,7 +1986,12 @@ Training the MLPClassifier(random_state=42)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9695
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">2719201013.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">rnd_forest_blender</span><span class="o">.</span><span class="n">oob_score_</span>
+
+<span class="ne">AttributeError</span>: &#39;RandomForestClassifier&#39; object has no attribute &#39;oob_score_&#39;
 </pre></div>
 </div>
 </div>
@@ -1685,10 +2007,81 @@ Training the MLPClassifier(random_state=42)
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">1613942585.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">estimator</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">estimators</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">X_test_predictions</span><span class="p">[:,</span> <span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">predict</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>             <span class="n">The</span> <span class="n">predicted</span> <span class="n">classes</span><span class="o">.</span>
+<span class="g g-Whitespace">    </span><span class="mi">796</span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">797</span><span class="sd">         proba = self.predict_proba(X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">798</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">799</span><span class="sd">         if self.n_outputs_ == 1:</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">predict_proba</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">837</span><span class="sd">         check_is_fitted(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">838</span><span class="sd">         # Check data</span>
+<span class="ne">--&gt; </span><span class="mi">839</span><span class="sd">         X = self._validate_X_predict(X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">840</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">841</span><span class="sd">         # Assign chunk of trees to jobs</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">_validate_X_predict</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">566</span><span class="sd">         Validate X whenever one tries to predict, apply, predict_proba.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span>         <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">568</span>         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_data</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">DTYPE</span><span class="p">,</span> <span class="n">accept_sparse</span><span class="o">=</span><span class="s2">&quot;csr&quot;</span><span class="p">,</span> <span class="n">reset</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span>         <span class="k">if</span> <span class="n">issparse</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">intc</span> <span class="ow">or</span> <span class="n">X</span><span class="o">.</span><span class="n">indptr</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">intc</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No support for np.int64 index based sparse matrices&quot;</span><span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/base.py</span> in <span class="ni">_validate_data</span><span class="nt">(self, X, y, reset, validate_separately, **check_params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span> 
+<span class="g g-Whitespace">    </span><span class="mi">575</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">no_val_X</span> <span class="ow">and</span> <span class="n">check_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ensure_2d&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">576</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_check_n_features</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">reset</span><span class="o">=</span><span class="n">reset</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span> 
+<span class="g g-Whitespace">    </span><span class="mi">578</span>         <span class="k">return</span> <span class="n">out</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/base.py</span> in <span class="ni">_check_n_features</span><span class="nt">(self, X, reset)</span>
+<span class="g g-Whitespace">    </span><span class="mi">393</span> 
+<span class="g g-Whitespace">    </span><span class="mi">394</span>         <span class="k">if</span> <span class="n">n_features</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">395</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span>                 <span class="sa">f</span><span class="s2">&quot;X has </span><span class="si">{</span><span class="n">n_features</span><span class="si">}</span><span class="s2"> features, but </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span>                 <span class="sa">f</span><span class="s2">&quot;is expecting </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_features_in_</span><span class="si">}</span><span class="s2"> features as input.&quot;</span>
+
+<span class="ne">ValueError</span>: X has 2 features, but RandomForestClassifier is expecting 1 features as input.
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">rnd_forest_blender</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_predictions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">12663174.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">rnd_forest_blender</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_predictions</span><span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">predict</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>             <span class="n">The</span> <span class="n">predicted</span> <span class="n">classes</span><span class="o">.</span>
+<span class="g g-Whitespace">    </span><span class="mi">796</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">797</span><span class="s2">         proba = self.predict_proba(X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">798</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">799</span><span class="s2">         if self.n_outputs_ == 1:</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/ensemble/_forest.py</span> in <span class="ni">predict_proba</span><span class="nt">(self, X)</span>
+<span class="g g-Whitespace">    </span><span class="mi">845</span><span class="s2">         all_proba = [</span>
+<span class="g g-Whitespace">    </span><span class="mi">846</span><span class="s2">             np.zeros((X.shape[0], j), dtype=np.float64)</span>
+<span class="nn">--&gt; 847             for j</span> in <span class="ni">np.atleast_1d</span><span class="nt">(self.n_classes_)</span>
+<span class="g g-Whitespace">    </span><span class="mi">848</span><span class="s2">         ]</span>
+<span class="g g-Whitespace">    </span><span class="mi">849</span><span class="s2">         lock = threading.Lock()</span>
+
+<span class="ne">AttributeError</span>: &#39;RandomForestClassifier&#39; object has no attribute &#39;n_classes_&#39;
 </pre></div>
 </div>
 </div>
@@ -1707,7 +2100,33 @@ Training the MLPClassifier(random_state=42)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9678
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">93</span><span class="o">/</span><span class="mi">795</span><span class="n">zm8c93m16_92qkk86t0_r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44746</span><span class="o">/</span><span class="mf">2175627890.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/metrics/_classification.py</span> in <span class="ni">accuracy_score</span><span class="nt">(y_true, y_pred, normalize, sample_weight)</span>
+<span class="g g-Whitespace">    </span><span class="mi">203</span> 
+<span class="g g-Whitespace">    </span><span class="mi">204</span>     <span class="c1"># Compute accuracy for each possible representation</span>
+<span class="ne">--&gt; </span><span class="mi">205</span>     <span class="n">y_type</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">_check_targets</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span>     <span class="n">check_consistent_length</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">sample_weight</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span>     <span class="k">if</span> <span class="n">y_type</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;multilabel&quot;</span><span class="p">):</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/metrics/_classification.py</span> in <span class="ni">_check_targets</span><span class="nt">(y_true, y_pred)</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="n">y_pred</span> <span class="p">:</span> <span class="n">array</span> <span class="ow">or</span> <span class="n">indicator</span> <span class="n">matrix</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">84</span><span class="s2">     check_consistent_length(y_true, y_pred)</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span><span class="s2">     type_true = type_of_target(y_true)</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span><span class="s2">     type_pred = type_of_target(y_pred)</span>
+
+<span class="nn">/usr/local/Caskroom/miniconda/base/envs/kaggle/lib/python3.9/site-packages/sklearn/utils/validation.py</span> in <span class="ni">check_consistent_length</span><span class="nt">(*arrays)</span>
+<span class="g g-Whitespace">    </span><span class="mi">329</span><span class="s2">     uniques = np.unique(lengths)</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span><span class="s2">     if len(uniques) &gt; 1:</span>
+<span class="ne">--&gt; </span><span class="mi">331</span><span class="s2">         raise ValueError(</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span><span class="s2">             &quot;Found input variables with inconsistent numbers of samples: </span><span class="si">%r</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">333</span><span class="s2">             % [int(l) for l in lengths]</span>
+
+<span class="ne">ValueError</span>: Found input variables with inconsistent numbers of samples: [125, 25]
 </pre></div>
 </div>
 </div>
@@ -1724,16 +2143,16 @@ Training the MLPClassifier(random_state=42)
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "p39"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "p39",
+            kernelName: "python3",
             path: "./handson"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'p39'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
