@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -133,6 +135,11 @@
    Ensemble Learning
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-dimensionality-reduction.html">
+   Dimensionality Reduction
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -142,7 +149,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../handson-dl/101-intro-keras.html">
-   Introduction to Artificial Neural Networks with Keras
+   Introduction to Artificial Neural Networks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../handson-dl/102-training-deep-neural-networks.html">
+   Training Deep Neural Networks
   </a>
  </li>
  <li class="toctree-l1">
@@ -159,67 +171,67 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/01-Probability-and-Counting.html">
-   Chapter 1: Probability and Counting
+   Probability and Counting
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/02-Conditional-Probability.html">
-   Chapter 2: Conditional Probability
+   Conditional Probability
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/03-Random-Variables-and-their-Distributions.html">
-   Chapter 3: Random Variables and their Distributions
+   Random Variables and their Distributions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/04-Expectation.html">
-   Chapter 4: Expectation
+   Expectation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/05-Continuous-Random-Variables.html">
-   Chapter 5: Continuous Random Variables
+   Continuous Random Variables
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/06-Moments.html">
-   Chapter 6: Moments
+   Moments
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/07-Joint-Distributions.html">
-   Chapter 7: Joint Distributions
+   Joint Distributions
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/08-Transformations.html">
-   Chapter 8: Transformations
+   Transformations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/09-Conditional-Expectation.html">
-   Chapter 9: Conditional Expectation
+   Conditional Expectation
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/10-Inequalities-and-Limit-Theorems.html">
-   Chapter 10: Inequalities and Limit Theorems
+   Inequalities and Limit Theorems
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/11-Markov-Chains.html">
-   Chapter 11: Markov Chains
+   Markov Chains
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/12-Markov-Chain-Monte-Carlo.html">
-   Chapter 12: Markov Chain Monte Carlo
+   Markov Chain Monte Carlo
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/13-Poisson-Processes.html">
-   Chapter 13: Poisson Processes
+   Poisson Processes
   </a>
  </li>
  <li class="toctree-l1">
@@ -229,12 +241,17 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/15-Parameter-Testing.html">
-   Parameter Estimation
+   Parameter Testing
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../probability/16-Non-Parameter-Testing.html">
    Non Parameter Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../probability/17-Survival-Analysis.html">
+   Survival Analysis
   </a>
  </li>
 </ul>
@@ -1167,6 +1184,13 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">svm_clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">svm_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:</span><span class="mi">1000</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span> <span class="c1"># y_train, not y_train_5</span>
 <span class="n">svm_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">some_digit</span><span class="p">])</span>
@@ -1292,7 +1316,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The following two cells may take close to 30 minutes to run, or more depending on your hardware.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The following cells may take close to 30 minutes to run, or more depending on your hardware.</span>
 <span class="c1"># cross_val_score(sgd_clf, X_train, y_train, cv=3, scoring=&quot;accuracy&quot;)</span>
 </pre></div>
 </div>
@@ -1309,12 +1333,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 <span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">))</span>
-<span class="n">cross_val_score</span><span class="p">(</span><span class="n">sgd_clf</span><span class="p">,</span> <span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.8983, 0.891 , 0.9018])
+<span class="c1"># cross_val_score(sgd_clf, X_train_scaled, y_train, cv=3, scoring=&quot;accuracy&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -1354,7 +1373,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_83_0.png" src="../_images/03-classification_83_0.png" />
+<img alt="../_images/03-classification_84_0.png" src="../_images/03-classification_84_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1389,14 +1408,14 @@
     <span class="n">X_c</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[(</span><span class="n">y_train</span> <span class="o">==</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_train_pred</span> <span class="o">==</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])][:</span><span class="mi">25</span><span class="p">]</span>
 
     <span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
-        <span class="n">plot_digit</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">X_c</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">ind</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
+        <span class="n">plot_digit</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">X_c</span><span class="p">[</span><span class="n">ind</span><span class="p">,</span> <span class="p">:])</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_86_0.png" src="../_images/03-classification_86_0.png" />
+<img alt="../_images/03-classification_87_0.png" src="../_images/03-classification_87_0.png" />
 </div>
 </div>
 </div>
@@ -1467,20 +1486,20 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">some_index</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">plot_digit</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_test_mod</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="n">some_index</span><span class="p">])</span>
-<span class="n">plot_digit</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y_test_mod</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()[</span><span class="n">some_index</span><span class="p">])</span>
+<span class="n">plot_digit</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_test_mod</span><span class="p">[</span><span class="n">some_index</span><span class="p">])</span>
+<span class="n">plot_digit</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">y_test_mod</span><span class="p">[</span><span class="n">some_index</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_95_0.png" src="../_images/03-classification_95_0.png" />
+<img alt="../_images/03-classification_96_0.png" src="../_images/03-classification_96_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_mod</span><span class="p">,</span> <span class="n">y_train_mod</span><span class="p">)</span>
-<span class="n">clean_digit</span> <span class="o">=</span> <span class="n">knn_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">X_test_mod</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">some_index</span><span class="p">]])</span>
+<span class="n">clean_digit</span> <span class="o">=</span> <span class="n">knn_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">X_test_mod</span><span class="p">[</span><span class="n">some_index</span><span class="p">]])</span>
 
 <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
@@ -1489,7 +1508,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_96_0.png" src="../_images/03-classification_96_0.png" />
+<img alt="../_images/03-classification_97_0.png" src="../_images/03-classification_97_0.png" />
 </div>
 </div>
 </div>
@@ -1528,22 +1547,18 @@
 
 <span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
-<span class="n">RocCurveDisplay</span><span class="p">(</span><span class="n">fprr</span><span class="p">,</span> <span class="n">tprr</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">RocCurveDisplay</span><span class="p">(</span><span class="n">fpr</span><span class="o">=</span><span class="n">fprr</span><span class="p">,</span> <span class="n">tpr</span><span class="o">=</span><span class="n">tprr</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;False Positive Rate (Fall-Out)&#39;</span><span class="p">,</span>
        <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;True Positive Rate (Recall)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/Caskroom/miniconda/base/envs/p39/lib/python3.9/site-packages/sklearn/utils/validation.py:70: FutureWarning: Pass fpr=[0. 1.], tpr=[0. 1.] as keyword args. From version 1.0 (renaming of 0.25) passing these as positional arguments will result in an error
-  warnings.warn(f&quot;Pass {args_msg} as keyword args. From version &quot;
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0.5, 0, &#39;False Positive Rate (Fall-Out)&#39;),
  Text(0, 0.5, &#39;True Positive Rate (Recall)&#39;)]
 </pre></div>
 </div>
-<img alt="../_images/03-classification_101_2.png" src="../_images/03-classification_101_2.png" />
+<img alt="../_images/03-classification_102_1.png" src="../_images/03-classification_102_1.png" />
 </div>
 </div>
 </div>
@@ -1609,12 +1624,12 @@
 <span class="k">def</span> <span class="nf">shift_digit</span><span class="p">(</span><span class="n">digit_array</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">new</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">shift</span><span class="p">(</span><span class="n">digit_array</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span> <span class="p">[</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">],</span> <span class="n">cval</span><span class="o">=</span><span class="n">new</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">784</span><span class="p">)</span>
 
-<span class="n">plot_digit</span><span class="p">(</span><span class="n">shift_digit</span><span class="p">(</span><span class="n">some_digit</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">new</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plot_digit</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">shift_digit</span><span class="p">(</span><span class="n">some_digit</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">new</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_109_0.png" src="../_images/03-classification_109_0.png" />
+<img alt="../_images/03-classification_110_0.png" src="../_images/03-classification_110_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1676,7 +1691,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ambiguous_digit</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2589</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ambiguous_digit</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="mi">2589</span><span class="p">]</span>
 <span class="n">knn_clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">([</span><span class="n">ambiguous_digit</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1692,12 +1707,12 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
-<span class="n">plot_digit</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">ambiguous_digit</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
+<span class="n">plot_digit</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">ambiguous_digit</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_115_0.png" src="../_images/03-classification_115_0.png" />
+<img alt="../_images/03-classification_116_0.png" src="../_images/03-classification_116_0.png" />
 </div>
 </div>
 </div>
@@ -1721,7 +1736,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1000</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="mi">1000</span><span class="p">]</span>
 <span class="n">shifted_image_down</span> <span class="o">=</span> <span class="n">shift_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">shifted_image_left</span> <span class="o">=</span> <span class="n">shift_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
@@ -1731,9 +1746,7 @@
 <span class="n">_</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">title</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">imgs</span><span class="p">,</span> <span class="n">titles</span><span class="p">):</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span>
-              <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span>
-              <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Greys&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Greys&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1741,7 +1754,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_119_0.png" src="../_images/03-classification_119_0.png" />
+<img alt="../_images/03-classification_120_0.png" src="../_images/03-classification_120_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1750,18 +1763,12 @@
 <span class="n">y_train_augmented</span> <span class="o">=</span> <span class="p">[</span><span class="n">label</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">y_train</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="ow">in</span> <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
-    <span class="k">for</span> <span class="n">image</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">y_train</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">image</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
         <span class="n">X_train_augmented</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">shift_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">))</span>
         <span class="n">y_train_augmented</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
 
-<span class="n">X_train_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X_train_augmented</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+<span class="n">X_train_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X_train_augmented</span><span class="p">)</span>
 <span class="n">y_train_augmented</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y_train_augmented</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/1q/m8l_wvxd5dl8kccgv4xrsxtr0000gn/T/ipykernel_42954/3622122226.py:9: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
-  X_train_augmented = np.array(X_train_augmented)
 </pre></div>
 </div>
 </div>
@@ -2400,7 +2407,7 @@ Name: Embarked, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03-classification_180_0.png" src="../_images/03-classification_180_0.png" />
+<img alt="../_images/03-classification_181_0.png" src="../_images/03-classification_181_0.png" />
 </div>
 </div>
 <p>To improve this result further, you could:</p>
