@@ -6,9 +6,7 @@ A Notebook Collection of the Following Data Science Books with Improved Readabil
 - [Introduction to Probability](https://www.routledge.com/Introduction-to-Probability-Second-Edition/Blitzstein-Hwang/p/book/9781138369917) (ITP)
 - [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) (SRT)
 
-## 1. Code Styles
-
-### 1.1. Basics
+## 1. Basic Style
 
 - prefer `f-string` over `.format()`
 
@@ -35,7 +33,7 @@ for i in range(len(xs)):
   print(f'{i}: {xs[i]}')
 ```
 
-### 1.2. Matplotlib
+## 2. Matplotlib Style
 
 > including seaborn
 
@@ -105,7 +103,7 @@ ax.spines["right"].set_visible(False)
 ax.spines["left"].set_visible(False)
 ```
 
-### 1.3. Pandas
+## 3. Pandas Style
 
 - prefer `df['col']` over `df.col`
 
@@ -148,9 +146,9 @@ movies[0:2]
 # bad
 ```
 
-## 2. LaTeX Styles
+## 4. LaTeX Style
 
-### 2.1. Multiple lines
+### 4.1. Multiple lines
 
 Reduce the use of `begin{array}...end{array}`
 
@@ -214,7 +212,7 @@ $$
 $$
 ```
 
-### 2.2. Brackets
+### 4.2. Brackets
 
 - prefer `\Bigg...\Bigg` over `\left...\right`
 
@@ -240,7 +238,7 @@ $$
 $$
 ```
 
-### 2.3. Expressions
+### 4.3. Expressions
 
 - prefer `^{\top}` over `^T` for transpose
 
@@ -278,7 +276,7 @@ $$
 $$
 ```
 
-### 2.4. Fonts
+### 4.4. Fonts
 
 - prefer `{rm }` over `\mathop{}` or `\operatorname{}`
 
