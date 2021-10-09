@@ -363,22 +363,27 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Conditional Probability
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#simulating-the-frequentist-interpretation">
    Simulating the frequentist interpretation
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#monty-hall-simulation">
    Monty Hall simulation
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#as-a-short-simulation-program">
      As a short simulation program
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#as-an-interactive-widget-in-this-jupyter-notebook">
      As an interactive widget in this Jupyter notebook
     </a>
@@ -405,8 +410,9 @@
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="simulating-the-frequentist-interpretation">
-<h2>Simulating the frequentist interpretation<a class="headerlink" href="#simulating-the-frequentist-interpretation" title="Permalink to this headline">¶</a></h2>
+<h1>Simulating the frequentist interpretation<a class="headerlink" href="#simulating-the-frequentist-interpretation" title="Permalink to this headline">¶</a></h1>
 <p>Recall that the frequentist interpretation of conditional probability based on a large number <code class="docutils literal notranslate"><span class="pre">n</span></code> of repetitions of an experiment is <span class="math notranslate nohighlight">\(P(A|B) ≈ n_{AB}/n_{B}\)</span>, where <span class="math notranslate nohighlight">\(n_{AB}\)</span> is the number of times that <span class="math notranslate nohighlight">\(A \cap B\)</span> occurs and <span class="math notranslate nohighlight">\(n_{B}\)</span> is the number of times that <span class="math notranslate nohighlight">\(B\)</span> occurs. Let’s try this out by simulation, and verify the results of Example 2.2.5. So let’s use <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.random.choice.html"><code class="docutils literal notranslate"><span class="pre">numpy.random.choice</span></code></a> to simulate <code class="docutils literal notranslate"><span class="pre">n</span></code> families, each with two children.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -483,7 +489,7 @@ child2:
 <p>For us, the result was 0.33, confirming that <span class="math notranslate nohighlight">\(P(\text{both girls | at least one girl}) = 1/3\)</span>.</p>
 </div>
 <div class="section" id="monty-hall-simulation">
-<h2>Monty Hall simulation<a class="headerlink" href="#monty-hall-simulation" title="Permalink to this headline">¶</a></h2>
+<h1>Monty Hall simulation<a class="headerlink" href="#monty-hall-simulation" title="Permalink to this headline">¶</a></h1>
 <p>Many long, bitter debates about the Monty Hall problem could have been averted by trying it out with a simulation. To study how well the never-switch strategy performs, let’s generate 10<sup>5</sup> runs of the Monty Hall game. To simplify notation, assume the contestant always chooses door 1. Then we can generate a vector specifying which door has the car for each repetition:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -583,7 +589,7 @@ child2:
 <li><p>The player can continue playing, or stop and reset the game to its original state.</p></li>
 </ul>
 <div class="section" id="as-a-short-simulation-program">
-<h3>As a short simulation program<a class="headerlink" href="#as-a-short-simulation-program" title="Permalink to this headline">¶</a></h3>
+<h2>As a short simulation program<a class="headerlink" href="#as-a-short-simulation-program" title="Permalink to this headline">¶</a></h2>
 <p>Here is an example showing how to use the <code class="docutils literal notranslate"><span class="pre">Monty</span></code> class above to run a simulation to see how often the switching strategy succeeds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -611,7 +617,7 @@ Success rate is 0.667
 </div>
 </div>
 <div class="section" id="as-an-interactive-widget-in-this-jupyter-notebook">
-<h3>As an interactive widget in this Jupyter notebook<a class="headerlink" href="#as-an-interactive-widget-in-this-jupyter-notebook" title="Permalink to this headline">¶</a></h3>
+<h2>As an interactive widget in this Jupyter notebook<a class="headerlink" href="#as-an-interactive-widget-in-this-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
 <p>Optionally, the <code class="docutils literal notranslate"><span class="pre">Monty</span></code> Python class above can also be used as an engine to power an interactive widget that lets you play the three-door game <em>in the browser</em> using <a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/user_guide.html"><code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> </a>.</p>
 <p>To run the interactive widget, make sure you have the <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> package installed (v7.4.2 or greater).</p>
 <p>To install with the <code class="docutils literal notranslate"><span class="pre">conda</span></code> package manager, execute the following command:</p>
@@ -850,7 +856,6 @@ Success rate is 0.667
 </ul>
 <hr class="docutils" />
 <p>Joseph K. Blitzstein and Jessica Hwang, Harvard University and Stanford University, © 2019 by Taylor and Francis Group, LLC</p>
-</div>
 </div>
 </div>
 

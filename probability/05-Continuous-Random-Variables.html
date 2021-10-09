@@ -364,11 +364,6 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-scipy-and-matplotlib">
-   Python, SciPy and Matplotlib
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#uniform-normal-and-exponential-distributions">
    Uniform, Normal, and Exponential distributions
   </a>
@@ -389,11 +384,6 @@
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plots-in-matplotlib">
-   Plots in Matplotlib
-  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#universality-with-logistic">
@@ -424,10 +414,6 @@
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="python-scipy-and-matplotlib">
-<h2>Python, SciPy and Matplotlib<a class="headerlink" href="#python-scipy-and-matplotlib" title="Permalink to this headline">¶</a></h2>
-<p>In this section we will introduce continuous distributions in Python and SciPy, learn how to make basic plots, demonstrate the universality of the Uniform by simulation, and simulate arrival times in a Poisson process.</p>
 </div>
 <div class="section" id="uniform-normal-and-exponential-distributions">
 <h2>Uniform, Normal, and Exponential distributions<a class="headerlink" href="#uniform-normal-and-exponential-distributions" title="Permalink to this headline">¶</a></h2>
@@ -556,18 +542,13 @@ f(x) &amp;= e^{-x}
 
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">expon</span>
 
-<span class="c1"># to learn more about scipy.stats,expon un-comment ouf the following line</span>
-<span class="c1">#print(expon.__doc__)</span>
-
 <span class="n">lambd</span> <span class="o">=</span> <span class="mf">2.1</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 
 <span class="n">expon</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">lambd</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PDF of Expo(</span><span class="si">{}</span><span class="s1">) evaluated at </span><span class="si">{}</span><span class="s1"> is </span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lambd</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">lambd</span><span class="p">)))</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CDF of Expo(</span><span class="si">{}</span><span class="s1">) evaluated at </span><span class="si">{}</span><span class="s1"> is </span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lambd</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">lambd</span><span class="p">)))</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Generating </span><span class="si">{}</span><span class="s1"> realizations from Expo(</span><span class="si">{}</span><span class="s1">):</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">lambd</span><span class="p">,</span> <span class="n">expon</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">lambd</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -640,17 +621,9 @@ mu + sigma * norm.rvs(size=1) = [1.99342831]
 </div>
 </div>
 <p>Either way, we end up generating a draw from the <span class="math notranslate nohighlight">\(N(\mu, \sigma^2)\)</span> distribution.</p>
-</div>
-</div>
-<div class="section" id="plots-in-matplotlib">
-<h2>Plots in Matplotlib<a class="headerlink" href="#plots-in-matplotlib" title="Permalink to this headline">¶</a></h2>
-<p>Plotting in Python within a Jupyter notebook is done in <a class="reference external" href="https://matplotlib.org/">Matplotlib</a>.</p>
-<p>First, we import <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> module. To cut down on typing, we can alias that imported <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> module reference as <code class="docutils literal notranslate"><span class="pre">plt</span></code> for short. We then invoke the <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline%</span></code> Jupyter notebook magic command in order to create Matplotlib graphs right in your notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -674,7 +647,7 @@ mu + sigma * norm.rvs(size=1) = [1.99342831]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05-Continuous-Random-Variables_25_0.png" src="../_images/05-Continuous-Random-Variables_25_0.png" />
+<img alt="../_images/05-Continuous-Random-Variables_23_0.png" src="../_images/05-Continuous-Random-Variables_23_0.png" />
 </div>
 </div>
 <p>Alternately, we could “freeze” an instance of the <code class="docutils literal notranslate"><span class="pre">scipy.stats.norm</span></code> distribution object to fix the shape, location and scale parameters. This might be useful if you are working with multiple distributions with differing shape, location and scale, and wanted to use these distributions throughout your notebook.</p>
@@ -695,7 +668,7 @@ mu + sigma * norm.rvs(size=1) = [1.99342831]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05-Continuous-Random-Variables_27_0.png" src="../_images/05-Continuous-Random-Variables_27_0.png" />
+<img alt="../_images/05-Continuous-Random-Variables_25_0.png" src="../_images/05-Continuous-Random-Variables_25_0.png" />
 </div>
 </div>
 <p>We can also set the axis labels and plot title with <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.xlabel.html"><code class="docutils literal notranslate"><span class="pre">pyplot.xlabel</span></code></a>, <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.ylabel.html"><code class="docutils literal notranslate"><span class="pre">pyplot.ylabel</span></code></a>, and <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html"><code class="docutils literal notranslate"><span class="pre">pyplot.title</span></code></a> functions.</p>
@@ -713,7 +686,7 @@ mu + sigma * norm.rvs(size=1) = [1.99342831]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05-Continuous-Random-Variables_29_0.png" src="../_images/05-Continuous-Random-Variables_29_0.png" />
+<img alt="../_images/05-Continuous-Random-Variables_27_0.png" src="../_images/05-Continuous-Random-Variables_27_0.png" />
 </div>
 </div>
 <p>The axis limits can be set manually with <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.xlim.html"><code class="docutils literal notranslate"><span class="pre">pyplot.xlim</span></code></a> and <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.ylim.html"><code class="docutils literal notranslate"><span class="pre">pyplot.ylim</span></code></a> If, for example, you wanted the vertical axis to range from 0 to 1, you would follow the call to <code class="docutils literal notranslate"><span class="pre">pyplot.plot</span></code> with <code class="docutils literal notranslate"><span class="pre">pyplot.ylim([0,</span> <span class="pre">1])</span></code>.</p>
@@ -726,7 +699,7 @@ mu + sigma * norm.rvs(size=1) = [1.99342831]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05-Continuous-Random-Variables_31_0.png" src="../_images/05-Continuous-Random-Variables_31_0.png" />
+<img alt="../_images/05-Continuous-Random-Variables_29_0.png" src="../_images/05-Continuous-Random-Variables_29_0.png" />
 </div>
 </div>
 <p>Finally, to change the color of the plot, add <code class="docutils literal notranslate"><span class="pre">color=&quot;orange&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">color=&quot;green&quot;</span></code>, or whatever your favorite color is! (see <a class="reference external" href="https://matplotlib.org/users/colors.html">Specifying Colors</a> in the Matplotlib documentation)</p>
@@ -738,7 +711,8 @@ mu + sigma * norm.rvs(size=1) = [1.99342831]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05-Continuous-Random-Variables_33_0.png" src="../_images/05-Continuous-Random-Variables_33_0.png" />
+<img alt="../_images/05-Continuous-Random-Variables_31_0.png" src="../_images/05-Continuous-Random-Variables_31_0.png" />
+</div>
 </div>
 </div>
 </div>
@@ -779,7 +753,7 @@ mu + sigma * norm.rvs(size=1) = [1.99342831]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05-Continuous-Random-Variables_37_0.png" src="../_images/05-Continuous-Random-Variables_37_0.png" />
+<img alt="../_images/05-Continuous-Random-Variables_35_0.png" src="../_images/05-Continuous-Random-Variables_35_0.png" />
 </div>
 </div>
 </div>
@@ -832,8 +806,6 @@ mu + sigma * norm.rvs(size=1) = [1.99342831]
 </div>
 </div>
 <p>The array <code class="docutils literal notranslate"><span class="pre">t</span></code> now contains all the simulated arrival times.</p>
-<hr class="docutils" />
-<p>Joseph K. Blitzstein and Jessica Hwang, Harvard University and Stanford University, © 2019 by Taylor and Francis Group, LLC</p>
 </div>
 </div>
 

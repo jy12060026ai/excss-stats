@@ -363,24 +363,22 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#distributions-in-scipy">
-   Distributions in SciPy
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Random Variables and their Distributions
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#binomial-distribution">
-     Binomial distribution
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binomial-distribution">
+   Binomial distribution
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hypergeometric-distribution">
    Hypergeometric distribution
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#discrete-distributions-with-finite-support">
    Discrete distributions with finite support
   </a>
@@ -405,12 +403,9 @@
 </div>
 </div>
 </div>
-<div class="section" id="distributions-in-scipy">
-<h2>Distributions in SciPy<a class="headerlink" href="#distributions-in-scipy" title="Permalink to this headline">¶</a></h2>
-<p>All of the named distributions that we’ll encounter in this book have been implemented in R, but in this Python-based notebook we will use their equivalents in <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/index.html">SciPy</a>. In this section we’ll explain how to work with the Binomial and Hypergeometric distributions in <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code></a>. We will also explain in general how to generate r.v.s from any discrete distribution with a finite support. The aforementioned Statistical functions page is a handy list of the distributions in <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>. Typing <code class="docutils literal notranslate"><span class="pre">scipy.stats.[distribution].__doc__</span></code> will display more information on the named distribution.</p>
-<p>In general for the named discrete distributions in <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>, the three functions <code class="docutils literal notranslate"><span class="pre">pmf</span></code>, <code class="docutils literal notranslate"><span class="pre">cdf</span></code>, and <code class="docutils literal notranslate"><span class="pre">rvs</span></code> will give the PMF, CDF, and random generation, respectively.</p>
+</div>
 <div class="section" id="binomial-distribution">
-<h3>Binomial distribution<a class="headerlink" href="#binomial-distribution" title="Permalink to this headline">¶</a></h3>
+<h1>Binomial distribution<a class="headerlink" href="#binomial-distribution" title="Permalink to this headline">¶</a></h1>
 <p>The Binomial distribution <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binom.html#scipy.stats.binom"><code class="docutils literal notranslate"><span class="pre">binom</span></code></a> provides the following three functions: <code class="docutils literal notranslate"><span class="pre">pmf</span></code>, <code class="docutils literal notranslate"><span class="pre">cdf</span></code>, and <code class="docutils literal notranslate"><span class="pre">rvs</span></code>. Unlike R, SciPy provides an implementation of the Bernoulli distribution in <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/stats/discrete_bernoulli.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats.bernoulli</span></code></a>. But as an alterative for <code class="docutils literal notranslate"><span class="pre">bernoulli</span></code>, we can just use the Binomial functions with <span class="math notranslate nohighlight">\(k \in \{0,1\}\)</span> and <span class="math notranslate nohighlight">\(n = 1\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -508,9 +503,8 @@ binom.cdf(3, 5, 0.2) &amp;= \sum_{k=0}^{3} \binom{5}{k} (0.2)^k (0.8)^{5-k} \
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="hypergeometric-distribution">
-<h2>Hypergeometric distribution<a class="headerlink" href="#hypergeometric-distribution" title="Permalink to this headline">¶</a></h2>
+<h1>Hypergeometric distribution<a class="headerlink" href="#hypergeometric-distribution" title="Permalink to this headline">¶</a></h1>
 <p>The Hypergeometric distribution is implemented in <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.hypergeom.html#scipy.stats.hypergeom"><code class="docutils literal notranslate"><span class="pre">scipy.stats.hypergeom</span></code></a>, which similarly provides the following three functions: <code class="docutils literal notranslate"><span class="pre">pmf</span></code>, <code class="docutils literal notranslate"><span class="pre">cdf</span></code>, and <code class="docutils literal notranslate"><span class="pre">rvs</span></code>.  As one might expect, <code class="docutils literal notranslate"><span class="pre">pmf</span></code> is the Hypergeometric PMF, <code class="docutils literal notranslate"><span class="pre">cdf</span></code> is the Hypergeometric CDF, and <code class="docutils literal notranslate"><span class="pre">rvs</span></code> generates Hypergeometric r.v.s. Since the Hypergeometric distribution has three parameters, each of these functions takes at least three inputs. For <code class="docutils literal notranslate"><span class="pre">pmf</span></code> and <code class="docutils literal notranslate"><span class="pre">cdf</span></code>, the first input is the value at which we wish to evaluate the PMF or CDF, and the remaining three inputs are the parameters of the distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -598,7 +592,7 @@ p(k, M, n, N) &amp;= \frac{\binom{n}{k} , \binom{M-n}{N-k}}{\binom{M}{N}}
 </div>
 </div>
 <div class="section" id="discrete-distributions-with-finite-support">
-<h2>Discrete distributions with finite support<a class="headerlink" href="#discrete-distributions-with-finite-support" title="Permalink to this headline">¶</a></h2>
+<h1>Discrete distributions with finite support<a class="headerlink" href="#discrete-distributions-with-finite-support" title="Permalink to this headline">¶</a></h1>
 <p>We can generate r.v.s from any discrete distribution with finite support using the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.choice.html#numpy.random.choice"><code class="docutils literal notranslate"><span class="pre">numpy.random.choice</span></code></a> function. When we first introduced the <code class="docutils literal notranslate"><span class="pre">numpy.random.choice</span></code> function, we said that it can be used in the form <code class="docutils literal notranslate"><span class="pre">numpy.random.choice(numpy.arange(1,n+1),</span> <span class="pre">k,</span> <span class="pre">replace=False)</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.random.choice(np.arange(1,n+1),</span> <span class="pre">k)</span></code> to sample <span class="math notranslate nohighlight">\(k\)</span> times from the integers 1 through <span class="math notranslate nohighlight">\(n\)</span>, either without or with replacement. For example, to generate 5 independent <span class="math notranslate nohighlight">\(DUnif(1, 2, \ldots, 100\)</span>) r.v.s, we can use the function invocation <code class="docutils literal notranslate"><span class="pre">numpy.random.choice(numpy.arange(1,100+1),</span> <span class="pre">5)</span></code>.</p>
 <p>It turns out that <code class="docutils literal notranslate"><span class="pre">numpy.random.choice</span></code> is far more versatile. If we want to sample from the values <span class="math notranslate nohighlight">\(x_1, \ldots, x_n\)</span> with probabilities <span class="math notranslate nohighlight">\(p_1, \ldots, p_n\)</span>, we simply create an array <code class="docutils literal notranslate"><span class="pre">x</span></code> containing all the <span class="math notranslate nohighlight">\(x_i\)</span> and an array <code class="docutils literal notranslate"><span class="pre">p</span></code> containing all the <span class="math notranslate nohighlight">\(p_i\)</span>, then feed them into <code class="docutils literal notranslate"><span class="pre">choice</span></code>. For example, suppose we are interested in generating realizations of i.i.d. r.v.s <span class="math notranslate nohighlight">\(X_1, \ldots, X_{100}\)</span> whose PMF is</p>
 <p>\begin{align}
@@ -637,9 +631,6 @@ P(X_j = 10) &amp;= 0.15
 </div>
 </div>
 <p>The inputs are the array <code class="docutils literal notranslate"><span class="pre">x</span></code> to sample from, the number of samples to generate (100 in this case), the probabilities <code class="docutils literal notranslate"><span class="pre">p</span></code> of sampling the values in <code class="docutils literal notranslate"><span class="pre">x</span></code> (if this is omitted, the probabilities are assumed equal), and whether to sample with replacement (the default is <code class="docutils literal notranslate"><span class="pre">replace=True</span></code>).</p>
-<hr class="docutils" />
-<p>Joseph K. Blitzstein and Jessica Hwang, Harvard University and Stanford University, © 2019 by Taylor and Francis Group, LLC</p>
-</div>
 </div>
 
     <script type="text/x-thebe-config">

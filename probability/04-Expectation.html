@@ -363,20 +363,27 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Expectation
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#geometric-negative-binomial-and-poisson">
    Geometric, Negative Binomial, and Poisson
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#matching-simulation">
    Matching simulation
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#distinct-birthdays-simulation">
-   Distinct birthdays simulation
-  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distinct-birthdays-simulation">
+     Distinct birthdays simulation
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -394,12 +401,14 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 </pre></div>
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="geometric-negative-binomial-and-poisson">
-<h2>Geometric, Negative Binomial, and Poisson<a class="headerlink" href="#geometric-negative-binomial-and-poisson" title="Permalink to this headline">¶</a></h2>
+<h1>Geometric, Negative Binomial, and Poisson<a class="headerlink" href="#geometric-negative-binomial-and-poisson" title="Permalink to this headline">¶</a></h1>
 <p>The three functions for the Geometric distribution in SciPy’s <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.geom.html#scipy.stats.geom"><code class="docutils literal notranslate"><span class="pre">scipy.stats.geom</span></code></a> are <code class="docutils literal notranslate"><span class="pre">pmf</span></code>, <code class="docutils literal notranslate"><span class="pre">cdf</span></code>, and <code class="docutils literal notranslate"><span class="pre">rvs</span></code>, corresponding to the PMF, CDF, and random number generation. For <code class="docutils literal notranslate"><span class="pre">pmf</span></code> and <code class="docutils literal notranslate"><span class="pre">cdf</span></code>, we need to supply the following as inputs: (1) the value <code class="docutils literal notranslate"><span class="pre">k</span></code> at which to evaluate the PMF or CDF, and (2) the parameter <code class="docutils literal notranslate"><span class="pre">p</span></code>. For <code class="docutils literal notranslate"><span class="pre">rvs</span></code>, we need to input (1) the number of random variables to generate and (2) the parameter <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p>
 <p>For example, to calculate <span class="math notranslate nohighlight">\(P(X = 3)\)</span> and <span class="math notranslate nohighlight">\(P(X \leq 3)\)</span> where <span class="math notranslate nohighlight">\(X \sim Geom(0.5)\)</span>, we use <code class="docutils literal notranslate"><span class="pre">geom.pmf(3,</span> <span class="pre">0.5)</span></code> and <code class="docutils literal notranslate"><span class="pre">geom.cdf(3,</span> <span class="pre">0.5)</span></code>, respectively. To generate 100 i.i.d. <span class="math notranslate nohighlight">\(Geom(0.8)\)</span> r.v.s, we use <code class="docutils literal notranslate"><span class="pre">geom.rvs(0.8,</span> <span class="pre">size=100)</span></code>. If instead we want 100 i.i.d. <span class="math notranslate nohighlight">\(FS(0.8)\)</span> r.v.s, we just need to add 1 to include the success: <code class="docutils literal notranslate"><span class="pre">geom.rvs(0.8,</span> <span class="pre">size=100)</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p>
 <div class="cell docutils container">
@@ -407,31 +416,23 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># seed the random number generator</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">610</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">geom</span>
-
 <span class="c1"># to learn more about scipy.stats.geom, un-comment ouf the following line</span>
-<span class="c1">#print(geom.__doc__)</span>
+<span class="c1">#print(stats.geom.__doc__)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;geom.pmf(3, 0.5) = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">geom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">geom.cdf(3, 0.5) = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">geom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">geom.rvs(0.8, size=100) = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">geom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">geom.rvs(0.8, size=100) + 1 = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">geom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;stats.geom.pmf(3, 0.5) = </span><span class="si">{</span><span class="n">stats</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;stats.geom.cdf(3, 0.5) = </span><span class="si">{</span><span class="n">stats</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;stats.geom.rvs(0.8, size=100) = </span><span class="si">{</span><span class="n">stats</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;stats.geom.rvs(0.8, size=100) + 1 = </span><span class="si">{</span><span class="n">stats</span><span class="o">.</span><span class="n">geom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>geom.pmf(3, 0.5) = 0.125
-
-geom.cdf(3, 0.5) = 0.875
-
-geom.rvs(0.8, size=100) = [1 1 1 1 1 1 1 1 2 2 1 1 2 1 2 1 3 1 1 2 1 1 1 1 1 1 3 1 1 1 1 2 1 1 1 1 1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stats.geom.pmf(3, 0.5) = 0.125
+stats.geom.cdf(3, 0.5) = 0.875
+stats.geom.rvs(0.8, size=100) = [1 1 1 1 1 1 1 1 2 2 1 1 2 1 2 1 3 1 1 2 1 1 1 1 1 1 3 1 1 1 1 2 1 1 1 1 1
  1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 3 1 3 1 2 1 1 1 1 3 1 1 2 1 1 1 1 1
  1 1 1 1 2 1 1 1 1 1 2 1 1 1 1 1 1 1 1 2 1 1 1 1 1 2]
-
-geom.rvs(0.8, size=100) + 1 = [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 3
+stats.geom.rvs(0.8, size=100) + 1 = [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 3
  2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 3 2 2 2 2 2 2 4 2 2 3 2 2 3 2 2 3 2
  2 3 2 2 2 2 2 3 3 2 3 3 3 2 2 3 2 4 2 2 2 2 3 2 2 2]
 </pre></div>
@@ -443,10 +444,7 @@ geom.rvs(0.8, size=100) + 1 = [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">nbinom</span>
 
-<span class="c1"># to learn more about scipy.stats.nbinom, un-comment ouf the following line</span>
-<span class="c1">#print(nbinom.__doc__)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;nbinom.pmf(3, 5, 0.5) = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nbinom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;nbinom.pmf(3, 5, 0.5) = </span><span class="si">{</span><span class="n">nbinom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -461,10 +459,7 @@ geom.rvs(0.8, size=100) + 1 = [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">poisson</span>
 
-<span class="c1"># to learn more about scipy.stats.poisson, un-comment ouf the following line</span>
-<span class="c1">#print(poisson.__doc__)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;poisson.cdf(2, 10) = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;poisson.cdf(2, 10) = </span><span class="si">{</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -476,7 +471,7 @@ geom.rvs(0.8, size=100) + 1 = [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2
 </div>
 </div>
 <div class="section" id="matching-simulation">
-<h2>Matching simulation<a class="headerlink" href="#matching-simulation" title="Permalink to this headline">¶</a></h2>
+<h1>Matching simulation<a class="headerlink" href="#matching-simulation" title="Permalink to this headline">¶</a></h1>
 <p>Continuing with Example 4.4.4, let’s use simulation to calculate the expected number of matches in a deck of cards. As in Chapter 1, we let <span class="math notranslate nohighlight">\(n\)</span> be the number of cards in the deck and perform the experiment 10<sup>4</sup> times using iteration with a <code class="docutils literal notranslate"><span class="pre">for</span></code>-loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -510,7 +505,6 @@ geom.rvs(0.8, size=100) + 1 = [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2
 </div>
 </div>
 <p>The command <code class="docutils literal notranslate"><span class="pre">numpy.mean(r)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">numpy.sum(r)/len(r)</span></code>. The result we get is very close to 1, confirming the calculation we did in Example 4.4.4 using indicator r.v.s. You can verify that no matter what value of <span class="math notranslate nohighlight">\(n\)</span> you choose, <code class="docutils literal notranslate"><span class="pre">numpy.mean(r)</span></code> will be very close to 1.</p>
-</div>
 <div class="section" id="distinct-birthdays-simulation">
 <h2>Distinct birthdays simulation<a class="headerlink" href="#distinct-birthdays-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Let’s calculate the expected number of distinct birthdays in a group of <span class="math notranslate nohighlight">\(k\)</span> people by simulation. We’ll let <span class="math notranslate nohighlight">\(k = 20\)</span>, but you can choose whatever value of <span class="math notranslate nohighlight">\(k\)</span> you like.</p>
@@ -537,8 +531,8 @@ geom.rvs(0.8, size=100) + 1 = [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simulated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="n">theoretical</span> <span class="o">=</span> <span class="mi">365</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="p">(</span><span class="mi">364</span><span class="o">/</span><span class="mi">365</span><span class="p">)</span><span class="o">**</span><span class="n">k</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;simulated: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">simulated</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;theoretical: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">theoretical</span><span class="p">))</span>     
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;simulated: </span><span class="si">{</span><span class="n">simulated</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;theoretical: </span><span class="si">{</span><span class="n">theoretical</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -550,8 +544,6 @@ theoretical: 19.487910239138333
 </div>
 </div>
 <p>When we ran the code, both the simulated and theoretical values gave us approximately 19.5.</p>
-<hr class="docutils" />
-<p>Joseph K. Blitzstein and Jessica Hwang, Harvard University and Stanford University, © 2019 by Taylor and Francis Group, LLC</p>
 </div>
 </div>
 
